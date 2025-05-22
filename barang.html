@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Nitip - Food Delivery</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+         <a href="index.html">
+            <img src="logonitip.png" alt="Nitip Logo" class="logo-img">
+         </a>
+        </div>
+        <button class="menu-toggle" onclick="toggleNavMenu()">☰</button>
+        <nav id="mobile-nav">
+      <a href="#">Beranda</a>
+      <a href="Kategori.html">Kategori</a>
+      <a href="checkout.html">Checkout</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="form-barang">
+  <h1>Form Pengiriman Barang</h1>
+
+  <form id="formPengiriman">
+    <label for="namaPengirim">Nama Pengirim</label>
+    <input type="text" id="namaPengirim" required>
+
+    <label for="alamatPengirim">Alamat Pengirim</label>
+    <textarea id="alamatPengirim" required></textarea>
+
+    <label for="namaPenerima">Nama Penerima</label>
+    <input type="text" id="namaPenerima" required>
+
+    <label for="noPenerima">Nomor Penerima</label>
+    <input type="number" id="noPenerima" required>
+
+    <label for="alamatPenerima">Alamat Penerima</label>
+    <textarea id="alamatPenerima" required></textarea>
+
+    <label for="deskripsiBarang">Deskripsi Barang</label>
+    <textarea id="deskripsiBarang" placeholder="Contoh: Makanan, Dokumen, Barang Elektronik..." required></textarea>
+
+    <label for="lokasi">Pilih Lokasi Pengantaran:</label>
+    <select id="lokasi" onchange="updateOngkir()" required>
+      <option value="">-- Pilih Lokasi --</option>
+      <option value="Tarempa" data-ongkir="3000">Tarempa (Rp3.000)</option>
+      <option value="Tarempa Barat" data-ongkir="3000">Tarempa Barat (Rp3.000)</option>
+      <option value="Sri Tanjung" data-ongkir="5000">Sri Tanjung (Rp5.000)</option>
+      <option value="Air Padang" data-ongkir="7000">Air Padang (Rp7.000)</option>
+      <option value="Tanjung Momong" data-ongkir="7000">Tanjung Momong (Rp7.000)</option>
+      <option value="Telok Red" data-ongkir="7000">Telok Red (Rp7.000)</option>
+      <option value="Antang" data-ongkir="9000">Antang (Rp9.000)</option>
+      <option value="Pasir Peti" data-ongkir="12000">Pasir Peti (Rp12.000)</option>
+      <option value="Dusun" data-ongkir="14000">Dusun (Rp14.000)</option>
+      <option value="Telok Moboi" data-ongkir="14000">Telok Moboi (Rp14.000)</option>
+      <option value="Selambak" data-ongkir="15000">Selambak (Rp15.000)</option>
+      <option value="Temburun" data-ongkir="20000">Temburun (Rp20.000)</option>
+      <option value="Batu Tambun" data-ongkir="8000">Batu Tambun (Rp8.000)</option>
+      <option value="Gudang Tengah" data-ongkir="12000">Gudang Tengah (Rp12.000)</option>
+      <option value="Rintis" data-ongkir="14000">Rintis (Rp14.000)</option>
+      <option value="Air Bini" data-ongkir="30000">Air Bini (Rp30.000)</option>
+      <option value="Arung Hijau" data-ongkir="15000">Arung Hijau (Rp15.000)</option>
+    </select>
+
+    <div class="ongkir-display" id="ongkirDisplay">Ongkir: -</div>
+
+    <button type="submit">Kirim Barang</button>
+  </form>
+  <div id="overlaySuccess" style="display:none;">
+  <div class="success-card">
+    <h2>✅ Barang Berhasil Dikirim!</h2>
+    <p>Admin akan segera memproses pengiriman Anda.</p>
+    <button onclick="closeOverlay()">Tutup</button>
+  </div>
+</div>  
+</main>
+</body>
+
+  <footer>
+    <p>&copy; 2025 nitip. Karya Anak Tarempa.</p>
+  </footer>
+  <script src="script.js"></script>
+  <script>
+    function updateOngkir() {
+      const lokasi = document.getElementById('lokasi');
+      const selected = lokasi.options[lokasi.selectedIndex];
+      const ongkir = selected.getAttribute('data-ongkir');
+      const display = document.getElementById('ongkirDisplay');
+      if (ongkir) {
+        display.textContent = `Ongkir: Rp${parseInt(ongkir).toLocaleString("id-ID")}`;
+      } else {
+        display.textContent = "Ongkir: -";
+      }
+    }
+
+    function closeOverlay() {
+  document.getElementById('overlaySuccess').style.display = 'none';
+}
+    document.getElementById('formPengiriman').addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const namaPengirim = document.getElementById('namaPengirim').value;
+  const alamatPengirim = document.getElementById('alamatPengirim').value;
+  const namaPenerima = document.getElementById('namaPenerima').value;
+  const noPenerima = document.getElementById('noPenerima').value;
+  const alamatPenerima = document.getElementById('alamatPenerima').value;
+  const deskripsiBarang = document.getElementById('deskripsiBarang').value;
+  const lokasiSelect = document.getElementById('lokasi');
+  const lokasi = lokasiSelect.value;
+  const ongkir = lokasiSelect.selectedOptions[0].getAttribute('data-ongkir');
+
+  // Buat pesan WhatsApp
+  const pesan = `*Nitip Barang - Pengiriman Baru*\n\n` +
+    `📦 *Deskripsi Barang:* ${deskripsiBarang}\n` +
+    `📍 *Lokasi:* ${lokasi} (Rp${parseInt(ongkir).toLocaleString("id-ID")})\n\n` +
+    `👤 *Pengirim:*\n${namaPengirim}\n${alamatPengirim}\n\n` +
+    `🎯 *Penerima:*\n${namaPenerima}\n${noPenerima}\n${alamatPenerima}`;
+
+  const encodedPesan = encodeURIComponent(pesan);
+  const waURL = `https://wa.me/6285770572398?text=${encodedPesan}`;
+
+  // Tampilkan overlay sukses
+  document.getElementById('overlaySuccess').style.display = 'flex';
+
+  // Delay untuk buka WhatsApp agar smooth
+  setTimeout(() => {
+    window.open(waURL, '_blank');
+  }, 500);
+});
+  </script>
+</body>
+</html>

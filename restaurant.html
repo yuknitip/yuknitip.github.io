@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Restoran - Nitip</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+         <a href="index.html">
+            <img src="logonitip.png" alt="Nitip Logo" class="logo-img">
+         </a>
+        </div>
+        <button class="menu-toggle" onclick="toggleNavMenu()">☰</button>
+        <nav id="mobile-nav">
+      <a href="index.html">Beranda</a>
+      <a href="Kategori.html">Kategori</a>
+      <a href="checkout.html">Checkout</a>
+    </nav>
+<div class="css-a">
+    <h2 class="cs">Laper? yuk nitip makanan yang kamu mau</h2>
+    <img src="makanapaya.png" alt="Makan Apa" class="img-makan">
+  </div>
+  </header>
+
+  <main>
+    <section class="kategori-menu">
+<a href="nasiayam.html">
+      <div class="katergori-card">
+        <img src="restaurant/makansiang.png" alt="Makan Siang" class="kategori-img"/>
+      </a>
+      </div>
+      <a href="minuman.html">
+        <div class="katergori-card">
+          <img src="restaurant/minuman.png" alt="Minuman" class="kategori-img"/>
+        </a>
+        </div>
+      <a href="kedaikopi.html">
+        <div class="katergori-card">
+          <img src="restaurant/kedaikopi.png" alt="Kedai Kopi" class="kategori-img"/>
+        </a>
+        </div>
+        <a href="baksosoto.html">
+          <div class="katergori-card">
+            <img src="restaurant/baksosoto.png" alt="Bakso Soto" class="kategori-img"/>
+          </a>
+          </div>
+          <a href="sarapan.html">
+            <div class="katergori-card">
+              <img src="restaurant/Sarapan.png" alt="Sarapan" class="kategori-img"/>
+            </a>
+            </div>
+        <a href="jajan.html">
+              <div class="katergori-card">
+                <img src="restaurant/jajanan.png" alt="Jajanan" class="kategori-img"/>
+              </a>
+              </div>
+  </section>
+    <div class="rekomendasi-list">
+        <h2>Rekomendasi List</h2>
+    <section class="merchant-container">
+      <a href="pokkat.html">
+      <div class="merchant-card">
+        <img src="merchant/pokkats/menupokkat.png" alt="Pokkat" class="img-toko"/>
+        <div class="merchant-info"></a>
+        <h3>Pokkat's</h3>
+        <p>Jalan Raden Saleh, Gang Swadaya 3, Kelurahan Tarempa, Siantan</p>
+        <p> Open : 08.00 - 20.00 WIB</p>
+      </div>
+    </div>
+      <a href="kopiwin.html">
+        <div class="merchant-card">
+          <img src="merchant/kopiwin/kopiwin.png" alt="Kopi Win" class="img-toko"/>
+          <div class="merchant-info"></a>
+          <h3>Kedai Kopi Win Botak</h3>
+          <p>Jalan A Yani Laut, Tarempa Barat, Siantan</p>
+          <p> Open : 06.00 - 14.30 WIB</p>
+        </div>
+        </div>
+      </section>
+
+        <section class="merchant-container">
+          <a href="ptm.html">
+          <div class="merchant-card">
+            <img src="merchant/ptm/ayambakar.jpg" alt="PTM" class="img-toko"/>
+            <div class="merchant-info"></a>
+            <h3>PTM, Tanjung Momong</h3>
+            <p>Jalan Tanjung Momong, Tarempa Timur, Siantan</p>
+            <p> Open : 10.00 - 22.00 WIB</p>
+          </div>
+        </div>
+        <a href="masadam.html">
+          <div class="merchant-card">
+            <img src="merchant/masadam/ayambakaradam.jpg" alt="Mas Adam" class="img-toko"/>
+            <div class="merchant-info"></a>
+            <h3>Ayam Bakar Mas Adam</h3>
+            <p>Jalan Tongkol, Kelurahan Tarempa, Siantan</p>
+            <p> Open : 16.00 - 02.00 WIB</p>
+          </div>
+          </div>
+            </section>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    const quantities = {
+      pokkat1: 0,
+      cireng: 0,
+      geprek: 0
+    };
+  
+    function toggleNavMenu() {
+      const nav = document.getElementById('mobile-nav');
+      nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+    }
+
+    
+    function changeQty(menuId, delta) {
+      if (!quantities[menuId]) quantities[menuId] = 0;
+      quantities[menuId] = Math.max(0, quantities[menuId] + delta);
+      document.getElementById(`qty-${menuId}`).innerText = quantities[menuId];
+    }
+  
+    function addToCart(name, price, menuId) {
+      const qty = quantities[menuId] || 0;
+      if (qty === 0) {
+        alert("Jumlah belum dipilih!");
+        return;
+      }
+  
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  
+      const existing = cart.find(item => item.name === name);
+      if (existing) {
+        existing.qty += qty;
+      } else {
+        cart.push({ name, price, qty });
+      }
+  
+      localStorage.setItem("cart", JSON.stringify(cart));
+      updateCartCount();
+      alert(`${qty}x ${name} telah ditambahkan ke keranjang!`);
+    }
+  
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const total = cart.reduce((sum, item) => sum + item.qty, 0);
+      const cartCount = document.getElementById("cart-count");
+      if (cartCount) cartCount.innerText = total;
+    }
+  
+    document.addEventListener("DOMContentLoaded", updateCartCount);
+  </script>
+
+<script>
+    function toggleMenu(id) {
+      const element = document.getElementById(id);
+      if (element.style.display === "none" || element.style.display === "") {
+        element.style.display = "block";
+      } else {
+        element.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>
