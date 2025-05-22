@@ -928,7 +928,7 @@ margin-top: 0.5rem;
   }
 
   .card-informasi {
-    background-color: #1e1e1e;
+    background-color: #f5f1f1;
     border-color: #ff7f3f;
     color: #f5f5f5;
   }
@@ -937,7 +937,7 @@ margin-top: 0.5rem;
   .input-wrapper textarea,
   .input-wrapper select {
     background-color: #2a2a2a;
-    color: #fff;
+    color: #030303;
     border-color: #444;
   }
 
