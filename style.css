@@ -400,12 +400,6 @@ body {
     border-radius: 5px;
     cursor: pointer;
   }
-
-  .qty-control button: disabled  {
-    background-color: #ccc;
-  color: #666;
-  cursor: not-allowed;
-  }
   
   .qty-control span {
     font-size: 1.1rem;
@@ -543,8 +537,7 @@ body {
   gap: 0px;
   margin-bottom: 0px;
   margin-top: 0px;
-}
-  
+}  
 .kategori-menu {
   display: flex;
   overflow-x: auto;
@@ -640,7 +633,7 @@ margin-top: 0.5em;
     border-radius: 5px;
     cursor: pointer;
     justify-content: center;
-    margin-left: 60px;
+    margin-left: 30px;
   }
 
   .clearcart button {
@@ -653,7 +646,7 @@ margin-top: 0.5em;
     border-radius: 5px;
     cursor: pointer;
     justify-content: center;
-    margin-left: 75px;
+    margin-left: 45px;
   }
 
   input, button {
@@ -792,9 +785,6 @@ margin-top: 0.5rem;
       cursor: pointer; 
 }
 
-.form-barang button: hover{
-  background-color: #e65a00;
-}
 
 #overlaySuccess {
   position: fixed;
@@ -936,7 +926,7 @@ margin-top: 0.5rem;
   .input-wrapper input,
   .input-wrapper textarea,
   .input-wrapper select {
-    background-color: #2a2a2a;
+    background-color: #faf8f8;
     color: #030303;
     border-color: #444;
   }
