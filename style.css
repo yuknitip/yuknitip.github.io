@@ -837,8 +837,6 @@ margin-top: 0.5rem;
   margin-top: 1.5rem;
 }
 
-
-
 @keyframes slideIn {
   from { opacity: 0; transform: scale(0.8); }
   to { opacity: 1; transform: scale(1); }
@@ -1124,13 +1122,13 @@ margin-top: 0.5rem;
 
   .merchant-card img,
   .merchant-card-icon img {
-    width: 80px;
-    height: 80px;
+    width: 40px;
+    height: 40px;
     margin: 10px auto;
   }
 
   .search-box {
-    width: 95%;
+    width: 80%;
   }
 
   .menu-card {
@@ -1148,7 +1146,7 @@ margin-top: 0.5rem;
   }
 
   .menu-item img {
-    width: 100%;
+    width: 80%;
     height: auto;
   }
 
