@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nitip - Food Delivery</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -16,9 +17,10 @@
         </div>
         <button class="menu-toggle" onclick="toggleNavMenu()">☰</button>
         <nav id="mobile-nav">
-      <a href="#">Beranda</a>
+      <a href="#index">Beranda</a>
       <a href="Kategori.html">Kategori</a>
       <a href="checkout.html">Checkout</a>
+      <a href="#tentang">Tentang Kami</a>
     </nav>
 
     <section class="search-section">
@@ -35,17 +37,39 @@
       <p>Temukan makanan, minuman, dan barang yang ingin kamu titip!</p>
       <a href="Kategori.html" class="btn">Lihat Disini</a>
     </section>
+
+ <div class="yuknitip">
+       <img src="yuknitip.png" alt="Yuk Nitip" class="logo-yuk">
+    </a>
+   </div>   
+
+   <section class="tentang-kami" id="tentang" style="padding: 40px 20px; text-align: center; background-color: #fff7f0;">
+      <h2>Tentang Kami</h2>
+      <p style="max-width: 700px; margin: auto; font-size: 1.1rem; line-height: 1.7;">
+        <strong>Nitip</strong> adalah platform layanan pesan antar yang berdiri sejak tahun <strong>2025</strong>, 
+        dan merupakan <strong>Karya Anak Tarempa</strong>. Website ini hadir untuk memudahkan kebutuhan harian masyarakat 
+        Tarempa dan sekitarnya, mulai dari antar makanan, pengiriman barang, hingga layanan belanja. 
+        Dengan semangat pelayanan lokal, kami berkomitmen menghadirkan layanan yang <strong>mudah, cepat, dan murah</strong>.
+        <br><br>
+        <em>Yuk nitip sekarang — karena kebutuhanmu, siap kami bantu!</em>
+      </p>
+    </section>
+
+<h3 class="info-kontak">Kontak</h3>
+  <ul class="kontak">
+    <a href="mailto:karyaanaktarempa@gmail.com"><i class="fa-solid fa-envelope"> </i><span>karyaanaktarempa@gmail.com</span></a><br>
+    <a href="tel:085770572398"><i class="fa-brands fa-whatsapp"> </i>0857-7057-2398</a><br>
+  <a href="https://instagram.com/nitip.io" target="_blank">
+    <i class="fa-brands fa-instagram"> </i> @nitip.io
+  </a>
+  </ul>
+</section>
   </main>
 </body>
 
-<div class="yuknitip">
-       <img src="yuknitip.png" alt="Yuk Nitip" class="logo-yuk">
-    </a>
-   </div>
-
-  <footer>
-    <p>&copy; 2025 nitip. Karya Anak Tarempa.</p>
-  </footer>
+  <footer style="text-align: center; padding: 20px; background-color: #f7f7f7;">
+  <p>&copy; 2025 Nitip. Karya Anak Tarempa. Semua Hak Dilindungi.</p>
+</footer>
   <script src="script.js"></script>
 <!-- ... bagian atas HTML tetap sama ... -->
 <script>
