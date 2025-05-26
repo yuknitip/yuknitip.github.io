@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Restoran - Nitip</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -34,7 +34,7 @@
         <div class="qty-control">
           <button onclick="changeQty('pokkat1', -1)" id="btn-minus-pokkat1">-</button>
       <span id="qty-pokkat1">0</span>
-      <button onclick="changeQty('cireng', 1)" id="btn-plus-pokkat1">+</button>
+      <button onclick="changeQty('pokkat1', 1)" id="btn-plus-pokkat1">+</button>
 
         </div>
         </div>
@@ -260,8 +260,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 <script>
   // Simulasi stok menu
   const stokMenu = {
-    pokkat1: 0,  // Alpukat Kocok (habis)
-    cireng: 0    // Cireng masih tersedia
+    pokkat1: 10,  // Alpukat Kocok (habis)
+    cireng: 10    // Cireng masih tersedia
   };
 
   function cekStokDanNonaktifkanTombol() {

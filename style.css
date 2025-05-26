@@ -107,11 +107,15 @@ body {
   }
 
   .cart-icon {
-    position: absolute;
-    background-color:none;
-    top: 10px;
-    right: 30px;
-  }
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: none;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0 2px 8px rgba (0,0,0,0.2);
+    }
   
   .cart-icon i {
     font-size: 24px;
@@ -429,9 +433,10 @@ body {
   .merchant-container {
     display: flex;
     overflow-x: auto;
-    gap: 10px;
-    padding: 0.5rem;
+    gap: 5px;
+    padding: 10px;
     scroll-snap-type: x mandatory;
+    margin-top: 10px;
   }
   
   .merchant-container-icon {
@@ -449,18 +454,15 @@ body {
   }
   
   .merchant-card {
-    display: flex;
-    align-items: center;
-    flex: 0 0 auto;
-    width: 380px;
-    height: 160px;
-    border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+    width: 120px;
     scroll-snap-align: start;
-    margin-bottom: 16px;
-    max-width: 400px;
-  }
+    text-align: center;
+    border-radius: 10px;
+    background: #f9f9f9;
+    padding: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
 
   .merchant-card-icon {
     display: flex;
@@ -478,17 +480,16 @@ body {
   }
   
   .merchant-card img {
-    width: 100px;
-    height: 100px;
-    justify-content: left;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: 8px;
-    margin-right: 16px;
-    margin-left: 10px;
+    display: block;
   }
 
   .merchant-card-icon img {
-    width: 100px;
+    width: 80px;
     height: 100px;
     justify-content: left;
     object-fit: cover;
@@ -498,20 +499,22 @@ body {
   }
   
   .merchant-card h3 {
-    margin: 0.5rem 0;
-    font-size: 1.2rem;
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: 600;
     color: #333;
   }
 
-  .merchant-info p {
-  margin: 4px 0 0;
-  font-size: 0.8rem;
-  color: #ff7f3f;
-}
+   .merchant-card-icon h3 {
+    margin-top: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+  }
 
 .merchant-info-icon p {
-  margin: 4px 0 0;
-  font-size: 0.9rem;
+  margin:0 0 0;
+  font-size: 0.8rem;
   color: #ff7f3f;
 }
   
@@ -930,7 +933,7 @@ margin-top: 0.5rem;
 }
 
 .tentang-kami {
-  background-color: #fff7f0;
+  background-color: none;
   padding: 40px 20px;
   text-align: center;
   color: #333;

@@ -78,6 +78,13 @@ function doPost(e) {
   }
 }
 
-  
+if (existingMerchant && existingMerchant !== merchant) {
+  const konfirmasi = confirm(`Kamu sudah memiliki pesanan dari merchant ${existingMerchant}. Hapus keranjang dan lanjutkan pesanan dari ${merchant}?`);
+  if (konfirmasi) {
+    cart = []; // kosongkan keranjang
+  } else {
+    return;
+  }
+}  
 
 window.onload = loadCart;

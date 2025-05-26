@@ -46,7 +46,7 @@
       <option value="Gudang Tengah" data-ongkir="12000">Gudang Tengah (Rp12.000)</option>
       <option value="Rintis" data-ongkir="14000">Rintis (Rp14.000)</option>
       <option value="Air Bini" data-ongkir="30000">Air Bini (Rp30.000)</option>
-      <option value="Arung Hijau" data-ongkir="">Arung Hijau (Rp15.000)</option>
+      <option value="Arung Hijau" data-ongkir="15000">Arung Hijau (Rp15.000)</option>
     </select>
 
     <p id="ongkir-info">Ongkir: Rp0</p>
@@ -209,6 +209,10 @@
       const lokasiText = lokasiSelect.options[lokasiSelect.selectedIndex]?.text || '';
       const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+      if (!/^\d{10,13}$/.test(nomor)) {
+  alert("Masukkan nomor HP yang valid.");
+  return;
+}
       if (!lokasi) {
         alert("Silakan pilih lokasi pengantaran.");
         return;
