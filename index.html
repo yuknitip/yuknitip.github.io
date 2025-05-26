@@ -72,6 +72,13 @@
   <script src="script.js"></script>
 <!-- ... bagian atas HTML tetap sama ... -->
 <script>
+  
+    function toggleNavMenu() {
+      const nav = document.getElementById('mobile-nav');
+      nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+<script>
   const searchInput = document.getElementById('searchInput');
   const searchResults = document.getElementById('searchResults');
 

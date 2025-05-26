@@ -227,6 +227,7 @@ body {
     position: relative;
     width: 100%;
     max-width: 280px;
+    margin-top: 20px ;
   }
   
   .search-box input {
@@ -455,7 +456,7 @@ body {
   
   .merchant-card {
     flex-shrink: 0;
-    width: 120px;
+    width: 125px;
     scroll-snap-align: start;
     text-align: center;
     border-radius: 10px;
@@ -500,7 +501,7 @@ body {
   
   .merchant-card h3 {
     margin-top: 8px;
-    font-size: 12px;
+    font-size: 0.9rem;
     font-weight: 600;
     color: #333;
   }
@@ -529,7 +530,7 @@ body {
   
   .merchant-info1 h3 {
     margin-left: 5px;
-    font-size: 2rem;
+    font-size: 1.7rem;
     color: black;
     font-family: 'Poppins', sans-serif;
     margin-bottom: 5px;
@@ -537,7 +538,7 @@ body {
 
 .merchant-info1 p {
   margin-left: 5px;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #ff7f3f;
   font-family: 'Poppins', sans-serif;
   gap: 0px;
@@ -933,13 +934,13 @@ margin-top: 0.5rem;
 }
 
 .tentang-kami {
-  background-color: none;
   padding: 40px 20px;
   text-align: center;
   color: #333;
 }
 
 .tentang-kami h2 {
+  background: #fff8f0;
   font-size: 2rem;
   margin-bottom: 1rem;
   color: #ff6600;

@@ -1,3 +1,9 @@
+
+function toggleNavMenu() {
+      const nav = document.getElementById('mobile-nav');
+      nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+    }
+
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 function addToCart(item, price) {
