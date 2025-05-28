@@ -472,7 +472,7 @@ body {
     display: flex;
     align-items: center;
     flex: 0 0 auto;
-    width: 80.3%;
+    width: 99.5%;
     height: 130px;
     border-radius: 10px;
     background-color: #fff;
@@ -849,6 +849,70 @@ margin-top: 0.5rem;
   margin-top: 1.5rem;
 }
 
+.tentang-kami {
+  padding: 40px 20px;
+  text-align: center;
+  color: #333;
+}
+
+.tentang-kami h2 {
+  background: none;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+  color: #ff6600;
+}
+
+.tentang-kami p {
+  max-width: 700px;
+  margin: auto;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.tentang-kami h3 {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  color: #ff6600;
+}
+
+.info-kontak{
+  font-size: 1.5rem;
+  margin-left: 20px;
+  color: #ff6600;
+  margin-bottom: 0;
+}
+
+.tentang-kami .kontak {
+  list-style: none;
+  padding: 0;
+}
+
+.tentang-kami .kontak li {
+  font-size: 1rem;
+}
+
+.tentang-kami a {
+  color: #ff6600;
+  text-decoration: none;
+}
+
+.kontak a:hover {
+  text-decoration: none;
+}
+
+.kontak a {
+    text-decoration: none;
+    margin-right: 8px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.kontak i {
+  margin-right: 8px;
+  font-size: 1.5rem;
+}
+
 @keyframes slideIn {
   from { opacity: 0; transform: scale(0.8); }
   to { opacity: 1; transform: scale(1); }
@@ -933,70 +997,6 @@ margin-top: 0.5rem;
 
 .card-informasi button:not([type="submit"]):hover {
   background-color: #bbb;
-}
-
-.tentang-kami {
-  padding: 40px 20px;
-  text-align: center;
-  color: #333;
-}
-
-.tentang-kami h2 {
-  background: none;
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  margin-top: 0;
-  color: #ff6600;
-}
-
-.tentang-kami p {
-  max-width: 700px;
-  margin: auto;
-  font-size: 1.1rem;
-  line-height: 1.7;
-}
-
-.tentang-kami h3 {
-  margin-top: 2rem;
-  font-size: 1.5rem;
-  color: #ff6600;
-}
-
-.info-kontak{
-  font-size: 1.5rem;
-  margin-left: 20px;
-  color: #ff6600;
-  margin-bottom: 0;
-}
-
-.tentang-kami .kontak {
-  list-style: none;
-  padding: 0;
-}
-
-.tentang-kami .kontak li {
-  font-size: 1rem;
-}
-
-.tentang-kami a {
-  color: #ff6600;
-  text-decoration: none;
-}
-
-.kontak a:hover {
-  text-decoration: none;
-}
-
-.kontak a {
-    text-decoration: none;
-    margin-right: 8px;
-  font-size: 1rem;
-  color: #333;
-}
-
-.kontak i {
-  margin-right: 8px;
-  font-size: 1.5rem;
 }
 
 

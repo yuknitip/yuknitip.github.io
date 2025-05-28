@@ -1,8 +1,8 @@
 
 function toggleNavMenu() {
-      const nav = document.getElementById('mobile-nav');
-      nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
-    }
+    const nav = document.getElementById("mobile-nav");
+    nav.classList.toggle("active");
+  }
 
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
