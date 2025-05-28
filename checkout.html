@@ -35,11 +35,11 @@
       <option value="Sri Tanjung" data-ongkir="5000">Sri Tanjung (Rp5.000)</option>
       <option value="Air Padang" data-ongkir="7000">Air Padang (Rp7.000)</option>
       <option value="Tanjung Momong" data-ongkir="7000">Tanjung Momong (Rp7.000)</option>
-      <option value="Telok Red" data-ongkir="7000">Telok Red (Rp7.000)</option>
+      <option value="Telok Rit" data-ongkir="7000">Telok Rit (Rp7.000)</option>
       <option value="Antang" data-ongkir="9000">Antang (Rp9.000)</option>
       <option value="Pasir Peti" data-ongkir="12000">Pasir Peti (Rp12.000)</option>
       <option value="Dusun" data-ongkir="14000">Dusun (Rp14.000)</option>
-      <option value="Telok Moboi" data-ongkir="14000">Telok Moboi (Rp14.000)</option>
+      <option value="Telok Mabai" data-ongkir="14000">Telok Mabai (Rp14.000)</option>
       <option value="Selambak" data-ongkir="15000">Selambak (Rp15.000)</option>
       <option value="Temburun" data-ongkir="20000">Temburun (Rp20.000)</option>
       <option value="Batu Tambun" data-ongkir="8000">Batu Tambun (Rp8.000)</option>
@@ -79,7 +79,7 @@
     </div>
     <h5>Mohon dicek kembali pesanan titipan kamu sebelum di checkout</h5>
     <div class="submit">
-    <button type="submit">Kirim Pesanan</button>
+    <button type="submit" id="checkoutButton">Kirim Pesanan</button>
     <div id="submit-feedback">✅ Pesanan berhasil dikirim!</div>
   </div>
   </form>
@@ -233,7 +233,11 @@
       const grouped = groupCartByMerchant(cart);
       let pesan = `*Pesanan Baru Nitip*\n\n`;
       pesan += `Nama: ${nama}\nNo HP: ${nomor}\nAlamat: ${alamat} (${lokasiText})\nPembayaran: ${pembayaran}\n\n*Detail Pesanan:*\n`;
-
+const merchantCount = Object.keys(grouped).length;
+  if (merchantCount > 1) {
+    alert("Maaf, Anda hanya bisa memesan dari satu merchant dalam satu transaksi.");
+    return;
+  }
       let totalHarga = 0;
 
       for (const merchant in grouped) {
@@ -293,6 +297,33 @@
     }
 
     document.addEventListener("DOMContentLoaded", loadCart);
-  </script>
+ 
+    function checkSingleMerchantInCart() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const grouped = groupCartByMerchant(cart);
+  const merchantCount = Object.keys(grouped).length;
+  const checkoutBtn = document.getElementById("checkoutButton");
+
+  if (merchantCount > 1) {
+    checkoutBtn.disabled = true;
+    checkoutBtn.textContent = "Hanya bisa checkout 1 merchant";
+    checkoutBtn.style.backgroundColor = "#ccc";
+    checkoutBtn.style.cursor = "not-allowed";
+  } else {
+    checkoutBtn.disabled = false;
+    checkoutBtn.textContent = "Checkout";
+    checkoutBtn.style.backgroundColor = ""; // reset ke style semula
+    checkoutBtn.style.cursor = "pointer";
+  }
+}
+document.addEventListener("DOMContentLoaded", () => {
+  checkSingleMerchantInCart();
+});
+function updateCartUI() {
+  // ...update tampilan keranjang
+  checkSingleMerchantInCart();
+}
+
+ </script>
 </body>
 </html>
