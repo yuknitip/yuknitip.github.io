@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nitip - Food Delivery</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <header>
-        <div class="logo-container">
-         <a href="index.html">
-            <img src="logonitip.png" alt="Nitip Logo" class="logo-img">
-         </a>
-        </div>
-        <button class="menu-toggle" onclick="toggleNavMenu()">☰</button>
-        <nav id="mobile-nav" class="hidden">
-      <a href="#">Beranda</a>
+  <header>
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="logonitip.png" alt="Nitip Logo" class="logo-img">
+      </a>
+    </div>
+    <button class="menu-toggle" onclick="toggleNavMenu()">☰</button>
+    <nav id="mobile-nav" class="hidden">
+      <a href="index.html">Beranda</a>
       <a href="Kategori.html">Kategori</a>
       <a href="checkout.html">Checkout</a>
     </nav>
@@ -24,121 +26,393 @@
 
   <main>
     <div class="form-barang">
-  <h1>Form Pengiriman Barang</h1>
+      <h2>Form Pengiriman Barang</h2>
 
-  <form id="formPengiriman">
-    <label for="namaPengirim">Nama Pengirim</label>
-    <input type="text" id="namaPengirim" required>
+      <form id="formPengiriman">
+        <label for="namaPengirim">Nama Pengirim</label>
+        <input type="text" id="namaPengirim" required>
 
-    <label for="alamatPengirim">Alamat Pengirim</label>
-    <textarea id="alamatPengirim" required></textarea>
+        <label>Pilih Lokasi Penjemputan:</label>
+        <select id="desaAsal" onchange="updateOngkir()">
+          <option value="">-- Pilih Lokasi --</option>
+          <option value="Kel. Tarempa">Kel. Tarempa</option>
+          <option value="Tarempa Barat">Tarempa Barat</option>
+          <option value="Sri Tanjung">Sri Tanjung</option>
+          <option value="Air Padang">Air Padang</option>
+          <option value="Tanjung Momong">Tanjung Momong</option>
+          <option value="Telok Rit">Telok Rit</option>
+          <option value="Telok Buluh">Telok Buluh</option>
+          <option value="Antang">Antang</option>
+          <option value="Pasir Peti">Pasir Peti</option>
+          <option value="Dusun">Dusun</option>
+          <option value="Telok Mabai">Telok Mabai</option>
+          <option value="Selambak">Selambak</option>
+          <option value="Temburun">Temburun</option>
+          <option value="Batu Tambun">Batu Tambun</option>
+          <option value="Gudang Tengah">Gudang Tengah</option>
+          <option value="Rintis">Rintis</option>
+          <option value="Air Bini">Air Bini</option>
+          <option value="Arung Hijau">Arung Hijau</option>
+        </select>
 
-    <label for="namaPenerima">Nama Penerima</label>
-    <input type="text" id="namaPenerima" required>
+        <label for="alamatPengirim">Alamat Pengirim</label>
+        <textarea id="alamatPengirim" placeholder="Masukkan secara lengkap alamat pengirim.." required></textarea>
 
-    <label for="noPenerima">Nomor Penerima</label>
-    <input type="number" id="noPenerima" required>
+        <label for="namaPenerima">Nama Penerima</label>
+        <input type="text" id="namaPenerima" required>
 
-    <label for="alamatPenerima">Alamat Penerima</label>
-    <textarea id="alamatPenerima" required></textarea>
+        <label for="noPenerima">Nomor Penerima</label>
+        <input type="number" id="noPenerima" required>
 
-    <label for="deskripsiBarang">Deskripsi Barang</label>
-    <textarea id="deskripsiBarang" placeholder="Contoh: Makanan, Dokumen, Barang Elektronik..." required></textarea>
+        <label>Pilih Lokasi Pengantaran:</label>
+        <select id="desaTujuan" onchange="updateOngkir()">
+          <option value="">-- Pilih Lokasi --</option>
+          <option value="Kel. Tarempa">Kel. Tarempa</option>
+          <option value="Tarempa Barat">Tarempa Barat</option>
+          <option value="Sri Tanjung">Sri Tanjung</option>
+          <option value="Air Padang">Air Padang</option>
+          <option value="Tanjung Momong">Tanjung Momong</option>
+          <option value="Telok Rit">Telok Rit</option>
+          <option value="Telok Buluh">Telok Buluh</option>
+          <option value="Antang">Antang</option>
+          <option value="Pasir Peti">Pasir Peti</option>
+          <option value="Dusun">Dusun</option>
+          <option value="Telok Mabai">Telok Mabai</option>
+          <option value="Selambak">Selambak</option>
+          <option value="Temburun">Temburun</option>
+          <option value="Batu Tambun">Batu Tambun</option>
+          <option value="Gudang Tengah">Gudang Tengah</option>
+          <option value="Rintis">Rintis</option>
+          <option value="Air Bini">Air Bini</option>
+          <option value="Arung Hijau">Arung Hijau</option>
+        </select>
+        <label for="alamatPenerima">Alamat Penerima</label>
+        <textarea id="alamatPenerima" placeholder="Masukkan secara lengkap alamat penerima.." required></textarea>
 
-    <label for="lokasi">Pilih Lokasi Pengantaran:</label>
-    <select id="lokasi" onchange="updateOngkir()" required>
-      <option value="">-- Pilih Lokasi --</option>
-      <option value="Tarempa" data-ongkir="3000">Tarempa (Rp3.000)</option>
-      <option value="Tarempa Barat" data-ongkir="3000">Tarempa Barat (Rp3.000)</option>
-      <option value="Sri Tanjung" data-ongkir="5000">Sri Tanjung (Rp5.000)</option>
-      <option value="Air Padang" data-ongkir="7000">Air Padang (Rp7.000)</option>
-      <option value="Tanjung Momong" data-ongkir="7000">Tanjung Momong (Rp7.000)</option>
-      <option value="Telok Red" data-ongkir="7000">Telok Red (Rp7.000)</option>
-      <option value="Antang" data-ongkir="9000">Antang (Rp9.000)</option>
-      <option value="Pasir Peti" data-ongkir="12000">Pasir Peti (Rp12.000)</option>
-      <option value="Dusun" data-ongkir="14000">Dusun (Rp14.000)</option>
-      <option value="Telok Moboi" data-ongkir="14000">Telok Moboi (Rp14.000)</option>
-      <option value="Selambak" data-ongkir="15000">Selambak (Rp15.000)</option>
-      <option value="Temburun" data-ongkir="20000">Temburun (Rp20.000)</option>
-      <option value="Batu Tambun" data-ongkir="8000">Batu Tambun (Rp8.000)</option>
-      <option value="Gudang Tengah" data-ongkir="12000">Gudang Tengah (Rp12.000)</option>
-      <option value="Rintis" data-ongkir="14000">Rintis (Rp14.000)</option>
-      <option value="Air Bini" data-ongkir="30000">Air Bini (Rp30.000)</option>
-      <option value="Arung Hijau" data-ongkir="15000">Arung Hijau (Rp15.000)</option>
-    </select>
+        <label for="deskripsiBarang">Deskripsi Barang</label>
+        <textarea id="deskripsiBarang" placeholder="Contoh: Makanan, Dokumen, Barang Elektronik..." required></textarea>
 
-    <div class="ongkir-display" id="ongkirDisplay">Ongkir: -</div>
+        <div class="ongkir-display" id="ongkirDisplay">Ongkir: -</div>
 
-    <button type="submit">Kirim Barang</button>
-  </form>
-  <div id="overlaySuccess" style="display:none;">
-  <div class="success-card">
-    <h2>✅ Barang Berhasil Dikirim!</h2>
-    <p>Admin akan segera memproses pengiriman Anda.</p>
-    <button onclick="closeOverlay()">Tutup</button>
-  </div>
-</div>  
-</main>
+        <button type="submit">Kirim Barang</button>
+      </form>
+      <div id="overlaySuccess" style="display:none;">
+        <div class="success-card">
+          <h2>✅ Barang Berhasil Dikirim!</h2>
+          <p>Admin akan segera memproses pengiriman Anda.</p>
+          <button onclick="closeOverlay()">Tutup</button>
+        </div>
+      </div>
+  </main>
 </body>
 
-  <footer style="text-align: center; padding: 20px; background-color: #f7f7f7;">
+<footer style="text-align: center; padding: 20px; background-color: #f7f7f7;">
   <p>&copy; 2025 Nitip. Karya Anak Tarempa. Semua Hak Dilindungi.</p>
 </footer>
-  <script src="script.js"></script>
-  <script>
-    function updateOngkir() {
-      const lokasi = document.getElementById('lokasi');
-      const selected = lokasi.options[lokasi.selectedIndex];
-      const ongkir = selected.getAttribute('data-ongkir');
-      const display = document.getElementById('ongkirDisplay');
-      if (ongkir) {
-        display.textContent = `Ongkir: Rp${parseInt(ongkir).toLocaleString("id-ID")}`;
+<script src="script.js"></script>
+<script>
+  const tarifAntarDesa = {
+    "Kel. Tarempa-Kel. Tarempa": 3000,
+    "Kel. Tarempa-Tarempa Barat": 3000,
+    "Kel. Tarempa-Sri Tanjung": 5000,
+    "Kel. Tarempa-Air Padang": 7000,
+    "Kel. Tarempa-Tanjung Momong": 7000,
+    "Kel. Tarempa-Telok Rit": 7000,
+    "Kel. Tarempa-Telok Buluh": 8000,
+    "Kel. Tarempa-Antang": 9000,
+    "Kel. Tarempa-Pasir Peti": 12000,
+    "Kel. Tarempa-Dusun": 14000,
+    "Kel. Tarempa-Telok Mabai": 14000,
+    "Kel. Tarempa-Selambak": 15000,
+    "Kel. Tarempa-Temburun": 20000,
+    "Kel. Tarempa-Batu Tambun": 8000,
+    "Kel. Tarempa-Gudang Tengah": 12000,
+    "Kel. Tarempa-Sri Rintis": 14000,
+    "Kel. Tarempa-Air Bini": 30000,
+    "Kel. Tarempa-Arung Hijau": 15000,
+    "Tarempa Barat-Tarempa Barat": 3000,
+    "Tarempa Barat-Kel. Tarempa": 3000,
+    "Tarempa Barat-Sri Tanjung": 3000,
+    "Tarempa Barat-Air Padang": 8000,
+    "Tarempa Barat-Tanjung Momong": 8000,
+    "Tarempa Barat-Telok Rit": 8000,
+    "Tarempa Barat-Telok Buluh": 9000,
+    "Tarempa Barat-Antang": 10000,
+    "Tarempa Barat-Pasir Peti": 13000,
+    "Tarempa Barat-Dusun": 15000,
+    "Tarempa Barat-Telok Mabai": 15000,
+    "Tarempa Barat-Selambak": 16000,
+    "Tarempa Barat-Temburun": 21000,
+    "Tarempa Barat-Batu Tambun": 9000,
+    "Tarempa Barat-Gudang Tengah": 13000,
+    "Tarempa Barat-Sri Rintis": 15000,
+    "Tarempa Barat-Air Bini": 32000,
+    "Tarempa Barat-Arung Hijau": 16000,
+    "Sri Tanjung-Sri Tanjung": 3000,
+    "Sri Tanjung-Kel. Tarempa": 5000,
+    "Sri Tanjung-Tarempa Barat": 3000,
+    "Sri Tanjung-Air Padang": 10000,
+    "Sri Tanjung-Tanjung Momong": 10000,
+    "Sri Tanjung-Telok Rit": 10000,
+    "Sri Tanjung-Telok Buluh": 11000,
+    "Sri Tanjung-Antang": 12000,
+    "Sri Tanjung-Pasir Peti": 15000,
+    "Sri Tanjung-Dusun": 17000,
+    "Sri Tanjung-Telok Mabai": 17000,
+    "Sri Tanjung-Selambak": 18000,
+    "Sri Tanjung-Temburun": 23000,
+    "Sri Tanjung-Batu Tambun": 10000,
+    "Sri Tanjung-Gudang Tengah": 15000,
+    "Sri Tanjung-Sri Rintis": 17000,
+    "Sri Tanjung-Air Bini": 34000,
+    "Sri Tanjung-Arung Hijau": 18000,
+    "Air Padang-Air Padang": 3000,
+    "Air Padang-Kel. Tarempa": 8000,
+    "Air Padang-Tarempa Barat": 9000,
+    "Air Padang-Sri Tanjung": 10000,
+    "Air Padang-Tanjung Momong": 5000,
+    "Air Padang-Telok Rit": 5000,
+    "Air Padang-Telok Buluh": 6000,
+    "Air Padang-Antang": 7000,
+    "Air Padang-Pasir Peti": 10000,
+    "Air Padang-Dusun": 12000,
+    "Air Padang-Telok Mabai": 12000,
+    "Air Padang-Selambak": 14000,
+    "Air Padang-Temburun": 18000,
+    "Air Padang-Batu Tambun": 15000,
+    "Air Padang-Gudang Tengah": 17000,
+    "Air Padang-Sri Rintis": 19000,
+    "Air Padang-Air Bini": 36000,
+    "Air Padang-Arung Hijau": 20000,
+    "Tajnung Momong-Tanjung Momong": 3000,
+    "Tanjung Momong-Kel. Tarempa": 8000,
+    "Tanjung Momong-Tarempa Barat": 9000,
+    "Tanjung Momong-Sri Tanjung": 10000,
+    "Tanjung Momong-Air Padang": 5000,
+    "Tanjung Momong-Telok Rit": 5000,
+    "Tanjung Momong-Telok Buluh": 6000,
+    "Tanjung Momong-Antang": 7000,
+    "Tanjung Momong-Pasir Peti": 10000,
+    "Tanjung Momong-Dusun": 12000,
+    "Tanjung Momong-Telok Mabai": 12000,
+    "Tanjung Momong-Selambak": 14000,
+    "Tanjung Momong-Temburun": 18000,
+    "Tanjung Momong-Batu Tambun": 15000,
+    "Tanjung Momong-Gudang Tengah": 17000,
+    "Tanjung Momong-Sri Rintis": 19000,
+    "Tanjung Momong-Air Bini": 36000,
+    "Tanjung Momong-Arung Hijau": 20000,
+    "Telok Rit-Telok Rit": 3000,
+    "Telok Rit-Kel. Tarempa": 8000,
+    "Telok Rit-Tarempa Barat": 9000,
+    "Telok Rit-Sri Tanjung": 10000,
+    "Telok Rit-Air Padang": 5000,
+    "Telok Rit-Tanjung Momong": 5000,
+    "Telok Rit-Telok Buluh": 4000,
+    "Telok Rit-Antang": 6000,
+    "Telok Rit-Pasir Peti": 10000,
+    "Telok Rit-Dusun": 12000,
+    "Telok Rit-Telok Mabai": 12000,
+    "Telok Rit-Selambak": 14000,
+    "Telok Rit-Temburun": 18000,
+    "Telok Rit-Batu Tambun": 15000,
+    "Telok Rit-Gudang Tengah": 17000,
+    "Telok Rit-Sri Rintis": 20000,
+    "Telok Rit-Air Bini": 36000,
+    "Telok Rit-Arung Hijau": 22000,
+    "Telok Buluh-Telok Buluh": 3000,
+    "Telok Buluh-Kel. Tarempa": 8000,
+    "Telok Buluh-Tarempa Barat": 9000,
+    "Telok Buluh-Sri Tanjung": 11000,
+    "Telok Buluh-Air Padang": 6000,
+    "Telok Buluh-Tanjung Momong": 6000,
+    "Telok Buluh-Telok Rit": 4000,
+    "Telok Buluh-Antang": 4000,
+    "Telok Buluh-Pasir Peti": 10000,
+    "Telok Buluh-Dusun": 12000,
+    "Telok Buluh-Telok Mabai": 12000,
+    "Telok Buluh-Selambak": 14000,
+    "Telok Buluh-Temburun": 18000,
+    "Telok Buluh-Batu Tambun": 15000,
+    "Telok Buluh-Gudang Tengah": 17000,
+    "Telok Buluh-Sri Rintis": 20000,
+    "Telok Buluh-Air Bini": 36000,
+    "Telok Buluh-Arung Hijau": 23000,
+    "Antang-Antang": 5000,
+    "Antang-Kel. Tarempa": 9000,
+    "Antang-Tarempa Barat": 10000,
+    "Antang-Sri Tanjung": 12000,
+    "Antang-Air Padang": 7000,
+    "Antang-Tanjung Momong": 7000,
+    "Antang-Telok Rit": 6000,
+    "Antang-Telok Buluh": 4000,
+    "Antang-Pasir Peti": 12000,
+    "Antang-Dusun": 12000,
+    "Antang-Telok Mabai": 12000,
+    "Antang-Selambak": 14000,
+    "Antang-Temburun": 18000,
+    "Antang-Batu Tambun": 15000,
+    "Antang-Gudang Tengah": 17000,
+    "Antang-Sri Rintis": 20000,
+    "Antang-Air Bini": 36000,
+    "Antang-Arung Hijau": 23000,
+    "Pasir Peti-Pasir Peti": 5000,
+    "Pasir Peti-Kel. Tarempa": 12000,
+    "Pasir Peti-Tarempa Barat": 13000,
+    "Pasir Peti-Sri Tanjung": 15000,
+    "Pasir Peti-Air Padang": 10000,
+    "Pasir Peti-Tanjung Momong": 10000,
+    "Pasir Peti-Telok Rit": 10000,
+    "Pasir Peti-Telok Buluh": 10000,
+    "Pasir Peti-Antang": 12000,
+    "Pasir Peti-Dusun": 6000,
+    "Pasir Peti-Telok Mabai": 8000,
+    "Pasir Peti-Selambak": 10000,
+    "Pasir Peti-Temburun": 16000,
+    "Pasir Peti-Batu Tambun": 22000,
+    "Pasir Peti-Gudang Tengah": 26000,
+    "Pasir Peti-Sri Rintis": 30000,
+    "Pasir Peti-Air Bini": 45000,
+    "Pasir Peti-Arung Hijau": 28000,
+    "Dusun-Dusun": 5000,
+    "Dusun-Kel. Tarempa": 14000,
+    "Dusun-Tarempa Barat": 15000,
+    "Dusun-Sri Tanjung": 17000,
+    "Dusun-Air Padang": 12000,
+    "Dusun-Tanjung Momong": 12000,
+    "Dusun-Telok Rit": 12000,
+    "Dusun-Telok Buluh": 12000,
+    "Dusun-Antang": 12000,
+    "Dusun-Pasir Peti": 6000,
+    "Dusun-Telok Mabai": 10000,
+    "Dusun-Selambak": 10000,
+    "Dusun-Temburun": 16000,
+    "Dusun-Batu Tambun": 24000,
+    "Dusun-Gudang Tengah": 28000,
+    "Dusun-Sri Rintis": 32000,
+    "Dusun-Air Bini": 45000,
+    "Dusun-Arung Hijau": 30000,
+    "Telok Mabai-Telok Mabai": 5000,
+    "Telok Mabai-Kel. Tarempa": 14000,
+    "Telok Mabai-Tarempa Barat": 15000,
+    "Telok Mabai-Sri Tanjung": 17000,
+    "Telok Mabai-Air Padang": 12000,
+    "Telok Mabai-Tanjung Momong": 12000,
+    "Telok Mabai-Telok Rit": 12000,
+    "Telok Mabai-Telok Buluh": 12000,
+    "Telok Mabai-Antang": 12000,
+    "Telok Mabai-Pasir Peti": 8000,
+    "Telok Mabai-Dusun": 10000,
+    "Telok Mabai-Selambak": 10000,
+    "Telok Mabai-Temburun": 14000,
+    "Telok Mabai-Batu Tambun": 26000,
+    "Telok Mabai-Gudang Tengah": 30000,
+    "Telok Mabai-Sri Rintis": 34000,
+    "Telok Mabai-Air Bini": 47000,
+    "Telok Mabai-Arung Hijau": 32000,
+    "Selambak-Selambak": 5000,
+    "Selambak-Kel. Tarempa": 15000,
+    "Selambak-Tarempa Barat": 16000,
+    "Selambak-Sri Tanjung": 18000,
+    "Selambak-Air Padang": 14000,
+    "Selambak-Tanjung Momong": 14000,
+    "Selambak-Telok Rit": 14000,
+    "Selambak-Telok Buluh": 14000,
+    "Selambak-Antang": 14000,
+    "Selambak-Pasir Peti": 10000,
+    "Selambak-Dusun": 10000,
+    "Selambak-Telok Mabai": 10000,
+    "Selambak-Temburun": 14000,
+    "Selambak-Batu Tambun": 28000,
+    "Selambak-Gudang Tengah": 32000,
+    "Selambak-Sri Rintis": 36000,
+    "Selambak-Air Bini": 49000,
+    "Selambak-Arung Hijau": 34000,
+    "Temburun-Temburun": 8000,
+    "Temburun-Kel. Tarempa": 20000,
+    "Temburun-Tarempa Barat": 22000,
+    "Temburun-Sri Tanjung": 25000,
+    "Temburun-Air Padang": 20000,
+    "Temburun-Tanjung Momong": 20000,
+    "Temburun-Telok Rit": 20000,
+    "Temburun-Telok Buluh": 20000,
+    "Temburun-Antang": 20000,
+    "Temburun-Pasir Peti": 18000,
+    "Temburun-Dusun": 18000,
+    "Temburun-Telok Mabai": 16000,
+    "Temburun-Selambak": 14000,
+    "Temburun-Batu Tambun": 34000,
+    "Temburun-Gudang Tengah": 38000,
+    "Temburun-Sri Rintis": 42000,
+    "Temburun-Air Bini": 55000,
+    "Temburun-Arung Hijau": 40000,
+
+
+
+
+
+
+
+  };
+
+  function updateOngkir() {
+    const asal = document.getElementById('desaAsal').value;
+    const tujuan = document.getElementById('desaTujuan').value;
+    const hasil = document.getElementById('ongkirDisplay');
+
+    if (asal && tujuan && asal !== tujuan) {
+      const key = `${asal}-${tujuan}`;
+      const tarif = tarifAntarDesa[key];
+      if (tarif) {
+        hasil.innerText = `Ongkos Kirim: Rp ${tarif.toLocaleString()}`;
       } else {
-        display.textContent = "Ongkir: -";
+        hasil.innerText = "Tarif tidak tersedia.";
       }
+    } else {
+      hasil.innerText = "";
     }
+  }
 
-    function closeOverlay() {
-  document.getElementById('overlaySuccess').style.display = 'none';
-}
-    document.getElementById('formPengiriman').addEventListener('submit', function (e) {
-  e.preventDefault();
+  function closeOverlay() {
+    document.getElementById('overlaySuccess').style.display = 'none';
+  }
+  document.getElementById('formPengiriman').addEventListener('submit', function (e) {
+    e.preventDefault();
 
-  const namaPengirim = document.getElementById('namaPengirim').value;
-  const alamatPengirim = document.getElementById('alamatPengirim').value;
-  const namaPenerima = document.getElementById('namaPenerima').value;
-  const noPenerima = document.getElementById('noPenerima').value;
-  const alamatPenerima = document.getElementById('alamatPenerima').value;
-  const deskripsiBarang = document.getElementById('deskripsiBarang').value;
-  const lokasiSelect = document.getElementById('lokasi');
-  const lokasi = lokasiSelect.value;
-  const ongkir = lokasiSelect.selectedOptions[0].getAttribute('data-ongkir');
+    const namaPengirim = document.getElementById('namaPengirim').value;
+    const alamatPengirim = document.getElementById('alamatPengirim').value;
+    const namaPenerima = document.getElementById('namaPenerima').value;
+    const noPenerima = document.getElementById('noPenerima').value;
+    const alamatPenerima = document.getElementById('alamatPenerima').value;
+    const deskripsiBarang = document.getElementById('deskripsiBarang').value;
+    const ongkirText = document.getElementById('ongkirDisplay').innerText || 'Tidak Diketahui';
 
-  // Buat pesan WhatsApp
-  const pesan = `*Nitip Barang - Pengiriman Baru*\n\n` +
-    `📦 *Deskripsi Barang:* ${deskripsiBarang}\n` +
-    `📍 *Lokasi:* ${lokasi} (Rp${parseInt(ongkir).toLocaleString("id-ID")})\n\n` +
-    `👤 *Pengirim:*\n${namaPengirim}\n${alamatPengirim}\n\n` +
-    `🎯 *Penerima:*\n${namaPenerima}\n${noPenerima}\n${alamatPenerima}`;
+    // Buat pesan WhatsApp
+    const pesan = `*Nitip Barang - Pengiriman Baru*\n\n` +
+      `📦 *Deskripsi Barang:* ${deskripsiBarang}\n` +
+      `📍 ${ongkirText}\n\n` +
+      `👤 *Pengirim:*\n${namaPengirim}\n${alamatPengirim}\n\n` +
+      `🎯 *Penerima:*\n${namaPenerima}\n${noPenerima}\n${alamatPenerima}`;
 
-  const encodedPesan = encodeURIComponent(pesan);
-  const waURL = `https://wa.me/6285770572398?text=${encodedPesan}`;
+    const encodedPesan = encodeURIComponent(pesan);
+    const waURL = `https://wa.me/6285770572398?text=${encodedPesan}`;
 
-  // Tampilkan overlay sukses
-  document.getElementById('overlaySuccess').style.display = 'flex';
+    // Tampilkan overlay sukses
+    document.getElementById('overlaySuccess').style.display = 'flex';
 
-  // Delay untuk buka WhatsApp agar smooth
-  setTimeout(() => {
-    window.open(waURL, '_blank');
-  }, 500);
-});
-  </script>
-  <script>
-  
-    function toggleNavMenu() {
-      const nav = document.getElementById('mobile-nav');
-      nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
-    }
-  </script>
+    // Delay untuk buka WhatsApp agar smooth
+    setTimeout(() => {
+      window.open(waURL, '_blank');
+    }, 500);
+  });
+</script>
+<script>
+
+  function toggleNavMenu() {
+    const nav = document.getElementById('mobile-nav');
+    nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+  }
+</script>
 </body>
+
 </html>
