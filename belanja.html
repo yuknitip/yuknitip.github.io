@@ -122,21 +122,6 @@
       ? `Rp${ongkirNominal.toLocaleString("id-ID")}`
       : 'Tidak tersedia';
 
-      if (!lokasiantar) {
-        alert("Silakan pilih lokasi pengantaran.");
-        return;
-      }
-
-      if (cart.length === 0) {
-        alert("Keranjang kosong!");
-        return;
-      }
-
-      if (!namaPembeli || !alamatPembeli || !lokasi || !deskripsiBarang || !lokasiAntar) {
-        alert("Mohon isi semua data dengan lengkap.");
-        return;
-      }
-
     const pesan = `*Nitip Belanjaan - Order Baru*\n\n` +
       `🛒 *Lokasi Belanja:* ${lokasi}\n` +
       `📦 *Barang:* ${deskripsiBarang}\n\n` +

@@ -472,30 +472,6 @@
     const deskripsiBarang = document.getElementById('deskripsiBarang').value;
     const ongkirText = document.getElementById('ongkirDisplay').innerText || 'Tidak Diketahui';
 
-    if (!/^\d{10,13}$/.test(noPenerima)) {
-  alert("Masukkan nomor HP yang valid.");
-  return;
-}
-
-    if (!asal) {
-        alert("Silakan pilih lokasi");
-        return;
-      }
-
-      if (!tujuan) {
-        alert("Silakan pilih lokasi");
-        return;
-      }
-
-      if (cart.length === 0) {
-        alert("Keranjang kosong!");
-        return;
-      }
-
-      if (!namaPengirim || !alamatPengirim || !namaPenerima || !noPenerima || !alamatPenerima || !deskripsiBarang) {
-        alert("Mohon isi semua data dengan lengkap.");
-        return;
-      }
 
     // Buat pesan WhatsApp
     const pesan = `*Nitip Barang - Pengiriman Baru*\n\n` +
