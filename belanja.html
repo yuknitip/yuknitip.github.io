@@ -23,29 +23,137 @@
   </header>
 
   <main>
-    <section class="hero">
-      <h2>Akan Segera Hadir</h2>
-      <p>Nitip yang lain dulu aja</p>
-      <a href="Kategori.html" class="btn">Lihat Disini</a>
-    </section>
+    <div class="form-belanja">
+      <h2>Form Penitipan Belanja</h2>
+
+      <form id="formPembelian">
+        <label for="namaPembeli">Nama Pembeli</label>
+        <input type="text" id="namaPembeli" required>
+
+        <label>Pilih Lokasi Belanja:</label>
+        <select id="lokasi" required>
+          <option value="">-- Pilih Lokasi --</option>
+          <option value="Pasar Ikan">Pasar Ikan</option>
+          <option value="Pasar Sayur">Pasar Sayur</option>
+          <option value="Toko Buah">Toko Buah</option>
+          <option value="Toko Sembako">Toko Sembako</option>
+        </select>
+
+        <label for="deskripsiBarang">Deskripsi Barang Belanjaan</label>
+        <textarea id="deskripsiBarang" placeholder="Contoh: Ikan Tongkol 1 Ekor, Ayam Potong 1 Ekor, Sawi 1 Ikat, Anggur 1Kg..." required></textarea>
+
+        <label for="alamatPembli">Alamat Pembeli</label>
+        <textarea id="alamatPembeli" placeholder="Masukkan secara lengkap alamat pengirim.." required></textarea>
+
+        <label>Pilih Lokasi Pengantaran:</label>
+        <select id="antar" onchange="updateOngkir()">
+          <option value="">-- Pilih Lokasi --</option>
+      <option value="Tarempa" data-ongkir="3000">Tarempa (Rp3.000)</option>
+      <option value="Tarempa Barat" data-ongkir="3000">Tarempa Barat (Rp3.000)</option>
+      <option value="Sri Tanjung" data-ongkir="5000">Sri Tanjung (Rp5.000)</option>
+      <option value="Air Padang" data-ongkir="7000">Air Padang (Rp7.000)</option>
+      <option value="Tanjung Momong" data-ongkir="7000">Tanjung Momong (Rp7.000)</option>
+      <option value="Telok Rit" data-ongkir="7000">Telok Rit (Rp7.000)</option>
+      <option value="Telok Buluh" data-ongkir="8000">Telok Buluhh (Rp8.000)</option>
+      <option value="Antang" data-ongkir="9000">Antang (Rp9.000)</option>
+      <option value="Pasir Peti" data-ongkir="12000">Pasir Peti (Rp12.000)</option>
+      <option value="Dusun" data-ongkir="14000">Dusun (Rp14.000)</option>
+      <option value="Telok Mabai" data-ongkir="14000">Telok Mabai (Rp14.000)</option>
+      <option value="Selambak" data-ongkir="15000">Selambak (Rp15.000)</option>
+      <option value="Temburun" data-ongkir="20000">Temburun (Rp20.000)</option>
+      <option value="Batu Tambun" data-ongkir="8000">Batu Tambun (Rp8.000)</option>
+      <option value="Gudang Tengah" data-ongkir="12000">Gudang Tengah (Rp12.000)</option>
+      <option value="Rintis" data-ongkir="14000">Rintis (Rp14.000)</option>
+      <option value="Air Bini" data-ongkir="30000">Air Bini (Rp30.000)</option>
+      <option value="Arung Hijau" data-ongkir="15000">Arung Hijau (Rp15.000)</option>
+    </select>
+
+        <div class="ongkir-display" id="ongkirDisplay">Ongkir: -</div>
+
+<h6>Note* Harga Belanjaan akan di sesuaikan saat driver berada di Lokasi Belanja yang diingkan dan akan dikonfirmasi melalui WhatsApp</h6>
+
+        <button type="submit">Nitip Belanja</button>
+      </form>
+      <div id="overlaySuccess" style="display:none;">
+        <div class="success-card">
+          <h2>✅ Barang yang diingikan Berhasil Diproses!</h2>
+          <p>Driver akan segera ke lokasi belanja.</p>
+          <button onclick="closeOverlay()">Tutup</button>
+        </div>
+      </div>
   </main>
 </body>
-
-<div class="yuknitip">
-       <img src="yuknitip.png" alt="Yuk Nitip" class="logo-yuk">
-    </a>
-   </div>
 
    <footer style="text-align: center; padding: 20px; background-color: #f7f7f7;">
   <p>&copy; 2025 Nitip. Karya Anak Tarempa. Semua Hak Dilindungi.</p>
 </footer>
   <script src="script.js"></script>
   <script>
-  
-    function toggleNavMenu() {
-      const nav = document.getElementById('mobile-nav');
-      nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
-    }
-  </script>
+  function toggleNavMenu() {
+    const nav = document.getElementById('mobile-nav');
+    nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+  }
+
+  let ongkirNominal = 0;
+
+  function updateOngkir() {
+    const select = document.getElementById('antar');
+    const ongkir = select.options[select.selectedIndex].getAttribute('data-ongkir');
+    ongkirNominal = ongkir ? parseInt(ongkir) : 0;
+    document.getElementById('ongkirDisplay').innerText = ongkirNominal
+      ? `Ongkir: Rp${ongkirNominal.toLocaleString("id-ID")}`
+      : 'Ongkir: -';
+  }
+
+  function closeOverlay() {
+    document.getElementById('overlaySuccess').style.display = 'none';
+  }
+
+  document.getElementById('formPembelian').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const namaPembeli = document.getElementById('namaPembeli').value;
+    const alamatPembeli = document.getElementById('alamatPembeli').value;
+    const lokasi = document.getElementById('lokasi').value;
+    const deskripsiBarang = document.getElementById('deskripsiBarang').value;
+    const lokasiAntar = document.getElementById('antar').value;
+
+    const ongkirText = ongkirNominal
+      ? `Rp${ongkirNominal.toLocaleString("id-ID")}`
+      : 'Tidak tersedia';
+
+      if (!lokasiantar) {
+        alert("Silakan pilih lokasi pengantaran.");
+        return;
+      }
+
+      if (cart.length === 0) {
+        alert("Keranjang kosong!");
+        return;
+      }
+
+      if (!namaPembeli || !alamatPembeli || !lokasi || !deskripsiBarang || !lokasiAntar) {
+        alert("Mohon isi semua data dengan lengkap.");
+        return;
+      }
+
+    const pesan = `*Nitip Belanjaan - Order Baru*\n\n` +
+      `🛒 *Lokasi Belanja:* ${lokasi}\n` +
+      `📦 *Barang:* ${deskripsiBarang}\n\n` +
+      `🚚 *Antar ke:* ${lokasiAntar}\n` +
+      `💰 *Ongkir:* ${ongkirText}\n\n` +
+      `👤 *Pembeli:*\n${namaPembeli}\n${alamatPembeli}`;
+
+    const encodedPesan = encodeURIComponent(pesan);
+    const waURL = `https://wa.me/6285770572398?text=${encodedPesan}`;
+
+    // Tampilkan overlay sukses
+    document.getElementById('overlaySuccess').style.display = 'flex';
+
+    setTimeout(() => {
+      window.open(waURL, '_blank');
+    }, 500);
+  });
+</script>
 </body>
 </html>
