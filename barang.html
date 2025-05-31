@@ -32,6 +32,9 @@
         <label for="namaPengirim">Nama Pengirim</label>
         <input type="text" id="namaPengirim" required>
 
+        <label for="noPengirim">Nomor Pengirim</label>
+        <input type="number" id="noPengirim" required>
+
         <label>Pilih Lokasi Penjemputan:</label>
         <select id="desaAsal" onchange="updateOngkir()">
           <option value="">-- Pilih Lokasi --</option>
@@ -448,7 +451,7 @@
       const key = `${asal}-${tujuan}`;
       const tarif = tarifAntarDesa[key];
       if (tarif) {
-        hasil.innerText = `Ongkos Kirim: Rp ${tarif.toLocaleString()}`;
+        hasil.innerText = `Rp ${tarif.toLocaleString()}`;
       } else {
         hasil.innerText = "Tarif tidak tersedia.";
       }
@@ -462,35 +465,45 @@
     document.getElementById('overlaySuccess').style.display = 'none';
   }
   document.getElementById('formPengiriman').addEventListener('submit', function (e) {
-    e.preventDefault();
+  e.preventDefault();
 
-    const namaPengirim = document.getElementById('namaPengirim').value;
-    const alamatPengirim = document.getElementById('alamatPengirim').value;
-    const namaPenerima = document.getElementById('namaPenerima').value;
-    const noPenerima = document.getElementById('noPenerima').value;
-    const alamatPenerima = document.getElementById('alamatPenerima').value;
-    const deskripsiBarang = document.getElementById('deskripsiBarang').value;
-    const ongkirText = document.getElementById('ongkirDisplay').innerText || 'Tidak Diketahui';
+  const namaPengirim = document.getElementById('namaPengirim').value;
+  const noPengirim = document.getElementById('noPengirim').value;
+  const alamatPengirim = document.getElementById('alamatPengirim').value;
+  const namaPenerima = document.getElementById('namaPenerima').value;
+  const noPenerima = document.getElementById('noPenerima').value;
+  const alamatPenerima = document.getElementById('alamatPenerima').value;
+  const deskripsiBarang = document.getElementById('deskripsiBarang').value;
+  const ongkirText = document.getElementById('ongkirDisplay').innerText || 'Tidak Diketahui';
 
+  const data = {
+    namaPengirim,
+    noPengirim,
+    alamatPengirim,
+    namaPenerima,
+    noPenerima,
+    alamatPenerima,
+    deskripsiBarang,
+    ongkirText
+  };
 
-    // Buat pesan WhatsApp
-    const pesan = `*Nitip Barang - Pengiriman Baru*\n\n` +
-      `📦 *Deskripsi Barang:* ${deskripsiBarang}\n` +
-      `📍 ${ongkirText}\n\n` +
-      `👤 *Pengirim:*\n${namaPengirim}\n${alamatPengirim}\n\n` +
-      `🎯 *Penerima:*\n${namaPenerima}\n${noPenerima}\n${alamatPenerima}`;
-
-    const encodedPesan = encodeURIComponent(pesan);
-    const waURL = `https://wa.me/6285770572398?text=${encodedPesan}`;
-
-    // Tampilkan overlay sukses
-    document.getElementById('overlaySuccess').style.display = 'flex';
-
-    // Delay untuk buka WhatsApp agar smooth
-    setTimeout(() => {
-      window.open(waURL, '_blank');
-    }, 500);
+  // Kirim ke Google Apps Script Web App
+  fetch("https://script.google.com/macros/s/AKfycby6fi9VRsBx_wn16ucfWlhulZGDjRN3Fr2tG2rP9WbLFfg7DvgGMTYJMbcQ7iyxVR4jOg/exec", {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
   });
+
+  // Tampilkan overlay sukses
+  document.getElementById('overlaySuccess').style.display = 'flex';
+
+  // Reset form (opsional)
+  document.getElementById('formPengiriman').reset();
+  document.getElementById('ongkirDisplay').innerText = "";
+});
 </script>
 <script>
 

@@ -199,103 +199,91 @@
     }
 
     function submitOrder(event) {
-      event.preventDefault();
+  event.preventDefault();
 
-      const nama = document.getElementById("nama").value.trim();
-      const alamat = document.getElementById("alamat").value.trim();
-      const nomor = document.getElementById("nomor").value.trim();
-      const pembayaran = document.getElementById("pembayaran").value;
-      const lokasiSelect = document.getElementById("lokasi");
-      const lokasi = lokasiSelect.value;
-      const lokasiText = lokasiSelect.options[lokasiSelect.selectedIndex]?.text || '';
-      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const nama = document.getElementById("nama").value.trim();
+  const alamat = document.getElementById("alamat").value.trim();
+  const nomor = document.getElementById("nomor").value.trim();
+  const pembayaran = document.getElementById("pembayaran").value;
+  const lokasiSelect = document.getElementById("lokasi");
+  const lokasi = lokasiSelect.value;
+  const lokasiText = lokasiSelect.options[lokasiSelect.selectedIndex]?.text || '';
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-      if (!/^\d{10,13}$/.test(nomor)) {
-  alert("Masukkan nomor HP yang valid.");
-  return;
-}
-      if (!lokasi) {
-        alert("Silakan pilih lokasi pengantaran.");
-        return;
-      }
+  if (!/^\d{10,13}$/.test(nomor)) {
+    alert("Masukkan nomor HP yang valid.");
+    return;
+  }
 
-      if (cart.length === 0) {
-        alert("Keranjang kosong!");
-        return;
-      }
+  if (!lokasi) {
+    alert("Silakan pilih lokasi pengantaran.");
+    return;
+  }
 
-      if (!nama || !alamat || !nomor || !pembayaran) {
-        alert("Mohon isi semua data dengan lengkap.");
-        return;
-      }
+  if (cart.length === 0) {
+    alert("Keranjang kosong!");
+    return;
+  }
 
-      const adminWa = "6285770572398";
+  if (!nama || !alamat || !nomor || !pembayaran) {
+    alert("Mohon isi semua data dengan lengkap.");
+    return;
+  }
 
-      const grouped = groupCartByMerchant(cart);
-      let pesan = `*Pesanan Baru Nitip*\n\n`;
-      pesan += `Nama: ${nama}\nNo HP: ${nomor}\nAlamat: ${alamat} (${lokasiText})\nPembayaran: ${pembayaran}\n\n*Detail Pesanan:*\n`;
-const merchantCount = Object.keys(grouped).length;
+  const grouped = groupCartByMerchant(cart);
+  const merchantCount = Object.keys(grouped).length;
   if (merchantCount > 1) {
     alert("Maaf, Anda hanya bisa memesan dari satu merchant dalam satu transaksi.");
     return;
   }
-      let totalHarga = 0;
 
-      for (const merchant in grouped) {
-        pesan += `\n📦 *${merchant}*\n`;
-        grouped[merchant].forEach((item) => {
-          const subtotal = item.qty * item.price;
-          totalHarga += subtotal;
-          pesan += `- ${item.qty}x ${item.name} (Rp${subtotal.toLocaleString("id-ID")})`;
-          if (item.note) {
-            pesan += `\n  Catatan: ${item.note}`;
-          }
-          pesan += `\n`;
-        });
-      }
+  let totalHarga = 0;
+  const items = [];
 
-      const ongkir = parseInt(lokasiSelect.selectedOptions[0]?.getAttribute("data-ongkir")) || 0;
-      const total = totalHarga + ongkir;
-      pesan += `\nOngkir: Rp${ongkir.toLocaleString("id-ID")}\n*Total: Rp${total.toLocaleString("id-ID")}*`;
+  for (const merchant in grouped) {
+    grouped[merchant].forEach((item) => {
+      const subtotal = item.qty * item.price;
+      totalHarga += subtotal;
+      items.push({
+        merchant,
+        name: item.name,
+        qty: item.qty,
+        price: item.price,
+        note: item.note || ''
+      });
+    });
+  }
 
-      fetch('http://localhost:5000/api/checkout', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
+  const ongkir = parseInt(lokasiSelect.selectedOptions[0]?.getAttribute("data-ongkir")) || 0;
+  const total = totalHarga + ongkir;
+
+  const data = {
     nama,
-    nomor,
     alamat,
-    lokasi,
+    nomor,
+    lokasi: lokasiText,
     pembayaran,
     ongkir,
     total,
-    items: cart.map(item => ({
-      name: item.name,
-      qty: item.qty,
-      price: item.price,
-      note: item.note || '',
-      merchant: item.merchant || ''
-    }))
-  })
-})
-.then(response => response.json())
-.then(data => {
-  console.log('Pesanan berhasil:', data);
-})
-.catch(error => {
-  console.error('Error saat kirim ke backend:', error);
-});
+    items
+  };
 
-      const whatsappLink = `https://wa.me/${adminWa}?text=${encodeURIComponent(pesan)}`;
-      window.open(whatsappLink, "_blank");
+  // Kirim ke Google Apps Script Web App
+  fetch("https://script.google.com/macros/s/AKfycbxKFoRPDV0yDP79MkUl1KAMqrWxRBo7KwiCEfAfNDo8SeW8sybkxUPuze6JNqCd6uOIsg/exec", {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  });
 
-      document.getElementById("order-form").reset();
-      document.getElementById("lokasi").selectedIndex = 0;
-      localStorage.removeItem("cart");
-      loadCart();
-    }
+  alert("Pesanan berhasil dikirim!");
+  document.getElementById("order-form").reset();
+  document.getElementById("lokasi").selectedIndex = 0;
+  localStorage.removeItem("cart");
+  loadCart();
+}
 
     document.addEventListener("DOMContentLoaded", loadCart);
  

@@ -30,6 +30,9 @@
         <label for="namaPembeli">Nama Pembeli</label>
         <input type="text" id="namaPembeli" required>
 
+        <label for="nomor">Nomor WhatsApp</label>
+        <input type="number" id="noPenerima" required>
+
         <label>Pilih Lokasi Belanja:</label>
         <select id="lokasi" required>
           <option value="">-- Pilih Lokasi --</option>
@@ -45,9 +48,9 @@
         <label for="alamatPembli">Alamat Pembeli</label>
         <textarea id="alamatPembeli" placeholder="Masukkan secara lengkap alamat pengirim.." required></textarea>
 
-        <label>Pilih Lokasi Pengantaran:</label>
-        <select id="antar" onchange="updateOngkir()">
-          <option value="">-- Pilih Lokasi --</option>
+      <label>Pilih Lokasi Pengantaran:</label>
+      <select id="antar" onchange="updateOngkir()">
+      <option value="">-- Pilih Lokasi --</option>
       <option value="Tarempa" data-ongkir="3000">Tarempa (Rp3.000)</option>
       <option value="Tarempa Barat" data-ongkir="3000">Tarempa Barat (Rp3.000)</option>
       <option value="Sri Tanjung" data-ongkir="5000">Sri Tanjung (Rp5.000)</option>
@@ -88,6 +91,7 @@
   <p>&copy; 2025 Nitip. Karya Anak Tarempa. Semua Hak Dilindungi.</p>
 </footer>
   <script src="script.js"></script>
+  
   <script>
   function toggleNavMenu() {
     const nav = document.getElementById('mobile-nav');
@@ -113,31 +117,41 @@
     e.preventDefault();
 
     const namaPembeli = document.getElementById('namaPembeli').value;
+    const nomor = document.getElementById('noPenerima').value;
     const alamatPembeli = document.getElementById('alamatPembeli').value;
     const lokasi = document.getElementById('lokasi').value;
     const deskripsiBarang = document.getElementById('deskripsiBarang').value;
     const lokasiAntar = document.getElementById('antar').value;
 
-    const ongkirText = ongkirNominal
-      ? `Rp${ongkirNominal.toLocaleString("id-ID")}`
-      : 'Tidak tersedia';
+    const ongkir = ongkirNominal ? `Rp${ongkirNominal.toLocaleString("id-ID")}` : '-';
 
-    const pesan = `*Nitip Belanjaan - Order Baru*\n\n` +
-      `🛒 *Lokasi Belanja:* ${lokasi}\n` +
-      `📦 *Barang:* ${deskripsiBarang}\n\n` +
-      `🚚 *Antar ke:* ${lokasiAntar}\n` +
-      `💰 *Ongkir:* ${ongkirText}\n\n` +
-      `👤 *Pembeli:*\n${namaPembeli}\n${alamatPembeli}`;
+    const data = {
+      namaPembeli,
+      nomor,
+      alamatPembeli,
+      lokasi,
+      deskripsiBarang,
+      lokasiAntar,
+      ongkir
+    };
 
-    const encodedPesan = encodeURIComponent(pesan);
-    const waURL = `https://wa.me/6285770572398?text=${encodedPesan}`;
-
-    // Tampilkan overlay sukses
-    document.getElementById('overlaySuccess').style.display = 'flex';
-
-    setTimeout(() => {
-      window.open(waURL, '_blank');
-    }, 500);
+    fetch("https://script.google.com/macros/s/AKfycbztnNVSbY351sYfnhNSaZoQd4H_Juk7Bx4j5rh71JEAFSUIffihaFX4Bi9YrdsRw49vBQ/exec", {
+  method: "POST",
+  mode: "no-cors",  // <<< WAJIB untuk Google Apps Script
+  body: JSON.stringify(data),
+  headers: {
+    "Content-Type": "application/json",
+  },
+})
+.then(() => {
+  document.getElementById('overlaySuccess').style.display = 'flex';
+  document.getElementById('formPembelian').reset();
+  document.getElementById('ongkirDisplay').innerText = 'Ongkir: -';
+})
+.catch(error => {
+  alert("Gagal mengirim pesanan.");
+  console.error(error);
+});
   });
 </script>
 </body>
