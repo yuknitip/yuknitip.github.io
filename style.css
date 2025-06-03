@@ -156,8 +156,7 @@ body {
   
   .icon-kategori {
     display: flex;
-    margin-top: 0px;
-    margin-left: -5px;
+    justify-content: center;
     padding: 20px;
     gap: 30px;
   }
@@ -169,10 +168,8 @@ body {
 
   .icon-kategori1 {
     display: flex;
-    margin-top: 0px;
+    justify-content: center;
     margin-left: 95px;
-    padding: 10px;
-    gap: 10px;
   }
 
   h2 {
@@ -665,29 +662,34 @@ margin-top: 0.5em;
     width: 100%;
     max-width: 300px;
   }
-    .menu-toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  padding: 0;
-  background: none !important;
-  border: none;
-  margin-top: -40px;
-  color: white;
-  font-size: 1.5rem;
-  cursor: pointer;
-  box-shadow: none !important;
-  line-height: 1; /* memastikan ukuran pas */
-}
-
-  .menu-toggle:hover,
+   .menu-toggle {
+      position: absolute;
+      right: 10px;
+      justify-content: right;  
+      display: flex;
+        font-size: 1rem;
+        border: none;
+        color: white;
+        margin-top: -70px;
+        background: none !important;
+        box-shadow: none !important;
+      }
+      
+    .menu-toggle:hover,
   .menu-toggle:focus,
   .menu-toggle:active {
     box-shadow: none;
     outline: none;
   }
+
+nav a {
+          padding: 10px;
+          background-color: #ffa76c;
+          color: white;
+          text-align: left;
+          border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
       .card-informasi {
   max-width: 500px;
   margin: 20px auto;
@@ -1151,6 +1153,16 @@ color: #ff6b00
     box-shadow: none;
     outline: none;
   }
+
+  nav a {
+          padding: 10px;
+          background-color: #ffa76c;
+          color: white;
+          text-align: left;
+          border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        
       /* Navigasi default untuk desktop */
       nav {
         display: flex;
