@@ -2,11 +2,9 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nitip - Food Delivery</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restoran - Nitip</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -17,118 +15,41 @@
         </div>
         <button class="menu-toggle" onclick="toggleNavMenu()">☰</button>
         <nav id="mobile-nav" class="hidden">
-      <a href="#index">Beranda</a>
-      <a href="Kategori.html">Kategori</a>
+      <a href="#">Home</a>
       <a href="checkout.html">Checkout</a>
+      <a href="about.html">About</a>
     </nav>
-
-    <section class="search-section">
-        <div class="search-box">
-          <input type="text" id="searchInput" placeholder="Cari makanan, minuman, atau restoran..." />
-          <div id="searchResults" class="search-results"></div>
-        </div>
-      </section>
+   
   </header>
 
   <main>
-    <section class="hero">
-      <h2>Mau nitip apa hari ini?</h2>
-      <p>Temukan makanan, minuman, dan barang yang ingin kamu titip!</p>
-      <a href="Kategori.html" class="btn">Lihat Disini</a>
-    </section>
-
- <div class="yuknitip">
-       <img src="yuknitip.png" alt="Yuk Nitip" class="logo-yuk">
-    </a>
-   </div>   
-
-   <div class="tentang-kami" id="tentang" style="padding: 40px 20px; text-align: center; margin-top: 0;">
-      <h2>Tentang Kami</h2>
-      <p style="max-width: 700px; margin: auto; font-size: 1.1rem; line-height: 1.7;">
-        <strong>Nitip</strong> adalah platform layanan pesan antar yang berdiri sejak tahun <strong>2025</strong>, 
-        dan merupakan <strong>Karya Anak Tarempa</strong>. Website ini hadir untuk memudahkan kebutuhan harian masyarakat 
-        Tarempa dan sekitarnya, mulai dari antar makanan, pengiriman barang, hingga layanan belanja. 
-        Dengan semangat pelayanan lokal, kami berkomitmen menghadirkan layanan yang <strong>mudah, cepat, dan murah</strong>.
-        <br><br>
-        <em>Yuk nitip sekarang — karena kebutuhanmu, siap kami bantu!</em>
-      </p>
-    </div>
-
-<h3 class="info-kontak">Kontak</h3>
-  <ul class="kontak">
-    <a href="mailto:karyaanaktarempa@gmail.com"><i class="fa-solid fa-envelope"> </i>karyaanaktarempa@gmail.com</a><br>
-    <a href="tel:085770572398"><i class="fa-brands fa-whatsapp"> </i>0857-7057-2398</a><br>
-  <a href="https://instagram.com/nitip.io" target="_blank">
-    <i class="fa-brands fa-instagram"> </i> @nitip.io
-  </a>
-  </ul>
-</section>
-  </main>
-</body>
-
-  <footer style="text-align: center; padding: 20px; background-color: #f7f7f7;">
+   <div class="apaya">
+      <img src="nitipapa.png" alt="Apa Ya" class="imgapa">
+    <h2 class="h2aa">Mau nitip apa ya?</h2>
+    
+  </div>
+    <navbar class="icon-kategori">
+        <a href="restaurant.html">
+           <img src="nitipmakan.png" alt="Nitip Makan" class="icon-k">
+        </a>
+            <a href="barang.html">
+               <img src="nitipbarang.png" alt="Nitip Barang" class="icon-k">
+            </a>
+            </navbar>
+            <navbar class="icon-kategori1">  
+                 <a href="belanja.html">
+                    <img src="nitipbelanja.png" alt="Nitip Belanja" class="icon-k">
+                 </a>
+            </navbar>
+       
+   <footer style="text-align: center; padding: 20px; background-color: #f7f7f7;">
   <p>&copy; 2025 Nitip. Karya Anak Tarempa. Semua Hak Dilindungi.</p>
 </footer>
   <script src="script.js"></script>
-<!-- ... bagian atas HTML tetap sama ... -->
-<script>
-  
-    function toggleNavMenu() {
+  <script>function toggleNavMenu() {
       const nav = document.getElementById('mobile-nav');
       nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
     }
-  </script>
-<script>
-  const searchInput = document.getElementById('searchInput');
-  const searchResults = document.getElementById('searchResults');
-
-  const items = [
-    { nama: 'Nasi Goreng', kategori: 'makanan', restoran: 'PTM', link: 'ptm.html' },
-    { nama: 'Kopi O', kategori: 'minuman', restoran: 'Kedai Kopi Win Botak', link: 'kopiwin.html' },
-    // Tambahan hasil pencarian berdasarkan restoran
-    { nama: 'Pokkat\'s', kategori: 'restoran', restoran: 'Pokkat\'s', link: 'pokkat.html' },
-    { nama: 'Kedai Kopi Win Botak', kategori: 'restoran', restoran: 'Kedai Kopi Win Botak', link: 'kopiwin.html' },
-    { nama: 'PTM, Tanjung Momong', kategori: 'restoran', restoran: 'PTM', link: 'ptm.html' },
-    { nama: 'Ayam Bakar Mas Adam', kategori: 'restoran', restoran: 'Ayam Bakar Mas Adam', link: 'masadam.html' }
-  ];
-
-  searchInput.addEventListener('input', function () {
-    const query = this.value.toLowerCase();
-    searchResults.innerHTML = '';
-
-    if (query === '') {
-      searchResults.style.display = 'none';
-      return;
-    }
-
-    const filtered = items.filter(item =>
-      item.nama.toLowerCase().includes(query) ||
-      item.kategori.toLowerCase().includes(query) ||
-      item.restoran.toLowerCase().includes(query)
-    );
-
-    if (filtered.length > 0) {
-      filtered.forEach(item => {
-        const resultItem = document.createElement('div');
-        resultItem.className = 'search-result-item';
-
-        const link = document.createElement('a');
-        link.href = item.link;
-        link.textContent = `${item.nama} (${item.restoran})`;
-        link.style.textDecoration = 'none';
-        link.style.color = '#333';
-
-        resultItem.appendChild(link);
-        searchResults.appendChild(resultItem);
-      });
-      searchResults.style.display = 'block';
-    } else {
-      const noResult = document.createElement('div');
-      noResult.textContent = 'Tidak ditemukan';
-      searchResults.appendChild(noResult);
-      searchResults.style.display = 'block';
-    }
-  });
-</script>
+    </script>
 </body>
 </html>

@@ -1106,7 +1106,6 @@ color: #ff6b00
 
   @media (max-width: 600px) {
     header {
-      flex-direction: column;
       text-align: center;
     }
   
@@ -1205,7 +1204,21 @@ color: #ff6b00
           border-top: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-               
+        .icon-kategori {
+          justify-content: center;
+
+        }
+
+        .icon-kategori1 {
+          justify-content: center;
+          margin-right: 20%;
+        }
+       
+        .icon-k {
+        height: 140px;
+        width: 130px;
+        }
+        
       }
       
   @media screen and (max-width: 768px) {

@@ -18,9 +18,9 @@
         </div>
         <button class="menu-toggle" onclick="toggleNavMenu()">☰</button>
         <nav id="mobile-nav" class="hidden">
-      <a href="index.html">Beranda</a>
-      <a href="Kategori.html">Kategori</a>
+      <a href="index.html">Home</a>
       <a href="checkout.html">Checkout</a>
+      <a href="about.html">About<a>
     </nav>
 <div class="css-a">
     <h2 class="cs">Laper? yuk nitip makanan yang kamu mau</h2>
@@ -29,6 +29,12 @@
   </header>
 
   <main>
+    <section class="search-section">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Cari makanan, minuman, atau restoran..." />
+          <div id="searchResults" class="search-results"></div>
+        </div>
+      </section>
     <section class="kategori-menu">
 <a href="anekanasi.html">
       <div class="katergori-card">
@@ -129,55 +135,6 @@
 </footer>
 
   <script src="script.js"></script>
-  <script>
-    const quantities = {
-      pokkat1: 0,
-      cireng: 0,
-      geprek: 0
-    };
-  
-    function toggleNavMenu() {
-      const nav = document.getElementById('mobile-nav');
-      nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
-    }
-
-    
-    function changeQty(menuId, delta) {
-      if (!quantities[menuId]) quantities[menuId] = 0;
-      quantities[menuId] = Math.max(0, quantities[menuId] + delta);
-      document.getElementById(`qty-${menuId}`).innerText = quantities[menuId];
-    }
-  
-    function addToCart(name, price, menuId) {
-      const qty = quantities[menuId] || 0;
-      if (qty === 0) {
-        alert("Jumlah belum dipilih!");
-        return;
-      }
-  
-      let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  
-      const existing = cart.find(item => item.name === name);
-      if (existing) {
-        existing.qty += qty;
-      } else {
-        cart.push({ name, price, qty });
-      }
-  
-      localStorage.setItem("cart", JSON.stringify(cart));
-      updateCartCount();
-      alert(`${qty}x ${name} telah ditambahkan ke keranjang!`);
-    }
-  
-    function updateCartCount() {
-      const cart = JSON.parse(localStorage.getItem("cart")) || [];
-      const total = cart.reduce((sum, item) => sum + item.qty, 0);
-      const cartCount = document.getElementById("cart-count");
-      if (cartCount) cartCount.innerText = total;
-    }
-  
-    document.addEventListener("DOMContentLoaded", updateCartCount);
-  </script>
 
 <script>
     function toggleMenu(id) {
@@ -189,6 +146,62 @@
       }
     }
   </script>
+  <script>
+  const searchInput = document.getElementById('searchInput');
+  const searchResults = document.getElementById('searchResults');
+
+  const items = [
+    { nama: 'Nasi Goreng', kategori: 'Aneka Nasi', link: 'anekanasi.html' },
+    { nama: 'Nasi  Padang', kategori: 'Aneka Nasi', link: 'anekanasi.html' },
+    { nama: 'Ayam Goreng', kategori: 'Ayam & Ikan', link: 'ayamdanikan.html' },
+    { nama: 'Ayam Bakar', kategori: 'Ayam & Ikan', link: 'ayamdanikan.html' },
+    { nama: 'Kopi', kategori: 'Minuman', link: 'minuman.html' },
+    { nama: 'Kopi O', kategori: 'Minuman',  link: 'kedaikopi.html' },
+    // Tambahan hasil pencarian berdasarkan restoran
+    { nama: 'Pokkat\'s', kategori: 'restoran', restoran: 'Pokkat\'s', link: 'pokkat.html' },
+    { nama: 'Kedai Kopi Win Botak', kategori: 'restoran', restoran: 'Kedai Kopi Win Botak', link: 'kopiwin.html' },
+    { nama: 'PTM, Tanjung Momong', kategori: 'restoran', restoran: 'PTM', link: 'ptm.html' },
+    { nama: 'Ayam Bakar Mas Adam', kategori: 'restoran', restoran: 'Ayam Bakar Mas Adam', link: 'masadam.html' }
+  ];
+
+  searchInput.addEventListener('input', function () {
+    const query = this.value.toLowerCase();
+    searchResults.innerHTML = '';
+
+    if (query === '') {
+      searchResults.style.display = 'none';
+      return;
+    }
+
+    const filtered = items.filter(item =>
+      item.nama.toLowerCase().includes(query) ||
+      item.kategori.toLowerCase().includes(query) ||
+      item.restoran.toLowerCase().includes(query)
+    );
+
+    if (filtered.length > 0) {
+      filtered.forEach(item => {
+        const resultItem = document.createElement('div');
+        resultItem.className = 'search-result-item';
+
+        const link = document.createElement('a');
+        link.href = item.link;
+        link.textContent = `${item.nama} (${item.restoran})`;
+        link.style.textDecoration = 'none';
+        link.style.color = '#333';
+
+        resultItem.appendChild(link);
+        searchResults.appendChild(resultItem);
+      });
+      searchResults.style.display = 'block';
+    } else {
+      const noResult = document.createElement('div');
+      noResult.textContent = 'Tidak ditemukan';
+      searchResults.appendChild(noResult);
+      searchResults.style.display = 'block';
+    }
+  });
+</script>
 
 </body>
 </html>

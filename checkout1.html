@@ -19,9 +19,9 @@
         </div>
         <button class="menu-toggle" onclick="toggleMenu()">☰</button>
         <nav id="mobile-nav" class="hidden">
-            <a href="index.html">Beranda</a>
-            <a href="Kategori.html">Kategori</a>
+            <a href="index.html">Home</a>
             <a href="#">Checkout</a>
+            <a href="about.html">About<a>
         </nav>
     </header>
 
@@ -200,119 +200,119 @@
         }
 
         function submitOrder(event) {
-  event.preventDefault();
+            event.preventDefault();
 
-  const nama = document.getElementById("nama").value.trim();
-  const alamat = document.getElementById("alamat").value.trim();
-  const nomor = document.getElementById("nomor").value.trim();
-  const pembayaran = document.getElementById("pembayaran").value;
-  const lokasiSelect = document.getElementById("lokasi");
-  const lokasi = lokasiSelect.value;
-  const lokasiText = lokasiSelect.options[lokasiSelect.selectedIndex]?.text || '';
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            const nama = document.getElementById("nama").value.trim();
+            const alamat = document.getElementById("alamat").value.trim();
+            const nomor = document.getElementById("nomor").value.trim();
+            const pembayaran = document.getElementById("pembayaran").value;
+            const lokasiSelect = document.getElementById("lokasi");
+            const lokasi = lokasiSelect.value;
+            const lokasiText = lokasiSelect.options[lokasiSelect.selectedIndex]?.text || '';
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  if (!/^\d{10,13}$/.test(nomor)) {
-    alert("Masukkan nomor HP yang valid.");
-    return;
-  }
+            if (!/^\d{10,13}$/.test(nomor)) {
+                alert("Masukkan nomor HP yang valid.");
+                return;
+            }
 
-  if (!lokasi) {
-    alert("Silakan pilih lokasi pengantaran.");
-    return;
-  }
+            if (!lokasi) {
+                alert("Silakan pilih lokasi pengantaran.");
+                return;
+            }
 
-  if (cart.length === 0) {
-    alert("Keranjang kosong!");
-    return;
-  }
+            if (cart.length === 0) {
+                alert("Keranjang kosong!");
+                return;
+            }
 
-  if (!nama || !alamat || !nomor || !pembayaran) {
-    alert("Mohon isi semua data dengan lengkap.");
-    return;
-  }
+            if (!nama || !alamat || !nomor || !pembayaran) {
+                alert("Mohon isi semua data dengan lengkap.");
+                return;
+            }
 
-  const grouped = groupCartByMerchant(cart);
-  const merchantCount = Object.keys(grouped).length;
-  if (merchantCount > 1) {
-    alert("Maaf, Anda hanya bisa memesan dari satu merchant dalam satu transaksi.");
-    return;
-  }
+            const grouped = groupCartByMerchant(cart);
+            const merchantCount = Object.keys(grouped).length;
+            if (merchantCount > 1) {
+                alert("Maaf, Anda hanya bisa memesan dari satu merchant dalam satu transaksi.");
+                return;
+            }
 
-  let totalHarga = 0;
-  const items = [];
+            let totalHarga = 0;
+            const items = [];
 
-  for (const merchant in grouped) {
-    grouped[merchant].forEach((item) => {
-      const subtotal = item.qty * item.price;
-      totalHarga += subtotal;
-      items.push({
-        merchant,
-        name: item.name,
-        qty: item.qty,
-        price: item.price,
-        note: item.note || ''
-      });
-    });
-  }
+            for (const merchant in grouped) {
+                grouped[merchant].forEach((item) => {
+                    const subtotal = item.qty * item.price;
+                    totalHarga += subtotal;
+                    items.push({
+                        merchant,
+                        name: item.name,
+                        qty: item.qty,
+                        price: item.price,
+                        note: item.note || ''
+                    });
+                });
+            }
 
-  const ongkir = parseInt(lokasiSelect.selectedOptions[0]?.getAttribute("data-ongkir")) || 0;
-  const total = totalHarga + ongkir;
+            const ongkir = parseInt(lokasiSelect.selectedOptions[0]?.getAttribute("data-ongkir")) || 0;
+            const total = totalHarga + ongkir;
 
-  const data = {
-    nama,
-    alamat,
-    nomor,
-    lokasi: lokasiText,
-    pembayaran,
-    ongkir,
-    total,
-    items
-  };
+            const data = {
+                nama,
+                alamat,
+                nomor,
+                lokasi: lokasiText,
+                pembayaran,
+                ongkir,
+                total,
+                items
+            };
 
-  // Kirim ke Google Apps Script Web App
-  fetch("https://script.google.com/macros/s/AKfycbxKFoRPDV0yDP79MkUl1KAMqrWxRBo7KwiCEfAfNDo8SeW8sybkxUPuze6JNqCd6uOIsg/exec", {
-    method: "POST",
-    mode: "no-cors",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(data)
-  });
+            // Kirim ke Google Apps Script Web App
+            fetch("https://script.google.com/macros/s/AKfycbxKFoRPDV0yDP79MkUl1KAMqrWxRBo7KwiCEfAfNDo8SeW8sybkxUPuze6JNqCd6uOIsg/exec", {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
 
-  alert("Pesanan berhasil dikirim!");
-  document.getElementById("order-form").reset();
-  document.getElementById("lokasi").selectedIndex = 0;
-  localStorage.removeItem("cart");
-  loadCart();
-}
+            alert("Pesanan berhasil dikirim!");
+            document.getElementById("order-form").reset();
+            document.getElementById("lokasi").selectedIndex = 0;
+            localStorage.removeItem("cart");
+            loadCart();
+        }
 
         document.addEventListener("DOMContentLoaded", loadCart);
-    
-        function checkSingleMerchantInCart() {
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const grouped = groupCartByMerchant(cart);
-  const merchantCount = Object.keys(grouped).length;
-  const checkoutBtn = document.getElementById("checkoutButton");
 
-  if (merchantCount > 1) {
-    checkoutBtn.disabled = true;
-    checkoutBtn.textContent = "Hanya bisa checkout 1 merchant";
-    checkoutBtn.style.backgroundColor = "#ccc";
-    checkoutBtn.style.cursor = "not-allowed";
-  } else {
-    checkoutBtn.disabled = false;
-    checkoutBtn.textContent = "Checkout";
-    checkoutBtn.style.backgroundColor = ""; // reset ke style semula
-    checkoutBtn.style.cursor = "pointer";
-  }
-}
-document.addEventListener("DOMContentLoaded", () => {
-  checkSingleMerchantInCart();
-});
-function updateCartUI() {
-  // ...update tampilan keranjang
-  checkSingleMerchantInCart();
-}
+        function checkSingleMerchantInCart() {
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            const grouped = groupCartByMerchant(cart);
+            const merchantCount = Object.keys(grouped).length;
+            const checkoutBtn = document.getElementById("checkoutButton");
+
+            if (merchantCount > 1) {
+                checkoutBtn.disabled = true;
+                checkoutBtn.textContent = "Hanya bisa checkout 1 merchant";
+                checkoutBtn.style.backgroundColor = "#ccc";
+                checkoutBtn.style.cursor = "not-allowed";
+            } else {
+                checkoutBtn.disabled = false;
+                checkoutBtn.textContent = "Checkout";
+                checkoutBtn.style.backgroundColor = ""; // reset ke style semula
+                checkoutBtn.style.cursor = "pointer";
+            }
+        }
+        document.addEventListener("DOMContentLoaded", () => {
+            checkSingleMerchantInCart();
+        });
+        function updateCartUI() {
+            // ...update tampilan keranjang
+            checkSingleMerchantInCart();
+        }
     </script>
 </body>
 
