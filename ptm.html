@@ -1,0 +1,2170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restoran - Nitip</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <div class="logo-banner">
+    <img src="merchant/ptm/bannerptm.png" alt="PTM" class="banner">
+    </div>
+</head>
+<body>
+  <main>
+    <div class="cart-icon">
+        <a href="checkout1.html">
+          <i class="fas fa-shopping-cart"></i>
+          <span id="cart-count">0</span>
+        </a>
+      </div>
+      <div class="merchant-info1"></a>
+      <h3>PTM, Tanjung Momong</h3>
+            <p>Jalan Tanjung Momong, Tarempa Timur, Siantan</p>
+            <p> Open : 15.00 - 22.30 WIB</p>
+             <div id="status-operasional" style="margin: 1em 0; font-weight: bold;">
+      </div>
+      </div>
+      <div class="menu-card">
+        <h4>New Menu</h4>
+        <div class="menu-item">
+        <img src="merchant/ptm/seblak.jpg" alt="menu-info"/>
+        <p class="menu">Seblak</p>
+        <p class="price">Rp22.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('seblak', -1)">-</button>
+          <span id="qty-seblak">0</span>
+          <button onclick="changeQty('seblak', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-seblak" placeholder="Contoh : Pedas, Sedang" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Seblak', price: 22000, menuId: 'seblak', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/ptm/ayamsausrichesse.jpg" alt="menu-info"/>
+        <p class="menu">Ayam KFC Saus Richeese</p>
+        <p class="price">Rp27.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('arc', -1)">-</button>
+          <span id="qty-arc">0</span>
+          <button onclick="changeQty('arc', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-arc" placeholder="Contoh : Banyak Saus, Goreng Kering" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Ayam KFC Saus Richeese', price: 27000, menuId: 'arc', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/ptm/kentanggoreng.jpeg" alt="menu-info"/>
+        <p class="menu">Kentang Goreng Bumbu Balado</p>
+        <p class="price">Rp20.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('kentang', -1)">-</button>
+          <span id="qty-kentang">0</span>
+          <button onclick="changeQty('kentang', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-kentang" placeholder="Contoh : Pedas" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Kentang Goreng Bumbu Balado', price: 20000, menuId: 'kentang', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+  <div class="menu-item">
+        <img src="merchant/ptm/kernas.jpg" alt="menu-info"/>
+        <p class="menu">Kernas</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('kernas', -1)">-</button>
+          <span id="qty-kernas">0</span>
+          <button onclick="changeQty('kernas', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-kernas" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Kernas', price: 17000, menuId: 'kernas', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <h4>Aneka Ayam</h4>
+        <div class="menu-item">
+        <img src="merchant/ptm/steakayam.jpg" alt="menu-info"/>
+        <p class="menu">Steak Ayam Crispy</p>
+        <p class="price">Rp32.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('sac', -1)">-</button>
+          <span id="qty-sac">0</span>
+          <button onclick="changeQty('sac', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-sac" placeholder="Contoh : Dada, Paha, Sayap" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Steak Ayam Crispy', price: 32000, menuId: 'sac', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/ptm/ayambakar.jpg" alt="menu-info"/>
+        <p class="menu">Ayam Bakar</p>
+        <p class="price">Rp27.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('ab', -1)">-</button>
+          <span id="qty-ab">0</span>
+          <button onclick="changeQty('ab', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-ab" placeholder="Contoh : Dada, Paha, Sayap" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Ayam Bakar', price: 27000, menuId: 'ab', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/ptm/ayamcabeijo.png" alt="menu-info"/>
+        <p class="menu">Ayam Cabe Hijau</p>
+        <p class="price">Rp32.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('ach', -1)">-</button>
+          <span id="qty-ach">0</span>
+          <button onclick="changeQty('ach', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-ach" placeholder="Contoh : Dada, Paha, Sayap" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Ayam Cabe Hijau', price: 32000, menuId: 'ach', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+  <div class="menu-item">
+        <img src="merchant/makan.png" alt="menu-info"/>
+        <p class="menu">Ayam Rica-Rica</p>
+        <p class="price">Rp32.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('arr', -1)">-</button>
+          <span id="qty-arr">0</span>
+          <button onclick="changeQty('arr', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-arr" placeholder="Contoh : Dada, Paha, Sayap" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Ayam Rica-Rica', price: 32000, menuId: 'arr', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+    <div class="menu-item">
+        <img src="merchant/ptm/ayamkecap.jpg" alt="menu-info"/>
+        <p class="menu">Ayam Kecap</p>
+        <p class="price">Rp32.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('ak', -1)">-</button>
+          <span id="qty-ak">0</span>
+          <button onclick="changeQty('ak', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-ak" placeholder="Contoh : Dada, Paha, Sayap" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Ayam Kecap', price: 32000, menuId: 'ak', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+    <div class="menu-item">
+        <img src="merchant/makan.png" alt="menu-info"/>
+        <p class="menu">Ayam Kalasan</p>
+        <p class="price">Rp27.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('akl', -1)">-</button>
+          <span id="qty-akl">0</span>
+          <button onclick="changeQty('akl', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-akl" placeholder="Contoh : Dada, Paha, Sayap" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Ayam Kalasan', price: 27000, menuId: 'akl', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+    <div class="menu-item">
+        <img src="merchant/ptm/ayamgeprek.jpg" alt="menu-info"/>
+        <p class="menu">Ayam Geprek</p>
+        <p class="price">Rp22.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('ag', -1)">-</button>
+          <span id="qty-ag">0</span>
+          <button onclick="changeQty('ag', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-ag" placeholder="Contoh : Dada, Paha, Sayap" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Ayam Geprek', price: 22000, menuId: 'ag', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+    <div class="menu-item">
+        <img src="merchant/ptm/ayamtepung.jpg" alt="menu-info"/>
+        <p class="menu">Ayam Tepung</p>
+        <p class="price">Rp27.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('at', -1)">-</button>
+          <span id="qty-at">0</span>
+          <button onclick="changeQty('at', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-at" placeholder="Contoh : Dada, Paha, Sayap" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Ayam Tepung', price: 27000, menuId: 'at', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+    <div class="menu-item">
+        <img src="merchant/ptm/ayamtepung.jpg" alt="menu-info"/>
+        <p class="menu">Ayam KFC</p>
+        <p class="price">Rp22.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('akfc', -1)">-</button>
+          <span id="qty-akfc">0</span>
+          <button onclick="changeQty('akfc', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-akfc" placeholder="Contoh : Dada, Paha, Sayap" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Ayam KFC', price: 22000, menuId: 'akfc', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+    <div class="menu-item">
+        <img src="merchant/makan.png" alt="menu-info"/>
+        <p class="menu">Ayam Lada Hitam</p>
+        <p class="price">Rp32.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('alh', -1)">-</button>
+          <span id="qty-alh">0</span>
+          <button onclick="changeQty('alh', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-alh" placeholder="Contoh : Dada, Paha, Sayap" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Ayam Lada Hitam', price: 32000, menuId: 'alh', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+    <div class="menu-item">
+        <img src="merchant/makan.png" alt="menu-info"/>
+        <p class="menu">Ayam Bawang Putih</p>
+        <p class="price">Rp32.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('abp', -1)">-</button>
+          <span id="qty-abp">0</span>
+          <button onclick="changeQty('abp', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-abp" placeholder="Contoh : Dada, Paha, Sayap" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Ayam Bawang Putih', price: 32000, menuId: 'abp', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+    <div class="menu-item">
+        <img src="merchant/makan.png" alt="menu-info"/>
+        <p class="menu">Ayam Cabe Merah</p>
+        <p class="price">Rp32.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('acm', -1)">-</button>
+          <span id="qty-acm">0</span>
+          <button onclick="changeQty('acm', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-acm" placeholder="Contoh : Dada, Paha, Sayap" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Ayam Cabe Merah', price: 32000, menuId: 'acm', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+    <div class="menu-card">
+        <h4>Aneka Cumi/Sotong</h4>
+        <div class="menu-item">
+        <img src="merchant/makan.png" alt="menu-info"/>
+        <p class="menu">Sotong Sarden</p>
+        <p class="price">Rp32.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('ss', -1)">-</button>
+          <span id="qty-ss">0</span>
+          <button onclick="changeQty('ss', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-ss" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Sotong Sarden', price: 32000, menuId: 'ss', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+  <div class="menu-item">
+        <img src="merchant/makan.png" alt="menu-info"/>
+        <p class="menu">Sotong Kecap Pedas</p>
+        <p class="price">Rp32.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('skp', -1)">-</button>
+          <span id="qty-skp">0</span>
+          <button onclick="changeQty('skp', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-skp" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Sotong Kecap Pedas', price: 32000, menuId: 'skp', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+  <div class="menu-item">
+        <img src="merchant/makan.png" alt="menu-info"/>
+        <p class="menu">Sotong Cabe Hijau</p>
+        <p class="price">Rp32.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('sch', -1)">-</button>
+          <span id="qty-sch">0</span>
+          <button onclick="changeQty('sch', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-sch" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Sotong Cabe Hijau', price: 32000, menuId: 'sch', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+  <div class="menu-item">
+        <img src="merchant/makan.png" alt="menu-info"/>
+        <p class="menu">Sotong Saus</p>
+        <p class="price">Rp32.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('sss', -1)">-</button>
+          <span id="qty-sss">0</span>
+          <button onclick="changeQty('sss', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-sss" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Sotong Saus', price: 32000, menuId: 'sss', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+  <div class="menu-item">
+        <img src="merchant/ptm/cumitepung.jpg" alt="menu-info"/>
+        <p class="menu">Cumi Tepung</p>
+        <p class="price">Rp32.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('ct', -1)">-</button>
+          <span id="qty-ct">0</span>
+          <button onclick="changeQty('ct', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-ct" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Cumi Tepung', price: 32000, menuId: 'ct', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <h4>Aneka Sayur</h4>
+        <div class="menu-item">
+        <img src="merchant/makan.png" alt="menu-info"/>
+        <p class="menu">Yong Topu</p>
+        <p class="price">Rp27.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('yt', -1)">-</button>
+          <span id="qty-yt">0</span>
+          <button onclick="changeQty('yt', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-yt" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Yong Topu', price: 27000, menuId: 'yt', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+  <div class="menu-item">
+        <img src="merchant/ptm/tomyamseafood.png" alt="menu-info"/>
+        <p class="menu">Tomyam Seafood</p>
+        <p class="price">Rp32.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('ts', -1)">-</button>
+          <span id="qty-ts">0</span>
+          <button onclick="changeQty('ts', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-ts" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Tomyam Seafood', price: 32000, menuId: 'ts', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+    <div class="menu-card">
+  <div class="menu-item">
+        <img src="merchant/ptm/sopayam.jpg" alt="menu-info"/>
+        <p class="menu">Sop Ayam</p>
+        <p class="price">Rp32.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('sa', -1)">-</button>
+          <span id="qty-sa">0</span>
+          <button onclick="changeQty('sa', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-sa" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Sop Ayam', price: 32000, menuId: 'sa', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+    <div class="menu-card">
+  <div class="menu-item">
+        <img src="merchant/ptm/capcay.jpg" alt="menu-info"/>
+        <p class="menu">Capcay</p>
+        <p class="price">Rp27.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('capcay', -1)">-</button>
+          <span id="qty-capcay">0</span>
+          <button onclick="changeQty('capcay', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-capcay" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Capcay', price: 27000, menuId: 'capcay', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+    <div class="menu-card">
+  <div class="menu-item">
+        <img src="merchant/ptm/cahbrokoli.jpg" alt="menu-info"/>
+        <p class="menu">Cah Brokoli</p>
+        <p class="price">Rp27.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('cb', -1)">-</button>
+          <span id="qty-cb">0</span>
+          <button onclick="changeQty('cb', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-cb" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Cah Brokoli', price: 27000, menuId: 'cb', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+    <div class="menu-card">
+  <div class="menu-item">
+        <img src="merchant/ptm/cahkangkung.jpeg" alt="menu-info"/>
+        <p class="menu">Cah Kangkung</p>
+        <p class="price">Rp20.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('ck', -1)">-</button>
+          <span id="qty-ck">0</span>
+          <button onclick="changeQty('ck', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-ck" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Cah Kangkung', price: 20000, menuId: 'ck', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+    <div class="menu-card">
+  <div class="menu-item">
+        <img src="merchant/ptm/tumistauge.jpg" alt="menu-info"/>
+        <p class="menu">Tumis Tauge</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('tt', -1)">-</button>
+          <span id="qty-tt">0</span>
+          <button onclick="changeQty('tt', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-tt" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Tumis Tauge', price: 17000, menuId: 'tt', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+    <div class="menu-card">
+  <div class="menu-item">
+        <img src="merchant/makan.png" alt="menu-info"/>
+        <p class="menu">Tumis Sawi</p>
+        <p class="price">Rp22.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('tss', -1)">-</button>
+          <span id="qty-tss">0</span>
+          <button onclick="changeQty('tss', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-tss" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Tumis Sawi', price: 22000, menuId: 'tss', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+    <div class="menu-card">
+  <div class="menu-item">
+        <img src="merchant/makan.png" alt="menu-info"/>
+        <p class="menu">Tumis Sawi Orak Arik</p>
+        <p class="price">Rp22.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('tsoa', -1)">-</button>
+          <span id="qty-tsoa">0</span>
+          <button onclick="changeQty('tsoa', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-tsoa" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Tumis Sawi Orak Arik', price: 22000, menuId: 'tsoa', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <h4>Nasi dan Mie</h4>
+        <div class="menu-item">
+        <img src="merchant/ptm/nasigoreng.jpg" alt="menu-info"/>
+        <p class="menu">Nasi Goreng Merah</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('ngm', -1)">-</button>
+          <span id="qty-ngm">0</span>
+          <button onclick="changeQty('ngm', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-ngm" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Nasi Goreng Merah', price: 17000, menuId: 'nmg', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+  <div class="menu-item">
+        <img src="merchant/ptm/nasigorengpputih.jpg" alt="menu-info"/>
+        <p class="menu">Nasi Goreng Putih</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('ngp', -1)">-</button>
+          <span id="qty-ngp">0</span>
+          <button onclick="changeQty('ngp', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-ngp" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Nasi Goreng Putih', price: 17000, menuId: 'ngp', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+    <div class="menu-card">
+  <div class="menu-item">
+        <img src="merchant/makan.png" alt="menu-info"/>
+        <p class="menu">Nasi Goreng Teri</p>
+        <p class="price">Rp20.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('ngt', -1)">-</button>
+          <span id="qty-ngt">0</span>
+          <button onclick="changeQty('ngt', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-ngt" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Nasi Goreng Teri', price: 20000, menuId: 'ngt', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+    <div class="menu-card">
+  <div class="menu-item">
+        <img src="merchant/ptm/nasigorengseafood.jpg" alt="menu-info"/>
+        <p class="menu">Nasi Goreng Seafood</p>
+        <p class="price">Rp27.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('ngs', -1)">-</button>
+          <span id="qty-ngs">0</span>
+          <button onclick="changeQty('ngs', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-ngs" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Nasi Goreng Seafood', price: 27000, menuId: 'ngs', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+    <div class="menu-card">
+  <div class="menu-item">
+        <img src="merchant/ptm/nasigorengpete.jpg" alt="menu-info"/>
+        <p class="menu">Nasi Goreng Petai</p>
+        <p class="price">Rp22.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('ngpt', -1)">-</button>
+          <span id="qty-ngpt">0</span>
+          <button onclick="changeQty('ngpt', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-ngpt" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Nasi Goreng Petai', price: 22000, menuId: 'ngpt', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+    <div class="menu-card">
+  <div class="menu-item">
+        <img src="merchant/ptm/mietarempa.jpeg" alt="menu-info"/>
+        <p class="menu">Mie Goreng Tarempa</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('mgt', -1)">-</button>
+          <span id="qty-mgt">0</span>
+          <button onclick="changeQty('mgt', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-mgt" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Mie Goreng Tarempa', price: 17000, menuId: 'mgt', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+    <div class="menu-card">
+  <div class="menu-item">
+        <img src="merchant/makan.png" alt="menu-info"/>
+        <p class="menu">Mie Rebus Tarempa</p>
+        <p class="price">Rp22.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('mrt', -1)">-</button>
+          <span id="qty-mrt">0</span>
+          <button onclick="changeQty('mrt', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-mrt" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Mie Rebus Tarempa', price: 22000, menuId: 'mrt', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+    <div class="menu-card">
+  <div class="menu-item">
+        <img src="merchant/ptm/kwetiaukuah.jpg" alt="menu-info"/>
+        <p class="menu">Kwietiau Kuah</p>
+        <p class="price">Rp22.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('kk', -1)">-</button>
+          <span id="qty-kk">0</span>
+          <button onclick="changeQty('kk', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-kk" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'kwetiau Kuah', price: 22000, menuId: 'kk', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+  <div class="menu-item">
+        <img src="merchant/ptm/kwetiaugoreng.jpg" alt="menu-info"/>
+        <p class="menu">Kwietiau Goreng</p>
+        <p class="price">Rp20.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('kg', -1)">-</button>
+          <span id="qty-kg">0</span>
+          <button onclick="changeQty('kg', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-kg" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'kwetiau Goreng', price: 20000, menuId: 'kg', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+    <div class="menu-card">
+  <div class="menu-item">
+        <img src="merchant/ptm/bihungoreng.jpg" alt="menu-info"/>
+        <p class="menu">Bihun Goreng</p>
+        <p class="price">Rp20.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('bg', -1)">-</button>
+          <span id="qty-bg">0</span>
+          <button onclick="changeQty('bg', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-bg" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Bihun Goreng', price: 20000, menuId: 'bg', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+  <div class="menu-item">
+        <img src="merchant/ptm/bihungorengseafood.jpg" alt="menu-info"/>
+        <p class="menu">Bihun Goreng Seafood</p>
+        <p class="price">Rp27.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('bgs', -1)">-</button>
+          <span id="qty-bgs">0</span>
+          <button onclick="changeQty('bgs', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-bgs" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Bihun Goreng Seafood', price: 27000, menuId: 'bgs', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+  <div class="menu-item">
+        <img src="merchant/ptm/indomiegoreng.png" alt="menu-info"/>
+        <p class="menu">Indomie Goreng</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('indomiegr', -1)">-</button>
+          <span id="qty-indomiegr">0</span>
+          <button onclick="changeQty('indomiegr', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-indomiegr" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Indomie Goreng', price: 17000, menuId: 'indomiegr', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+    <div class="menu-card">
+  <div class="menu-item">
+        <img src="merchant/ptm/indomierebus.jpg" alt="menu-info"/>
+        <p class="menu">Indomie Rebus</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('indomierb', -1)">-</button>
+          <span id="qty-indomierb">0</span>
+          <button onclick="changeQty('indomierb', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-indomierb" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Indomie Rebus', price: 17000, menuId: 'indomierb', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+      <div class="menu-card">
+  <div class="menu-item">
+        <img src="merchant/ptm/soto.jpg" alt="menu-info"/>
+        <p class="menu">Soto</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('soto', -1)">-</button>
+          <span id="qty-soto">0</span>
+          <button onclick="changeQty('soto', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-soto" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Soto', price: 17000, menuId: 'soto', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+      <div class="menu-card">
+  <div class="menu-item">
+        <img src="merchant/ptm/mpekmpek.jpg" alt="menu-info"/>
+        <p class="menu">Empek-Empek</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('empek', -1)">-</button>
+          <span id="qty-empek">0</span>
+          <button onclick="changeQty('empek', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-empek" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Empek-Empek', price: 17000, menuId: 'empek', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+      <div class="menu-card">
+  <div class="menu-item">
+        <img src="merchant/ptm/nasiputih.jpg" alt="menu-info"/>
+         <p class="menu">Nasi Putih</p>
+        <p class="price">Rp7.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('nasi', -1)">-</button>
+          <span id="qty-nasi">0</span>
+          <button onclick="changeQty('nasi', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-nasi" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Nasi Putih', price: 7000, menuId: 'nasi', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <h4>Snack</h4>
+  <div class="menu-item">
+        <img src="merchant/ptm/pisangkeju.jpeg" alt="menu-info"/>
+        <p class="menu">Pisang Keju</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('pisangk', -1)">-</button>
+          <span id="qty-pisangk">0</span>
+          <button onclick="changeQty('pisangk', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-pisangk" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Pisang Keju', price: 17000, menuId: 'pisangk', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+  <div class="menu-item">
+        <img src="merchant/ptm/sosisgoreng.jpeg" alt="menu-info"/>
+        <p class="menu">Sosis</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('sosisg', -1)">-</button>
+          <span id="qty-sosisg">0</span>
+          <button onclick="changeQty('sosisg', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-sosisg" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Sosis Goreng', price: 17000, menuId: 'sosisg', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+    <div class="menu-card">
+  <div class="menu-item">
+        <img src="merchant/ptm/sosisbakar.jpg" alt="menu-info"/>
+        <p class="menu">Sosis Bakar</p>
+        <p class="price">Rp20.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('Sosis Bakar', -1)">-</button>
+          <span id="qty-Sosis Bakar">0</span>
+          <button onclick="changeQty('Sosis Bakar', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-Sosis Bakar" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Sosis Bakar', price: 20000, menuId: 'Sosis Bakar', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+    <div class="menu-card">
+  <div class="menu-item">
+        <img src="merchant/ptm/nugget.jpg" alt="menu-info"/>
+        <p class="menu">Nugget</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('nugget', -1)">-</button>
+          <span id="qty-nugget">0</span>
+          <button onclick="changeQty('nugget', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-nugget" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Nugget', price: 17000, menuId: 'nugget', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+    <div class="menu-card">
+  <div class="menu-item">
+        <img src="merchant/ptm/kentanggoreng.jpg" alt="menu-info"/>
+        <p class="menu">Kentang Goreng</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('kentangg', -1)">-</button>
+          <span id="qty-kentangg">0</span>
+          <button onclick="changeQty('kentangg', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-kentangg" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Kentang Goreng', price: 17000, menuId: 'kentangg', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+    <div class="menu-card">
+  <div class="menu-item">
+        <img src="merchant/ptm/bakwanjagung.jpg" alt="menu-info"/>
+        <p class="menu">Bakwan Jagung</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('bakwanj', -1)">-</button>
+          <span id="qty-bakwanj">0</span>
+          <button onclick="changeQty('bakwanj', 1)">+</button>
+        </div>
+        </div>
+        <div class="note-section">
+      <input type="text" id="note-bakwanj" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Bakwan Jagung', price: 17000, menuId: 'bakwanj', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+        <div class="menu-card">
+        <h4>Minuman Panas</h4>
+        <div class="menu-item">
+        <img src="merchant/ptm/kopiwin.png" alt="menu-info"/>
+        <p class="menu">Kopi O</p>
+        <p class="price">Rp7.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('kopio', -1)">-</button>
+          <span id="qty-kopio">0</span>
+          <button onclick="changeQty('kopio', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-kopio" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Kopi O', price: 7000, menuId: 'kopio', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Kopi Jahe</p>
+        <p class="price">Rp9.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('kopij', -1)">-</button>
+          <span id="qty-kopij">0</span>
+          <button onclick="changeQty('kopij', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-kopij" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Kopi Jahe', price: 9000, menuId: 'kopij', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Kopi Gula Aren</p>
+        <p class="price">Rp10.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('kopiga', -1)">-</button>
+          <span id="qty-kopiga">0</span>
+          <button onclick="changeQty('kopiga', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-kopiga" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Kopi Gula Aren', price: 10000, menuId: 'kopiga', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Kopi Jahe Gula Aren</p>
+        <p class="price">Rp12.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('kopijga', -1)">-</button>
+          <span id="qty-kopijga">0</span>
+          <button onclick="changeQty('kopijga', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-kopijga" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Kopi Jahe Gula Aren', price: 12000, menuId: 'kopijga', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Kopi Susu</p>
+        <p class="price">Rp12.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('kopisusu', -1)">-</button>
+          <span id="qty-kopisusu">0</span>
+          <button onclick="changeQty('kopisusu', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-kopisusu" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Kopi Susu', price: 12000, menuId: 'kopisusu', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Kopi Milo Susu</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('kopims', -1)">-</button>
+          <span id="qty-kopims">0</span>
+          <button onclick="changeQty('kopims', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-kopims" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Kopi Milo Susu', price: 17000, menuId: 'kopims', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Teh O</p>
+        <p class="price">Rp7.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('teho', -1)">-</button>
+          <span id="qty-teho">0</span>
+          <button onclick="changeQty('teho', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-teho" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Teh O', price: 7000, menuId: 'teho', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Teh Jahe</p>
+        <p class="price">Rp9.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('tehj', -1)">-</button>
+          <span id="qty-tehj">0</span>
+          <button onclick="changeQty('tehj', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-tehj" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Teh Jahe', price: 9000, menuId: 'tehj', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Teh Susu</p>
+        <p class="price">Rp12.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('tehs', -1)">-</button>
+          <span id="qty-tehs">0</span>
+          <button onclick="changeQty('tehs', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-tehs" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Teh Susu', price: 12000, menuId: 'tehs', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Milo Susu</p>
+        <p class="price">Rp12.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('milos', -1)">-</button>
+          <span id="qty-milos">0</span>
+          <button onclick="changeQty('milos', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-milos" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Milo Susu', price: 12000, menuId: 'milos', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Susu Panas</p>
+        <p class="price">Rp12.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('susup', -1)">-</button>
+          <span id="qty-susup">0</span>
+          <button onclick="changeQty('susup', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-susup" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Susu Panas', price: 12000, menuId: 'susup', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Coffie Mix</p>
+        <p class="price">Rp7.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('coffiem', -1)">-</button>
+          <span id="qty-coffiem">0</span>
+          <button onclick="changeQty('coffiem', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-coffiem" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Coffie Mix', price: 7000, menuId: 'coffiem', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Coffie Mix Susu</p>
+        <p class="price">Rp12.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('coffiems', -1)">-</button>
+          <span id="qty-coffiems">0</span>
+          <button onclick="changeQty('coffiems', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-coffiems" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Coffie Mix Susu', price: 12000, menuId: 'coffiems', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">White Coffie</p>
+        <p class="price">Rp12.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('wcoffie', -1)">-</button>
+          <span id="qty-wcoffie">0</span>
+          <button onclick="changeQty('wcoffie', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-wcoffie" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'White Ccoffe', price: 12000, menuId: 'wcoffie', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Teh Tarik</p>
+        <p class="price">Rp12.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('teht', -1)">-</button>
+          <span id="qty-teht">0</span>
+          <button onclick="changeQty('teht', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-teht" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Teh Tarik', price: 12000, menuId: 'teht', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Cappucino</p>
+        <p class="price">Rp12.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('cappucino', -1)">-</button>
+          <span id="qty-cappucino">0</span>
+          <button onclick="changeQty('cappucino', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-cappucino" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Cappucino', price: 12000, menuId: 'cappucino', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Torabika Cappucino</p>
+        <p class="price">Rp12.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('tcappucino', -1)">-</button>
+          <span id="qty-tcappucino">0</span>
+          <button onclick="changeQty('tcappucino', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-tcappucino" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Torabika Cappucino', price: 12000, menuId: 'tcappucino', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Beng-Beng</p>
+        <p class="price">Rp12.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('beng', -1)">-</button>
+          <span id="qty-beng">0</span>
+          <button onclick="changeQty('beng', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-beng" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Beng-Beng', price: 12000, menuId: 'beng', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Chocolatos</p>
+        <p class="price">Rp12.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('choco', -1)">-</button>
+          <span id="qty-choco">0</span>
+          <button onclick="changeQty('choco', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-choco" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Chocolatos', price: 12000, menuId: 'choco', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Lemon Tea</p>
+        <p class="price">Rp12.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('lemont', -1)">-</button>
+          <span id="qty-lemont">0</span>
+          <button onclick="changeQty('lemont', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-lemont" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Lemon Tea', price: 12000, menuId: 'lemont', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Jeruk Peras</p>
+        <p class="price">Rp12.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('jerukp', -1)">-</button>
+          <span id="qty-jerukp">0</span>
+          <button onclick="changeQty('jerukp', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-jerukp" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Jeruk Peras', price: 12000, menuId: 'jerukp', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Asam Panas</p>
+        <p class="price">Rp7.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('asamp', -1)">-</button>
+          <span id="qty-asamp">0</span>
+          <button onclick="changeQty('asamp', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-asamp" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Asam Panas', price: 7000, menuId: 'asamp', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+   <div class="menu-card">
+        <h4>Minuman Dingin</h4>
+        <div class="menu-item">
+        <img src="merchant/kopiwin/kopies.png" alt="menu-info"/>
+        <p class="menu">Kopi Es</p>
+        <p class="price">Rp10.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('kopies', -1)">-</button>
+          <span id="qty-kopies">0</span>
+          <button onclick="changeQty('kopies', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-kopies" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Kopi Es', price: 10000, menuId: 'kopies', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Teh Es</p>
+        <p class="price">Rp7.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('tehes', -1)">-</button>
+          <span id="qty-tehes">0</span>
+          <button onclick="changeQty('tehes', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-tehes" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Teh Es', price: 7000, menuId: 'tehes', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Kopi Susu Es</p>
+        <p class="price">Rp14.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('kopisusues', -1)">-</button>
+          <span id="qty-kopisusues">0</span>
+          <button onclick="changeQty('kopisusues', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-kopisusues" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Kopi Susu Es', price: 14000, menuId: 'kopisusues', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Kopi Milo Susu Es</p>
+        <p class="price">Rp19.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('kopimses', -1)">-</button>
+          <span id="qty-kopimses">0</span>
+          <button onclick="changeQty('kopimses', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-kopimses" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Kopi Milo Susu Es', price: 19000, menuId: 'kopimses', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Teh Susu Es</p>
+        <p class="price">Rp14.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('tehses', -1)">-</button>
+          <span id="qty-tehses">0</span>
+          <button onclick="changeQty('tehses', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-tehses" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Teh Susu Es', price: 14000, menuId: 'tehses', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Coffie Mix Susu Es</p>
+        <p class="price">Rp14.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('coffiemss', -1)">-</button>
+          <span id="qty-coffiemss">0</span>
+          <button onclick="changeQty('coffiemss', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-coffiemss" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Coffie Mix Susu Es', price: 14000, menuId: 'coffiemss', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Teh Tarik Es</p>
+        <p class="price">Rp14.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('tehtes', -1)">-</button>
+          <span id="qty-tehtes">0</span>
+          <button onclick="changeQty('tehtes', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-tehtes" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Teh Tarik Es', price: 14000, menuId: 'tehtes', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Cappucino Es</p>
+        <p class="price">Rp14.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('cappucinoes', -1)">-</button>
+          <span id="qty-cappucinoes">0</span>
+          <button onclick="changeQty('cappucinoes', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-cappucinos" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Cappucino Es', price: 14000, menuId: 'cappucinoes', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Torabika Es</p>
+        <p class="price">Rp14.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('torabikaes', -1)">-</button>
+          <span id="qty-torabikaes">0</span>
+          <button onclick="changeQty('torabikaes', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-torabikaes" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Torabika Es', price: 14000, menuId: 'torabikaes', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Beng-Beng Es</p>
+        <p class="price">Rp14.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('benges', -1)">-</button>
+          <span id="qty-benges">0</span>
+          <button onclick="changeQty('benges', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-benges" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Beng-Beng Es', price: 14000, menuId: 'benges', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Chocolatos Es</p>
+        <p class="price">Rp14.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('chocoes', -1)">-</button>
+          <span id="qty-chocoes">0</span>
+          <button onclick="changeQty('chocoes', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-chocoes" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Chocolatos Es', price: 14000, menuId: 'chocoes', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Susu Es</p>
+        <p class="price">Rp14.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('susues', -1)">-</button>
+          <span id="qty-susues">0</span>
+          <button onclick="changeQty('susues', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-susues" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Susu Es', price: 14000, menuId: 'susues', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+   <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Lemon Tea Es</p>
+        <p class="price">Rp14.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('lemontes', -1)">-</button>
+          <span id="qty-lemontes">0</span>
+          <button onclick="changeQty('lemontes', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-lemontes" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Lemon Tea Es', price: 14000, menuId: 'lemontes', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Jeruk Peras Es</p>
+        <p class="price">Rp14.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('jerukpes', -1)">-</button>
+          <span id="qty-jerukpes">0</span>
+          <button onclick="changeQty('jerukpes', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-jerukpes" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Jeruk Peras Es', price: 14000, menuId: 'jerukpes', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+    <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Cappucino Cincau</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('cappucinoces', -1)">-</button>
+          <span id="qty-cappucinoces">0</span>
+          <button onclick="changeQty('cappucinoces', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-cappucinoces" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Cappucino Cincau', price: 17000, menuId: 'cappucinoces', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Black Kiss</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('blackkiss', -1)">-</button>
+          <span id="qty-blackkiss">0</span>
+          <button onclick="changeQty('blackkiss', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-blackkiss" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Black Kiss', price: 17000, menuId: 'blackkiss', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Longan Buah</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('longanb', -1)">-</button>
+          <span id="qty-longanb">0</span>
+          <button onclick="changeQty('longanb', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-longanb" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Longan Buah', price: 17000, menuId: 'longanb', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Rainbow Moktail</p>
+        <p class="price">Rp19.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('rainbowm', -1)">-</button>
+          <span id="qty-rainbowm">0</span>
+          <button onclick="changeQty('rainbowm', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-rainbowm" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Rainbow Moktail', price: 19000, menuId: 'rainbowm', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Es Bandung</p>
+        <p class="price">Rp14.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('esb', -1)">-</button>
+          <span id="qty-esb">0</span>
+          <button onclick="changeQty('esb', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-esb" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Es Bandung', price: 12000, menuId: 'esb', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+    <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Sirup Merah Es</p>
+        <p class="price">Rp7.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('smes', -1)">-</button>
+          <span id="qty-smes">0</span>
+          <button onclick="changeQty('smes', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-smes" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Sirup Merah Es', price: 7000, menuId: 'smes', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Asam Es</p>
+        <p class="price">Rp7.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('asames', -1)">-</button>
+          <span id="qty-asames">0</span>
+          <button onclick="changeQty('asames', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-asames" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Asam Es', price: 7000, menuId: 'asames', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Asam Susu Es</p>
+        <p class="price">Rp14.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('asamses', -1)">-</button>
+          <span id="qty-asamses">0</span>
+          <button onclick="changeQty('asamses', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-asamses" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Asam Susu Es', price: 14000, menuId: 'asamses', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Melon Es</p>
+        <p class="price">Rp7.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('melones', -1)">-</button>
+          <span id="qty-melones">0</span>
+          <button onclick="changeQty('melones', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-melones" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Melon Es', price: 7000, menuId: 'melones', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Melon Susu Es</p>
+        <p class="price">Rp14.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('melonses', -1)">-</button>
+          <span id="qty-melonses">0</span>
+          <button onclick="changeQty('melonses', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-melonses" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Melon Susu Es', price: 14000, menuId: 'melonses', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Kuku Bima</p>
+        <p class="price">Rp7.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('kukubima', -1)">-</button>
+          <span id="qty-kukubima">0</span>
+          <button onclick="changeQty('kukubima', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-kukubima" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Kuku Bima', price: 7000, menuId: 'kukubima', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Kuku Bima Susu</p>
+        <p class="price">Rp14.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('kukubimas', -1)">-</button>
+          <span id="qty-kukubimas">0</span>
+          <button onclick="changeQty('kukubimas', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-kukubimas" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Kuku Bima Susu', price: 14000, menuId: 'kukubimas', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Extrajoss</p>
+        <p class="price">Rp7.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('extrajoss', -1)">-</button>
+          <span id="qty-extrajoss">0</span>
+          <button onclick="changeQty('extrajoss', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-extrajoss" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Extrajoss', price: 7000, menuId: 'extrajoss', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Extrajoss Susu</p>
+        <p class="price">Rp14.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('extrajosss', -1)">-</button>
+          <span id="qty-extrajosss">0</span>
+          <button onclick="changeQty('extrajosss', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-extrajosss" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Extrajoss Susu', price: 14000, menuId: 'extrajosss', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Adam Sari</p>
+        <p class="price">Rp9.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('adams', -1)">-</button>
+          <span id="qty-adams">0</span>
+          <button onclick="changeQty('adams', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-adams" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Adam Sari', price: 9000, menuId: 'adams', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info"/>
+        <p class="menu">Adam Sari Susu</p>
+        <p class="price">Rp14.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('adamss', -1)">-</button>
+          <span id="qty-adamss">0</span>
+          <button onclick="changeQty('adamss', 1)">+</button>
+        </div>
+        </div>
+       <div class="note-section">
+      <input type="text" id="note-adamss" placeholder="Catatan" />
+      <button onclick="addMultipleToCartWithNotes([
+  { name: 'Adam Sari Susu', price: 14000, menuId: 'adamss', merchant : 'PTM, Tanjung Momong' }
+])">Tambah</button>
+    </div>
+  </div>
+  </div>
+  </main>
+
+  <footer class="checkout">
+    <a href="checkout1.html" class="btn">Lanjut ke Checkout</a>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    const quantities = {
+      seblak: 0,
+      arc: 0,
+      kentang: 0,
+      kernas: 0,
+      kopio: 0
+    };
+  
+    function toggleNavMenu() {
+      const nav = document.getElementById('mobile-nav');
+      nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+    }
+
+    
+    function changeQty(menuId, delta) {
+      if (!quantities[menuId]) quantities[menuId] = 0;
+      quantities[menuId] = Math.max(0, quantities[menuId] + delta);
+      document.getElementById(`qty-${menuId}`).innerText = quantities[menuId];
+    }
+  
+    function addToCart(name, price, menuId, merchant) {
+      const qty = quantities[menuId] || 0;
+      if (qty === 0) {
+        return;
+      }
+  
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let found = false;
+
+  for (let item of cart) {
+    if (item.name === name && item.merchant === merchant) {
+      item.qty += qty;
+      found = true;
+      break;
+    }
+  }
+
+  if (!found) {
+    cart.push({ name, price, qty, merchant }); // ← pastikan ini ada
+  }
+  
+      localStorage.setItem("cart", JSON.stringify(cart));
+      updateCartCount();
+      alert(`${qty}x ${name} dari ${merchant} telah ditambahkan ke keranjang!`);
+    }
+
+    function addMultipleToCart(items) {
+    items.forEach(item => {
+      addToCart(item.name, item.price, item.menuId, item.merchant);
+    });
+  }
+
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const total = cart.reduce((sum, item) => sum + item.qty, 0);
+      const cartCount = document.getElementById("cart-count");
+      if (cartCount) cartCount.innerText = total;
+    }
+  
+    document.addEventListener("DOMContentLoaded", updateCartCount);
+  </script>
+
+<script>
+  function addMultipleToCartWithNotes(items) {
+    items.forEach(item => {
+      const note = document.getElementById(`note-${item.menuId}`).value.trim();
+      addToCart(item.name, item.price, item.menuId, item.merchant, note);
+    });
+  }
+
+  function addToCart(name, price, menuId, merchant, note = "") {
+    const qty = quantities[menuId] || 0;
+    if (qty === 0) return;
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let found = false;
+
+    for (let item of cart) {
+      if (
+        item.name === name &&
+        item.merchant === merchant &&
+        (item.note || "") === (note || "")
+      ) {
+        item.qty += qty;
+        found = true;
+        break;
+      }
+    }
+
+    if (!found) {
+      cart.push({ name, price, qty, merchant, note });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartCount();
+    alert(`${qty}x ${name} dari ${merchant} telah ditambahkan ke keranjang!\nCatatan: ${note || "-"}`);
+    
+    // Kosongkan form catatan setelah ditambahkan
+    const noteInput = document.getElementById(`note-${menuId}`);
+    if (noteInput) noteInput.value = "";
+  }
+</script>
+
+<script>
+    function toggleMenu(id) {
+      const element = document.getElementById(id);
+      if (element.style.display === "none" || element.style.display === "") {
+        element.style.display = "block";
+      } else {
+        element.style.display = "none";
+      }
+    }
+  </script>
+<script>
+const tutupManual = false;
+function cekJamOperasional() {
+    const sekarang = new Date();
+    const jam = sekarang.getHours();
+
+    // SETTING: Jam buka dan tutup merchant (ubah sesuai kebutuhan)
+    const jamBuka = 10;   // Jam buka: 09:00
+    const jamTutup = 22.30; // Jam tutup: 21:00
+
+
+    const statusEl = document.getElementById("status-operasional");
+
+    if (tutupManual || jam < jamBuka || jam >= jamTutup) {
+      // Merchant tutup
+      statusEl.innerHTML = "Status: <span style='color:red'>Tutup</span>";
+      
+      // Nonaktifkan semua tombol tambah
+      document.querySelectorAll("button").forEach(btn => {
+        btn.disabled = true;
+        btn.style.opacity = 0.5;
+        btn.title = "Merchant sedang tutup";
+      });
+
+    } else {
+      // Merchant buka
+      statusEl.innerHTML = "Status: <span style='color:green'>Buka</span>";
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    cekJamOperasional();
+    updateCartCount(); // fungsi dari cart kamu
+  });
+</script>
+</body>
+</html>

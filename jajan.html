@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Restoran - Nitip</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+         <a href="index.html">
+            <img src="logonitip.png" alt="Nitip Logo" class="logo-img">
+         </a>
+        </div>
+        <button class="menu-toggle" onclick="toggleNavMenu()">☰</button>
+        <nav id="mobile-nav" class="hidden">
+      <a href="index.html">Home</a>
+      <a href="checkout.html">Checkout</a>
+      <a href="about.html">About<a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="rekomendasi-list">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <h2>Pilih Jajanan Favoritmu</h2>
+    <div class="merchant-container-icon">
+      <a href="pokkat.html">
+      <div class="merchant-card-icon">
+        <img src="merchant/pokkats/menupokkat.png" alt="Pokkat" class="img-toko-icon"/>
+        <div class="merchant-info-icon"></a>
+        <h3>Pokkat's</h3>
+        <p>Jalan Raden Saleh, Gang Swadaya 3, Kelurahan Tarempa, Siantan</p>
+        <p> Open : 08.00 - 20.00 WIB</p>
+      </div>
+    </div>
+</div>
+<div class="merchant-container-icon">
+      <a href="tehpocitarempa.html">
+      <div class="merchant-card-icon">
+        <img src="merchant/tehpocitarempa/banner.jpeg" alt="Teh Poci" class="img-toko-icon"/>
+        <div class="merchant-info-icon"></a>
+        <h3>Teh Poci Tarempa</h3>
+        <p>Jalan Olahraga (Depan Gudang Obat), Tarempa, Siantan</p>
+        <p> Open : 10.30 - 19.30 WIB</p>
+      </div>
+    </div>
+</div>      
+  </main>
+
+ <footer style="text-align: center; padding: 20px; background-color: #f7f7f7;">
+  <p>&copy; 2025 Nitip. Karya Anak Tarempa. Semua Hak Dilindungi.</p>
+</footer>
+
+  <script src="script.js"></script>
+  <script>
+    const quantities = {
+      pokkat1: 0,
+      cireng: 0,
+      geprek: 0
+    };
+  
+    function toggleNavMenu() {
+      const nav = document.getElementById('mobile-nav');
+      nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+    }
+
+    
+    function changeQty(menuId, delta) {
+      if (!quantities[menuId]) quantities[menuId] = 0;
+      quantities[menuId] = Math.max(0, quantities[menuId] + delta);
+      document.getElementById(`qty-${menuId}`).innerText = quantities[menuId];
+    }
+  
+    function addToCart(name, price, menuId) {
+      const qty = quantities[menuId] || 0;
+      if (qty === 0) {
+        alert("Jumlah belum dipilih!");
+        return;
+      }
+  
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  
+      const existing = cart.find(item => item.name === name);
+      if (existing) {
+        existing.qty += qty;
+      } else {
+        cart.push({ name, price, qty });
+      }
+  
+      localStorage.setItem("cart", JSON.stringify(cart));
+      updateCartCount();
+      alert(`${qty}x ${name} telah ditambahkan ke keranjang!`);
+    }
+  
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const total = cart.reduce((sum, item) => sum + item.qty, 0);
+      const cartCount = document.getElementById("cart-count");
+      if (cartCount) cartCount.innerText = total;
+    }
+  
+    document.addEventListener("DOMContentLoaded", updateCartCount);
+  </script>
+
+<script>
+    function toggleMenu(id) {
+      const element = document.getElementById(id);
+      if (element.style.display === "none" || element.style.display === "") {
+        element.style.display = "block";
+      } else {
+        element.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>
