@@ -1,207 +1,237 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Restoran - Nitip</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
 </head>
+
 <body>
-    <header>
-        <div class="logo-container">
-         <a href="index.html">
-            <img src="logonitip.png" alt="Nitip Logo" class="logo-img">
-         </a>
-        </div>
-        <button class="menu-toggle" onclick="toggleNavMenu()">☰</button>
-        <nav id="mobile-nav" class="hidden">
+  <header>
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="logonitip.png" alt="Nitip Logo" class="logo-img">
+      </a>
+    </div>
+    <button class="menu-toggle" onclick="toggleNavMenu()">☰</button>
+    <nav id="mobile-nav" class="hidden">
       <a href="index.html">Home</a>
       <a href="checkout.html">Checkout</a>
-      <a href="about.html">About<a>
+      <a href="about.html">About</a>
     </nav>
-<div class="css-a">
-    <h2 class="cs">Laper? yuk nitip makanan yang kamu mau</h2>
-    <img src="makanapaya.png" alt="Makan Apa" class="img-makan">
-  </div>
+    <div class="css-a">
+      <h2 class="cs">Laper? yuk nitip makanan yang kamu mau</h2>
+      <img src="makanapaya.png" alt="Makan Apa" class="img-makan">
+    </div>
   </header>
 
   <main>
     <section class="search-section">
-        <div class="search-box">
-          <input type="text" id="searchInput" placeholder="Cari makanan, minuman, atau restoran..." />
-          <div id="searchResults" class="search-results"></div>
-        </div>
-      </section>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Cari makanan atau tempat makan..." />
+        <div id="searchResults" class="search-results"
+          style="display: none; position: absolute; background: white; z-index: 1000;"></div>
+    </section>
     <section class="kategori-menu">
-<a href="anekanasi.html">
-      <div class="katergori-card">
-        <img src="restaurant/makansiang.png" alt="Aneka Nasi" class="kategori-img"/>
+      <a href="anekanasi.html">
+        <div class="katergori-card">
+          <img src="restaurant/makansiang.png" alt="Aneka Nasi" class="kategori-img" />
       </a>
       </div>
       <a href="minuman.html">
         <div class="katergori-card">
-          <img src="restaurant/minuman.png" alt="Minuman" class="kategori-img"/>
-        </a>
-        </div>
-        <a href="ayamdanikan.html">
-      <div class="katergori-card">
-        <img src="restaurant/ayamdanikan.png" alt="Ayam dan Ikan" class="kategori-img"/>
+          <img src="restaurant/minuman.png" alt="Minuman" class="kategori-img" />
+      </a>
+      </div>
+      <a href="ayamdanikan.html">
+        <div class="katergori-card">
+          <img src="restaurant/ayamdanikan.png" alt="Ayam dan Ikan" class="kategori-img" />
       </a>
       </div>
       <a href="kedaikopi.html">
         <div class="katergori-card">
-          <img src="restaurant/kedaikopi.png" alt="Kopi" class="kategori-img"/>
-        </a>
-        </div>
-        <a href="baksosoto.html">
-          <div class="katergori-card">
-            <img src="restaurant/baksosoto.png" alt="Bakso Soto" class="kategori-img"/>
-          </a>
-          </div>
-          <a href="sarapan.html">
-            <div class="katergori-card">
-              <img src="restaurant/Sarapan.png" alt="Sarapan" class="kategori-img"/>
-            </a>
-            </div>
-        <a href="jajan.html">
-              <div class="katergori-card">
-                <img src="restaurant/jajanan.png" alt="Jajanan" class="kategori-img"/>
-              </a>
-              </div>
-  </section>
-    <div class="rekomendasi-list">
-        <h2>Rekomendasi List</h2>
-    <section class="merchant-container">
-      <a href="pokkat.html">
-      <div class="merchant-card">
-        <img src="merchant/pokkats/menupokkat.png" alt="Pokkat" class="img-toko"/>
-        <div class="merchant-info"></a>
-        <h3>Pokkat's</h3> 
+          <img src="restaurant/kedaikopi.png" alt="Kopi" class="kategori-img" />
+      </a>
       </div>
+      <a href="baksosoto.html">
+        <div class="katergori-card">
+          <img src="restaurant/baksosoto.png" alt="Bakso Soto" class="kategori-img" />
+      </a>
+      </div>
+      <a href="sarapan.html">
+        <div class="katergori-card">
+          <img src="restaurant/Sarapan.png" alt="Sarapan" class="kategori-img" />
+      </a>
+      </div>
+      <a href="jajan.html">
+        <div class="katergori-card">
+          <img src="restaurant/jajanan.png" alt="Jajanan" class="kategori-img" />
+      </a>
+      </div>
+    </section>
+    <div class="rekomendasi-list">
+      <h2>Rekomendasi List</h2>
+      <section class="merchant-container">
+        <a href="pokkat.html">
+          <div class="merchant-card">
+            <img src="merchant/pokkats/menupokkat.png" alt="Pokkat" class="img-toko" />
+            <div class="merchant-info">
+        </a>
+        <h3>Pokkat's</h3>
     </div>
-      <a href="kopiwin.html">
+    </div>
+    <a href="kopiwin.html">
+      <div class="merchant-card">
+        <img src="merchant/kopiwin/kopiwin.png" alt="Kopi Win" class="img-toko" />
+        <div class="merchant-info">
+    </a>
+    <h3>Kedai Kopi Win Botak</h3>
+    </div>
+    </div>
+    <a href="ptm.html">
+      <div class="merchant-card">
+        <img src="merchant/ptm/ayambakar.jpg" alt="PTM" class="img-toko" />
+        <div class="merchant-info">
+    </a>
+    <h3>PTM, Tanjung Momong</h3>
+    </div>
+    </div>
+    <a href="makadek.html">
+      <div class="merchant-card">
+        <img src="merchant/makadek/nasilemak.jpg" alt="Mak Adek" class="img-toko" />
+        <div class="merchant-info">
+    </a>
+    <h3>Nasi Lemak Mak Adek</h3>
+    </div>
+    </div>
+    </section>
+    <section class="merchant-container">
+      <a href="baksobangeli.html">
         <div class="merchant-card">
-          <img src="merchant/kopiwin/kopiwin.png" alt="Kopi Win" class="img-toko"/>
-          <div class="merchant-info"></a>
-          <h3>Kedai Kopi Win Botak</h3>
-        </div>
-        </div>
-        <a href="ptm.html">
-          <div class="merchant-card">
-            <img src="merchant/ptm/ayambakar.jpg" alt="PTM" class="img-toko"/>
-            <div class="merchant-info"></a>
-            <h3>PTM, Tanjung Momong</h3>
-          </div>
-        </div>
-        <a href="makadek.html">
-          <div class="merchant-card">
-            <img src="merchant/makadek/nasilemak.jpg" alt="Mak Adek" class="img-toko"/>
-            <div class="merchant-info"></a>
-            <h3>Nasi Lemak Mak Adek</h3>
-          </div>
-          </div>
-          </section>
-          <section class="merchant-container">
-          <a href="laluna.html">
-          <div class="merchant-card">
-            <img src="merchant/laluna/nasigoreng.jpg" alt="Laluna" class="img-toko"/>
-            <div class="merchant-info"></a>
-            <h3>Laluna Tarempa</h3>
-          </div>
-          </div>
-          <a href="tehpocitarempa.html">
-          <div class="merchant-card">
-            <img src="merchant/tehpocitarempa/banner.jpeg" alt="Mak Adek" class="img-toko"/>
-            <div class="merchant-info"></a>
-            <h3>Teh Poci Tarempa</h3>
-          </div>
-          </div>
-          <a href="masadam.html">
-          <div class="merchant-card">
-            <img src="merchant/masadam/ayambakaradam.jpg" alt="Mas Adam" class="img-toko"/>
-            <div class="merchant-info"></a>
-            <h3>ABJ
-            (Ayam Bakar Jembatan)</h3>
-          </div>
-          </div>
-      </section>
+          <img src="merchant/baksobangeli/bakso.jpg" alt="Bakso Bang Eli" class="img-toko" />
+          <div class="merchant-info">
+      </a>
+      <h3>Bakso Bang Eli</h3>
+      </div>
+      </div>
+      <a href="kaktini.html">
+        <div class="merchant-card">
+          <img src="merchant/kaktininasidagang/bannernasidagang.jpg" alt="Kak Tini Nasi Dagang" class="img-toko" />
+          <div class="merchant-info">
+      </a>
+      <h3>Kak Tini Nasi Dagang</h3>
+      </div>
+      </div>
+      <a href="masadam.html">
+        <div class="merchant-card">
+          <img src="merchant/masadam/ayambakaradam.jpg" alt="Mas Adam" class="img-toko" />
+          <div class="merchant-info">
+      </a>
+      <h3>ABJ
+        (Ayam Bakar Jembatan)</h3>
+      </div>
+      </div>
+      <a href="laluna.html">
+        <div class="merchant-card">
+          <img src="merchant/laluna/nasigoreng.jpg" alt="Laluna" class="img-toko" />
+          <div class="merchant-info">
+      </a>
+      <h3>Laluna Tarempa</h3>
+      </div>
+      </div>
+    </section>
   </main>
 
-   <footer style="text-align: center; padding: 20px; background-color: #f7f7f7;">
-  <p>&copy; 2025 Nitip. Karya Anak Tarempa. Semua Hak Dilindungi.</p>
-</footer>
+  <footer style="text-align: center; padding: 20px; background-color: #f7f7f7;">
+    <p>&copy; 2025 Nitip. Karya Anak Tarempa. Semua Hak Dilindungi.</p>
+  </footer>
 
   <script src="script.js"></script>
 
-<script>
-    function toggleMenu(id) {
-      const element = document.getElementById(id);
-      if (element.style.display === "none" || element.style.display === "") {
-        element.style.display = "block";
-      } else {
-        element.style.display = "none";
-      }
+  <script>
+    function toggleNavMenu() {
+      const nav = document.getElementById('mobile-nav');
+      nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
     }
   </script>
   <script>
-  const searchInput = document.getElementById('searchInput');
-  const searchResults = document.getElementById('searchResults');
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
 
-  const items = [
-    { nama: 'Nasi Goreng', kategori: 'Aneka Nasi', link: 'anekanasi.html' },
-    { nama: 'Nasi  Padang', kategori: 'Aneka Nasi', link: 'anekanasi.html' },
-    { nama: 'Ayam Goreng', kategori: 'Ayam & Ikan', link: 'ayamdanikan.html' },
-    { nama: 'Ayam Bakar', kategori: 'Ayam & Ikan', link: 'ayamdanikan.html' },
-    { nama: 'Kopi', kategori: 'Minuman', link: 'minuman.html' },
-    { nama: 'Kopi O', kategori: 'Minuman',  link: 'kedaikopi.html' },
-    // Tambahan hasil pencarian berdasarkan restoran
-    { nama: 'Pokkat\'s', kategori: 'restoran', restoran: 'Pokkat\'s', link: 'pokkat.html' },
-    { nama: 'Kedai Kopi Win Botak', kategori: 'restoran', restoran: 'Kedai Kopi Win Botak', link: 'kopiwin.html' },
-    { nama: 'PTM, Tanjung Momong', kategori: 'restoran', restoran: 'PTM', link: 'ptm.html' },
-    { nama: 'Ayam Bakar Mas Adam', kategori: 'restoran', restoran: 'Ayam Bakar Mas Adam', link: 'masadam.html' }
-  ];
+    const items = [
+      { nama: 'Aneka Nasi', kategori: 'Kategori', link: 'anekanasi.html' },
+      { nama: 'Minuman', kategori: 'Kategori', link: 'minuman.html' },
+      { nama: 'Ayam dan Ikan', kategori: 'Kategori', link: 'ayamdanikan.html' },
+      { nama: 'Kedai Kopi', kategori: 'Kategori', link: 'kedaikopi.html' },
+      { nama: 'Bakso Soto', kategori: 'Kategori', link: 'baksosoto.html' },
+      { nama: 'Sarapan', kategori: 'Kategori', link: 'sarapan.html' },
+      { nama: 'Jajanan', kategori: 'Kategori', link: 'jajan.html' },
+      { nama: "Pokkat's", kategori: 'Merchant', link: 'pokkat.html' },
+      { nama: 'Kedai Kopi Win Botak', kategori: 'Merchant', link: 'kopiwin.html' },
+      { nama: 'PTM, Tanjung Momong', kategori: 'Merchant', link: 'ptm.html' },
+      { nama: 'Nasi Lemak Mak Adek', kategori: 'Merchant', link: 'makadek.html' },
+      { nama: 'Laluna Tarempa', kategori: 'Merchant', link: 'laluna.html' },
+      { nama: 'Teh Poci Tarempa', kategori: 'Merchant', link: 'tehpocitarempa.html' },
+      { nama: 'Ayam Bakar Jembatan (ABJ)', kategori: 'Merchant', link: 'masadam.html' },
+      { nama: 'Bakso Bang Eli', kategori: 'Merchant', link: 'baksobangeli.html' },
+      { nama: 'Kak Tini Nasi Dagang', kategori: 'Merchant', link: 'kaktini.html' },
+      { nama: 'Bakso Damai', kategori: 'Merchant', link: 'baksodamai.html' },
+    ];
 
-  searchInput.addEventListener('input', function () {
-    const query = this.value.toLowerCase();
-    searchResults.innerHTML = '';
+    searchInput.addEventListener('input', function () {
+      const query = this.value.toLowerCase().trim();
+      searchResults.innerHTML = '';
 
-    if (query === '') {
-      searchResults.style.display = 'none';
-      return;
-    }
+      if (query === '') {
+        searchResults.style.display = 'none';
+        return;
+      }
 
-    const filtered = items.filter(item =>
-      item.nama.toLowerCase().includes(query) ||
-      item.kategori.toLowerCase().includes(query) ||
-      item.restoran.toLowerCase().includes(query)
-    );
+      const filtered = items.filter(item =>
+        item.nama.toLowerCase().includes(query) || item.kategori.toLowerCase().includes(query)
+      );
 
-    if (filtered.length > 0) {
-      filtered.forEach(item => {
-        const resultItem = document.createElement('div');
-        resultItem.className = 'search-result-item';
+      if (filtered.length > 0) {
+        filtered.forEach(item => {
+          const resultItem = document.createElement('div');
+          resultItem.className = 'search-result-item';
 
-        const link = document.createElement('a');
-        link.href = item.link;
-        link.textContent = `${item.nama} (${item.restoran})`;
-        link.style.textDecoration = 'none';
-        link.style.color = '#333';
+          const link = document.createElement('a');
+          link.href = item.link;
+          link.textContent = `${item.nama} (${item.kategori})`;
+          link.style.textDecoration = 'none';
+          link.style.color = '#333';
 
-        resultItem.appendChild(link);
-        searchResults.appendChild(resultItem);
-      });
-      searchResults.style.display = 'block';
-    } else {
-      const noResult = document.createElement('div');
-      noResult.textContent = 'Tidak ditemukan';
-      searchResults.appendChild(noResult);
-      searchResults.style.display = 'block';
-    }
-  });
-</script>
+          resultItem.appendChild(link);
+          searchResults.appendChild(resultItem);
+        });
+        searchResults.style.display = 'block';
+      } else {
+        const noResult = document.createElement('div');
+        noResult.textContent = 'Tidak ditemukan';
+        noResult.style.color = '#666';
+        searchResults.appendChild(noResult);
+        searchResults.style.display = 'block';
+      }
+    });
+
+    // Tutup hasil pencarian saat klik di luar
+    document.addEventListener('click', function (e) {
+      const isClickInsideInput = searchInput.contains(e.target);
+      const isClickInsideResults = searchResults.contains(e.target);
+
+      if (!isClickInsideInput && !isClickInsideResults) {
+        searchResults.style.display = 'none';
+      }
+    });
+  </script>
+
 
 </body>
+
 </html>

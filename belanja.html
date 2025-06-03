@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nitip - Food Delivery</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <header>
-        <div class="logo-container">
-         <a href="index.html">
-            <img src="logonitip.png" alt="Nitip Logo" class="logo-img">
-         </a>
-        </div>
-        <button class="menu-toggle" onclick="toggleNavMenu()">☰</button>
-        <nav id="mobile-nav" class="hidden">
+  <header>
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="logonitip.png" alt="Nitip Logo" class="logo-img">
+      </a>
+    </div>
+    <button class="menu-toggle" onclick="toggleNavMenu()">☰</button>
+    <nav id="mobile-nav" class="hidden">
       <a href="index.html">Home</a>
       <a href="checkout.html">Checkout</a>
-      <a href="about.html">About<a>
+      <a href="about.html">About</a>
     </nav>
   </header>
 
@@ -43,37 +45,39 @@
         </select>
 
         <label for="deskripsiBarang">Deskripsi Barang Belanjaan</label>
-        <textarea id="deskripsiBarang" placeholder="Contoh: Ikan Tongkol 1 Ekor, Ayam Potong 1 Ekor, Sawi 1 Ikat, Anggur 1Kg..." required></textarea>
+        <textarea id="deskripsiBarang"
+          placeholder="Contoh: Ikan Tongkol 1 Ekor, Ayam Potong 1 Ekor, Sawi 1 Ikat, Anggur 1Kg..." required></textarea>
 
         <label for="alamatPembli">Alamat Pembeli</label>
         <textarea id="alamatPembeli" placeholder="Masukkan secara lengkap alamat pengirim.." required></textarea>
 
-      <label>Pilih Lokasi Pengantaran:</label>
-      <select id="antar" onchange="updateOngkir()">
-      <option value="">-- Pilih Lokasi --</option>
-      <option value="Tarempa" data-ongkir="3000">Tarempa (Rp3.000)</option>
-      <option value="Tarempa Barat" data-ongkir="3000">Tarempa Barat (Rp3.000)</option>
-      <option value="Sri Tanjung" data-ongkir="5000">Sri Tanjung (Rp5.000)</option>
-      <option value="Air Padang" data-ongkir="7000">Air Padang (Rp7.000)</option>
-      <option value="Tanjung Momong" data-ongkir="7000">Tanjung Momong (Rp7.000)</option>
-      <option value="Telok Rit" data-ongkir="7000">Telok Rit (Rp7.000)</option>
-      <option value="Telok Buluh" data-ongkir="8000">Telok Buluhh (Rp8.000)</option>
-      <option value="Antang" data-ongkir="9000">Antang (Rp9.000)</option>
-      <option value="Pasir Peti" data-ongkir="12000">Pasir Peti (Rp12.000)</option>
-      <option value="Dusun" data-ongkir="14000">Dusun (Rp14.000)</option>
-      <option value="Telok Mabai" data-ongkir="14000">Telok Mabai (Rp14.000)</option>
-      <option value="Selambak" data-ongkir="15000">Selambak (Rp15.000)</option>
-      <option value="Temburun" data-ongkir="20000">Temburun (Rp20.000)</option>
-      <option value="Batu Tambun" data-ongkir="8000">Batu Tambun (Rp8.000)</option>
-      <option value="Gudang Tengah" data-ongkir="12000">Gudang Tengah (Rp12.000)</option>
-      <option value="Rintis" data-ongkir="14000">Rintis (Rp14.000)</option>
-      <option value="Air Bini" data-ongkir="30000">Air Bini (Rp30.000)</option>
-      <option value="Arung Hijau" data-ongkir="15000">Arung Hijau (Rp15.000)</option>
-    </select>
+        <label>Pilih Lokasi Pengantaran:</label>
+        <select id="antar" onchange="updateOngkir()">
+          <option value="">-- Pilih Lokasi --</option>
+          <option value="Tarempa" data-ongkir="3000">Tarempa (Rp3.000)</option>
+          <option value="Tarempa Barat" data-ongkir="3000">Tarempa Barat (Rp3.000)</option>
+          <option value="Sri Tanjung" data-ongkir="5000">Sri Tanjung (Rp5.000)</option>
+          <option value="Air Padang" data-ongkir="7000">Air Padang (Rp7.000)</option>
+          <option value="Tanjung Momong" data-ongkir="7000">Tanjung Momong (Rp7.000)</option>
+          <option value="Telok Rit" data-ongkir="7000">Telok Rit (Rp7.000)</option>
+          <option value="Telok Buluh" data-ongkir="8000">Telok Buluhh (Rp8.000)</option>
+          <option value="Antang" data-ongkir="9000">Antang (Rp9.000)</option>
+          <option value="Pasir Peti" data-ongkir="12000">Pasir Peti (Rp12.000)</option>
+          <option value="Dusun" data-ongkir="14000">Dusun (Rp14.000)</option>
+          <option value="Telok Mabai" data-ongkir="14000">Telok Mabai (Rp14.000)</option>
+          <option value="Selambak" data-ongkir="15000">Selambak (Rp15.000)</option>
+          <option value="Temburun" data-ongkir="20000">Temburun (Rp20.000)</option>
+          <option value="Batu Tambun" data-ongkir="8000">Batu Tambun (Rp8.000)</option>
+          <option value="Gudang Tengah" data-ongkir="12000">Gudang Tengah (Rp12.000)</option>
+          <option value="Rintis" data-ongkir="14000">Rintis (Rp14.000)</option>
+          <option value="Air Bini" data-ongkir="30000">Air Bini (Rp30.000)</option>
+          <option value="Arung Hijau" data-ongkir="15000">Arung Hijau (Rp15.000)</option>
+        </select>
 
         <div class="ongkir-display" id="ongkirDisplay">Ongkir: -</div>
 
-<h6>Note* Harga Belanjaan akan di sesuaikan saat driver berada di Lokasi Belanja yang diingkan dan akan dikonfirmasi melalui WhatsApp</h6>
+        <h6>Note* Harga Belanjaan akan di sesuaikan saat driver berada di Lokasi Belanja yang diingkan dan akan
+          dikonfirmasi melalui WhatsApp</h6>
 
         <button type="submit">Nitip Belanja</button>
       </form>
@@ -87,12 +91,12 @@
   </main>
 </body>
 
-   <footer style="text-align: center; padding: 20px; background-color: #f7f7f7;">
+<footer style="text-align: center; padding: 20px; background-color: #f7f7f7;">
   <p>&copy; 2025 Nitip. Karya Anak Tarempa. Semua Hak Dilindungi.</p>
 </footer>
-  <script src="script.js"></script>
-  
-  <script>
+<script src="script.js"></script>
+
+<script>
   function toggleNavMenu() {
     const nav = document.getElementById('mobile-nav');
     nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
@@ -136,23 +140,24 @@
     };
 
     fetch("https://script.google.com/macros/s/AKfycbztnNVSbY351sYfnhNSaZoQd4H_Juk7Bx4j5rh71JEAFSUIffihaFX4Bi9YrdsRw49vBQ/exec", {
-  method: "POST",
-  mode: "no-cors",  // <<< WAJIB untuk Google Apps Script
-  body: JSON.stringify(data),
-  headers: {
-    "Content-Type": "application/json",
-  },
-})
-.then(() => {
-  document.getElementById('overlaySuccess').style.display = 'flex';
-  document.getElementById('formPembelian').reset();
-  document.getElementById('ongkirDisplay').innerText = 'Ongkir: -';
-})
-.catch(error => {
-  alert("Gagal mengirim pesanan.");
-  console.error(error);
-});
+      method: "POST",
+      mode: "no-cors",  // <<< WAJIB untuk Google Apps Script
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then(() => {
+        document.getElementById('overlaySuccess').style.display = 'flex';
+        document.getElementById('formPembelian').reset();
+        document.getElementById('ongkirDisplay').innerText = 'Ongkir: -';
+      })
+      .catch(error => {
+        alert("Gagal mengirim pesanan.");
+        console.error(error);
+      });
   });
 </script>
 </body>
+
 </html>

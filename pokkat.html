@@ -35,7 +35,7 @@
         <p class="price">Rp20.000</p>
         <div class="qty-control">
           <button onclick="changeQty('pokkat1', -1)" id="btn-minus-pokkat1">-</button>
-          <span id="qty-pokkat1">0</span>
+          <span id="qty-pokkat1">1</span>
           <button onclick="changeQty('pokkat1', 1)" id="btn-plus-pokkat1">+</button>
 
         </div>
@@ -55,7 +55,7 @@
         <p class="price">Rp15.000</p>
         <div class="qty-control">
           <button onclick="changeQty('cireng', -1)" id="btn-minus-cireng">-</button>
-          <span id="qty-cireng">0</span>
+          <span id="qty-cireng">1</span>
           <button onclick="changeQty('cireng', 1)" id="btn-plus-cireng">+</button>
         </div>
       </div>
@@ -87,8 +87,8 @@
 
 
     function changeQty(menuId, delta) {
-      if (!quantities[menuId]) quantities[menuId] = 0;
-      quantities[menuId] = Math.max(0, quantities[menuId] + delta);
+      if (!quantities[menuId]) quantities[menuId] = 1;
+      quantities[menuId] = Math.max(1, quantities[menuId] + delta);
       document.getElementById(`qty-${menuId}`).innerText = quantities[menuId];
     }
 
@@ -143,8 +143,8 @@
     }
 
     function addToCart(name, price, menuId, merchant, note = "") {
-      const qty = quantities[menuId] || 0;
-      if (qty === 0) return;
+      const qty = quantities[menuId] || 1;
+
 
       let cart = JSON.parse(localStorage.getItem("cart")) || [];
       let found = false;

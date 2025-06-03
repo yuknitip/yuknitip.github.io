@@ -20,7 +20,7 @@
     <nav id="mobile-nav" class="hidden">
       <a href="index.html">Home</a>
       <a href="checkout.html">Checkout</a>
-      <a href="about.html">About<a>
+      <a href="about.html">About</a>
     </nav>
   </header>
 
@@ -465,45 +465,45 @@
     document.getElementById('overlaySuccess').style.display = 'none';
   }
   document.getElementById('formPengiriman').addEventListener('submit', function (e) {
-  e.preventDefault();
+    e.preventDefault();
 
-  const namaPengirim = document.getElementById('namaPengirim').value;
-  const noPengirim = document.getElementById('noPengirim').value;
-  const alamatPengirim = document.getElementById('alamatPengirim').value;
-  const namaPenerima = document.getElementById('namaPenerima').value;
-  const noPenerima = document.getElementById('noPenerima').value;
-  const alamatPenerima = document.getElementById('alamatPenerima').value;
-  const deskripsiBarang = document.getElementById('deskripsiBarang').value;
-  const ongkirText = document.getElementById('ongkirDisplay').innerText || 'Tidak Diketahui';
+    const namaPengirim = document.getElementById('namaPengirim').value;
+    const noPengirim = document.getElementById('noPengirim').value;
+    const alamatPengirim = document.getElementById('alamatPengirim').value;
+    const namaPenerima = document.getElementById('namaPenerima').value;
+    const noPenerima = document.getElementById('noPenerima').value;
+    const alamatPenerima = document.getElementById('alamatPenerima').value;
+    const deskripsiBarang = document.getElementById('deskripsiBarang').value;
+    const ongkirText = document.getElementById('ongkirDisplay').innerText || 'Tidak Diketahui';
 
-  const data = {
-    namaPengirim,
-    noPengirim,
-    alamatPengirim,
-    namaPenerima,
-    noPenerima,
-    alamatPenerima,
-    deskripsiBarang,
-    ongkirText
-  };
+    const data = {
+      namaPengirim,
+      noPengirim,
+      alamatPengirim,
+      namaPenerima,
+      noPenerima,
+      alamatPenerima,
+      deskripsiBarang,
+      ongkirText
+    };
 
-  // Kirim ke Google Apps Script Web App
-  fetch("https://script.google.com/macros/s/AKfycby6fi9VRsBx_wn16ucfWlhulZGDjRN3Fr2tG2rP9WbLFfg7DvgGMTYJMbcQ7iyxVR4jOg/exec", {
-    method: "POST",
-    mode: "no-cors",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(data)
+    // Kirim ke Google Apps Script Web App
+    fetch("https://script.google.com/macros/s/AKfycby6fi9VRsBx_wn16ucfWlhulZGDjRN3Fr2tG2rP9WbLFfg7DvgGMTYJMbcQ7iyxVR4jOg/exec", {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    });
+
+    // Tampilkan overlay sukses
+    document.getElementById('overlaySuccess').style.display = 'flex';
+
+    // Reset form (opsional)
+    document.getElementById('formPengiriman').reset();
+    document.getElementById('ongkirDisplay').innerText = "";
   });
-
-  // Tampilkan overlay sukses
-  document.getElementById('overlaySuccess').style.display = 'flex';
-
-  // Reset form (opsional)
-  document.getElementById('formPengiriman').reset();
-  document.getElementById('ongkirDisplay').innerText = "";
-});
 </script>
 <script>
 
