@@ -666,29 +666,28 @@ margin-top: 0.5em;
       position: absolute;
       right: 10px;
       justify-content: right;  
-      display: flex;
+      display: inline-block;
         font-size: 1rem;
-        border: none;
         color: white;
         margin-top: -70px;
+        cursor: pointer;
         background: none !important;
         box-shadow: none !important;
+        pointer-events: auto;
       }
       
+
+    .some-wrapper {
+      pointer-events: none;
+    }
+
+
     .menu-toggle:hover,
   .menu-toggle:focus,
   .menu-toggle:active {
-    box-shadow: none;
-    outline: none;
+    box-shadow: none !important;
+    outline: none !important;
   }
-
-nav a {
-          padding: 10px;
-          background-color: #ffa76c;
-          color: white;
-          text-align: left;
-          border-top: 1px solid rgba(255, 255, 255, 0.2);
-        }
 
       .card-informasi {
   max-width: 500px;

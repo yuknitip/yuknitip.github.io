@@ -34,9 +34,9 @@
                 <p class="menu">Nasi Dagang + Telor</p>
                 <p class="price">Rp17.000</p>
                 <div class="qty-control">
-                    <button onclick="changeQty('ndt', -1)">-</button>
+                    <button onclick="changeQty('ndt', -1)" id="btn-minus-ndt">-</button>
                     <span id="qty-ndt">1</span>
-                    <button onclick="changeQty('ndt', 1)">+</button>
+                    <button onclick="changeQty('ndt', 1)" id="btn-plus-ndt">+</button>
                 </div>
             </div>
             <div class="note-section">
@@ -53,9 +53,9 @@
                 <p class="menu">Nasi Dagang Tanpa Telor</p>
                 <p class="price">Rp12.000</p>
                 <div class="qty-control">
-                    <button onclick="changeQty('ndtt', -1)">-</button>
+                    <button onclick="changeQty('ndtt', -1)"id="btn-minus-ndtt">-</button>
                     <span id="qty-ndtt">1</span>
-                    <button onclick="changeQty('ndtt', 1)">+</button>
+                    <button onclick="changeQty('ndtt', 1)"id="btn-plus-ndtt">+</button>
                 </div>
             </div>
             <div class="note-section">
@@ -72,9 +72,9 @@
                 <p class="menu">Pecal + Telor</p>
                 <p class="price">Rp17.000</p>
                 <div class="qty-control">
-                    <button onclick="changeQty('pt', -1)">-</button>
+                    <button onclick="changeQty('pt', -1)"id="btn-minus-pt">-</button>
                     <span id="qty-pt">1</span>
-                    <button onclick="changeQty('pt', 1)">+</button>
+                    <button onclick="changeQty('pt', 1)"id="btn-plus-pt">+</button>
                 </div>
             </div>
             <div class="note-section">
@@ -91,9 +91,9 @@
                 <p class="menu">Pecal Tanpa Telor</p>
                 <p class="price">Rp12.000</p>
                 <div class="qty-control">
-                    <button onclick="changeQty('ptt', -1)">-</button>
+                    <button onclick="changeQty('ptt', -1)"id="btn-minus-ptt">-</button>
                     <span id="qty-ptt">1</span>
-                    <button onclick="changeQty('ptt', 1)">+</button>
+                    <button onclick="changeQty('ptt', 1)"id="btn-plus-ptt">+</button>
                 </div>
             </div>
             <div class="note-section">
@@ -110,9 +110,9 @@
                 <p class="menu">Lontong Sayur + Telor</p>
                 <p class="price">Rp17.000</p>
                 <div class="qty-control">
-                    <button onclick="changeQty('lst', -1)">-</button>
+                    <button onclick="changeQty('lst', -1)"id="btn-minus-lst">-</button>
                     <span id="qty-lst">1</span>
-                    <button onclick="changeQty('lst', 1)">+</button>
+                    <button onclick="changeQty('lst', 1)"id="btn-plus-lst">+</button>
                 </div>
             </div>
             <div class="note-section">
@@ -129,9 +129,9 @@
                 <p class="menu">Lontong Sayur Tanpa Telor</p>
                 <p class="price">Rp12.000</p>
                 <div class="qty-control">
-                    <button onclick="changeQty('lstt', -1)">-</button>
+                    <button onclick="changeQty('lstt', -1)"id="btn-minus-lstt">-</button>
                     <span id="qty-lstt">1</span>
-                    <button onclick="changeQty('lstt', 1)">+</button>
+                    <button onclick="changeQty('lstt', 1)"id="btn-plus-lstt">+</button>
                 </div>
             </div>
             <div class="note-section">
@@ -148,9 +148,9 @@
                 <p class="menu">Gado-Gado + Telor</p>
                 <p class="price">Rp17.000</p>
                 <div class="qty-control">
-                    <button onclick="changeQty('ggt', -1)">-</button>
+                    <button onclick="changeQty('ggt', -1)"id="btn-minus-ggt">-</button>
                     <span id="qty-ggt">1</span>
-                    <button onclick="changeQty('ggt', 1)">+</button>
+                    <button onclick="changeQty('ggt', 1)"id="btn-plus-ggt">+</button>
                 </div>
             </div>
             <div class="note-section">
@@ -167,9 +167,9 @@
                 <p class="menu">Gado-Gado Tanpa Telor</p>
                 <p class="price">Rp12.000</p>
                 <div class="qty-control">
-                    <button onclick="changeQty('ggtt', -1)">-</button>
+                    <button onclick="changeQty('ggtt', -1)"id="btn-minus-ggtt">-</button>
                     <span id="qty-ggtt">1</span>
-                    <button onclick="changeQty('ggtt', 1)">+</button>
+                    <button onclick="changeQty('ggtt', 1)"id="btn-plus-ggtt">+</button>
                 </div>
             </div>
             <div class="note-section">
@@ -333,6 +333,44 @@
             updateCartCount(); // fungsi dari cart kamu
         });
     </script>
+     <script>
+    // Simulasi stok menu
+    const stokMenu = {
+      ndt: 0,  // Alpukat Kocok (habis)
+      ndtt: 0,
+      pt:10,
+      ptt:10,
+      lst:10,
+      lstt:10,
+      ggt:0,
+      ggtt:0    // Cireng masih tersedia
+    };
+
+    function cekStokDanNonaktifkanTombol() {
+      for (let menuId in stokMenu) {
+        if (stokMenu[menuId] <= 0) {
+          const minusBtn = document.getElementById(`btn-minus-${menuId}`);
+          const plusBtn = document.getElementById(`btn-plus-${menuId}`);
+          const tambahBtn = document.getElementById(`btn-tambah-${menuId}`);
+          const noteInput = document.getElementById(`note-${menuId}`);
+
+          if (minusBtn) minusBtn.disabled = true;
+          if (plusBtn) plusBtn.disabled = true;
+          if (tambahBtn) {
+            tambahBtn.disabled = true;
+            tambahBtn.innerText = "Stok Habis";
+            tambahBtn.style.opacity = "0.6";
+            tambahBtn.style.cursor = "not-allowed";
+          }
+          if (noteInput) noteInput.disabled = true;
+        }
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      cekStokDanNonaktifkanTombol();
+    });
+  </script>
 
 </body>
 
