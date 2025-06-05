@@ -73,55 +73,12 @@
 
   <script src="script.js"></script>
   <script>
-    const quantities = {
-      pokkat1: 0,
-      cireng: 0,
-      geprek: 0
-    };
 
     function toggleNavMenu() {
       const nav = document.getElementById('mobile-nav');
       nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
     }
-
-
-    function changeQty(menuId, delta) {
-      if (!quantities[menuId]) quantities[menuId] = 0;
-      quantities[menuId] = Math.max(0, quantities[menuId] + delta);
-      document.getElementById(`qty-${menuId}`).innerText = quantities[menuId];
-    }
-
-    function addToCart(name, price, menuId) {
-      const qty = quantities[menuId] || 0;
-      if (qty === 0) {
-        alert("Jumlah belum dipilih!");
-        return;
-      }
-
-      let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-      const existing = cart.find(item => item.name === name);
-      if (existing) {
-        existing.qty += qty;
-      } else {
-        cart.push({ name, price, qty });
-      }
-
-      localStorage.setItem("cart", JSON.stringify(cart));
-      updateCartCount();
-      alert(`${qty}x ${name} telah ditambahkan ke keranjang!`);
-    }
-
-    function updateCartCount() {
-      const cart = JSON.parse(localStorage.getItem("cart")) || [];
-      const total = cart.reduce((sum, item) => sum + item.qty, 0);
-      const cartCount = document.getElementById("cart-count");
-      if (cartCount) cartCount.innerText = total;
-    }
-
-    document.addEventListener("DOMContentLoaded", updateCartCount);
-  </script>
-
+</script>
   <script>
     function toggleMenu(id) {
       const element = document.getElementById(id);
