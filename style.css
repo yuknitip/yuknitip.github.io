@@ -666,27 +666,21 @@ margin-top: 0.5em;
       position: absolute;
       right: 10px;
       justify-content: right;  
-      display: inline-block;
+      display: inline-flex;
         font-size: 1rem;
         color: white;
         margin-top: -70px;
         cursor: pointer;
         background: none !important;
         box-shadow: none !important;
-        pointer-events: auto;
-      }
-      
-
-    .some-wrapper {
-      pointer-events: none;
-    }
+   }
 
 
     .menu-toggle:hover,
   .menu-toggle:focus,
   .menu-toggle:active {
-    box-shadow: none !important;
-    outline: none !important;
+    box-shadow: none;
+    outline: none;
   }
 
       .card-informasi {
