@@ -106,9 +106,6 @@ body {
     width: 160px;
   }
 
-  .logo-img:hover {
-    opacity: 1;
-  }
 
   .cart-icon {
     position: fixed;
@@ -672,7 +669,6 @@ margin-top: 0.5em;
         color: white;
         margin-top: -70px;
         z-index: 9999;
-        cursor: pointer;
         background: none !important;
         box-shadow: none !important;
    }
@@ -1180,7 +1176,7 @@ color: #ff6b00
         .menu-toggle {
             position: absolute;
             right: 10px;
-            right: 10px;
+            height: 40px;
       width: 40px;
             justify-content: right;
           margin-top: -70px;
