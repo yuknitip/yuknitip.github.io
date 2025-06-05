@@ -673,7 +673,7 @@ margin-top: 0.5em;
         cursor: pointer;
         background: none !important;
         box-shadow: none !important;
-        pointer-events: none;
+        pointer-events: auto;
       }
       
 

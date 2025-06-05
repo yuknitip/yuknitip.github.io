@@ -66,6 +66,25 @@
             </div>
         </div>
         </div>
+        <div class="menu-card">
+            <div class="menu-item">
+                <img src="merchant/makan.png" alt="menu-info" />
+                <p class="menu">Bakso Kosong</p>
+                <p class="price">Rp14.000</p>
+                <div class="qty-control">
+                    <button onclick="changeQty('bk', -1)">-</button>
+                    <span id="qty-bk">1</span>
+                    <button onclick="changeQty('bk', 1)">+</button>
+                </div>
+            </div>
+            <div class="note-section">
+                <input type="text" id="note-bk" placeholder="Contoh : Tambah Ikan Bakso 3000" />
+                <button onclick="addMultipleToCartWithNotes([
+  { name: 'Bakso Kosong', price: 14000, menuId: 'bk', merchant : 'Bakso Bang Eli' }
+])">Tambah</button>
+            </div>
+        </div>
+        </div>
     </main>
 
     <footer class="checkout">
