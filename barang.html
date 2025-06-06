@@ -447,7 +447,7 @@
     const tujuan = document.getElementById('desaTujuan').value;
     const hasil = document.getElementById('ongkirDisplay');
 
-    if (asal && tujuan && asal !== tujuan) {
+    if (asal && tujuan) {
       const key = `${asal}-${tujuan}`;
       const tarif = tarifAntarDesa[key];
       if (tarif) {
