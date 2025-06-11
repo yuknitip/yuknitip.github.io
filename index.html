@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nitip</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0d6efd" />
+  <link rel="icon" href="logoapk192.png">
+  <link rel="apple-touch-icon" href="logoapk192.png">
 </head>
 
 <body>
@@ -30,19 +34,19 @@
       <h2 class="h2aa">Mau nitip apa ya?</h2>
 
     </div>
-    <navbar class="icon-kategori">
+    <nav class="icon-kategori">
       <a href="restaurant.html">
         <img src="nitipmakan.png" alt="Nitip Makan" class="icon-k">
       </a>
       <a href="barang.html">
         <img src="nitipbarang.png" alt="Nitip Barang" class="icon-k">
       </a>
-    </navbar>
-    <navbar class="icon-kategori1">
+    </nav>
+    <nav class="icon-kategori1">
       <a href="belanja.html">
         <img src="nitipbelanja.png" alt="Nitip Belanja" class="icon-k">
       </a>
-    </navbar>
+    </nav>
 
     <footer style="text-align: center; padding: 20px; background-color: #f7f7f7;">
       <p>&copy; 2025 Nitip. Karya Anak Tarempa. Semua Hak Dilindungi.</p>
@@ -54,6 +58,14 @@
         nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
       }
     </script>
+    <script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("service-worker.js")
+      .then(reg => console.log("Service worker registered:", reg))
+      .catch(err => console.error("SW registration failed:", err));
+  }
+</script>
+
 </body>
 
 </html>
