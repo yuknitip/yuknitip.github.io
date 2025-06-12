@@ -16,7 +16,7 @@
 <body>
     <main>
         <div class="cart-icon">
-            <a href="checkout.html">
+            <a href="checkout4.html">
                 <i class="fas fa-shopping-cart"></i>
                 <span id="cart-count">0</span>
             </a>
@@ -54,16 +54,10 @@
                 <p class="menu">Ayam Bakar</p>
                 <p class="price">Rp25.000</p>
                 <div class="qty-control">
-                    <button onclick="changeQty('ab', -1)">-</button>
-                    <span id="qty-ab">1</span>
-                    <button onclick="changeQty('ab', 1)">+</button>
+                    <button onclick="changeQty('ab', -1)"id="btn-minus-ab">-</button>
+                    <span id="qty-ab">Stok Habis</span>
+                    <button onclick="changeQty('ab', 1)"id="btn-plus-ab">+</button>
                 </div>
-            </div>
-            <div class="note-section">
-                <input type="text" id="note-ab" placeholder="Contoh : Sambal Original, Hijau, Terasi, Black Papper..." />
-                <button onclick="addMultipleToCartWithNotes([
-  { name: 'Ayam Bakar', price: 25000, menuId: 'ab', merchant : 'GFC, Masjid Agung' }
-])">Tambah</button>
             </div>
         </div>
         </div>
@@ -73,16 +67,10 @@
                 <p class="menu">Ayam Penyet</p>
                 <p class="price">Rp22.000</p>
                 <div class="qty-control">
-                    <button onclick="changeQty('ap', -1)">-</button>
-                    <span id="qty-ap">1</span>
-                    <button onclick="changeQty('ap', 1)">+</button>
+                    <button onclick="changeQty('ap', -1)"id="btn-minus-ap">-</button>
+                    <span id="qty-ap">stok Habis</span>
+                    <button onclick="changeQty('ap', 1)"id="btn-plus-ap">+</button>
                 </div>
-            </div>
-            <div class="note-section">
-                <input type="text" id="note-ap" placeholder="Contoh : Sambal Original, Hijau, Terasi, Black Papper..." />
-                <button onclick="addMultipleToCartWithNotes([
-  { name: 'Ayam Penyet', price: 22000, menuId: 'ap', merchant : 'GFC, Masjid Agung' }
-])">Tambah</button>
             </div>
         </div>
         </div>
@@ -92,16 +80,10 @@
                 <p class="menu">Ayam Gepuk</p>
                 <p class="price">Rp24.000</p>
                 <div class="qty-control">
-                    <button onclick="changeQty('agk', -1)">-</button>
-                    <span id="qty-agk">1</span>
-                    <button onclick="changeQty('agk', 1)">+</button>
+                    <button onclick="changeQty('agk', -1)"id="btn-minus-agk">-</button>
+                    <span id="qty-agk">Stok Habis</span>
+                    <button onclick="changeQty('agk', 1)"id="btn-plus-agk">+</button>
                 </div>
-            </div>
-            <div class="note-section">
-                <input type="text" id="note-agk" placeholder="Contoh : Sambal Original, Hijau, Terasi, Black Papper..." />
-                <button onclick="addMultipleToCartWithNotes([
-  { name: 'Ayam Gepuk', price: 24000, menuId: 'agk', merchant : 'GFC, Masjid Agung' }
-])">Tambah</button>
             </div>
         </div>
         </div>
@@ -149,16 +131,10 @@
                 <p class="menu">Kebab Patties Ayam</p>
                 <p class="price">Rp15.000</p>
                 <div class="qty-control">
-                    <button onclick="changeQty('kpa', -1)">-</button>
-                    <span id="qty-kpa">1</span>
-                    <button onclick="changeQty('kpa', 1)">+</button>
+                    <button onclick="changeQty('kpa', -1)"id="btn-minus-kpa">-</button>
+                    <span id="qty-kpa">Stok Habis</span>
+                    <button onclick="changeQty('kpa', 1)"id="btn-plus-kpa">+</button>
                 </div>
-            </div>
-            <div class="note-section">
-                <input type="text" id="note-kpa" placeholder="Catatan" />
-                <button onclick="addMultipleToCartWithNotes([
-  { name: 'Kebab Patties Ayam', price: 15000, menuId: 'kpa', merchant : 'GFC, Masjid Agung' }
-])">Tambah</button>
             </div>
         </div>
         </div>
@@ -168,16 +144,10 @@
                 <p class="menu">Kebab Patties Daging</p>
                 <p class="price">Rp18.000</p>
                 <div class="qty-control">
-                    <button onclick="changeQty('kpd', -1)">-</button>
-                    <span id="qty-kpd">1</span>
-                    <button onclick="changeQty('kpd', 1)">+</button>
+                    <button onclick="changeQty('kpd', -1)"id="btn-minus-kpd">-</button>
+                    <span id="qty-kpd">Stok Habis</span>
+                    <button onclick="changeQty('kpd', 1)"id="btn-plus-kpd">+</button>
                 </div>
-            </div>
-            <div class="note-section">
-                <input type="text" id="note-kpd" placeholder="Catatan" />
-                <button onclick="addMultipleToCartWithNotes([
-  { name: 'Kebab Patties Daging', price: 18000, menuId: 'kpd', merchant : 'GFC, Masjid Agung' }
-])">Tambah</button>
             </div>
         </div>
         </div>
@@ -603,7 +573,7 @@
     </main>
 
     <footer class="checkout">
-        <a href="checkout.html" class="btn">Lanjut ke Checkout</a>
+        <a href="checkout4.html" class="btn">Lanjut ke Checkout</a>
     </footer>
 
     <script src="script.js"></script>
@@ -753,6 +723,42 @@
             updateCartCount(); // fungsi dari cart kamu
         });
     </script>
+
+ <script>
+    // Simulasi stok menu
+    const stokMenu = {
+      ab: 0,
+      ap: 0,
+      agk: 0,
+      kpa: 0,
+      kpd: 0    // Cireng masih tersedia
+    };
+
+    function cekStokDanNonaktifkanTombol() {
+      for (let menuId in stokMenu) {
+        if (stokMenu[menuId] <= 0) {
+          const minusBtn = document.getElementById(`btn-minus-${menuId}`);
+          const plusBtn = document.getElementById(`btn-plus-${menuId}`);
+          const tambahBtn = document.getElementById(`btn-tambah-${menuId}`);
+          const noteInput = document.getElementById(`note-${menuId}`);
+
+          if (minusBtn) minusBtn.disabled = true;
+          if (plusBtn) plusBtn.disabled = true;
+          if (tambahBtn) {
+            tambahBtn.disabled = true;
+            tambahBtn.innerText = "Stok Habis";
+            tambahBtn.style.opacity = "0.6";
+            tambahBtn.style.cursor = "not-allowed";
+          }
+          if (noteInput) noteInput.disabled = true;
+        }
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      cekStokDanNonaktifkanTombol();
+    });
+  </script>
 
 </body>
 

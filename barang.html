@@ -18,9 +18,9 @@
     </div>
     <button class="menu-toggle" onclick="toggleNavMenu()">☰</button>
     <nav id="mobile-nav" class="hidden">
-      <a href="index.html">Home</a>
-      <a href="checkout.html">Checkout</a>
-      <a href="about.html">About</a>
+      <a href="index.html">Beranda</a>
+      <a href="riwayat.html">Aktivitas</a>
+      <a href="about.html">Tentang</a>
     </nav>
   </header>
 
@@ -497,15 +497,26 @@
       body: JSON.stringify(data)
     });
 
-    // Tampilkan overlay sukses
+   // 2. Simpan ke localStorage untuk halaman riwayat.html
+    const riwayat = JSON.parse(localStorage.getItem("riwayatPengiriman")) || [];
+    riwayat.push({
+      waktu: new Date().toLocaleString(),
+      ...data
+    });
+    localStorage.setItem("riwayatPengiriman", JSON.stringify(riwayat));
+
+    // 3. Tampilkan overlay sukses
     document.getElementById('overlaySuccess').style.display = 'flex';
 
-    // Reset form (opsional)
+    // 4. Reset form
     document.getElementById('formPengiriman').reset();
     document.getElementById('ongkirDisplay').innerText = "";
+
+    // 5. Redirect ke halaman riwayat.html setelah delay (opsional)
+    setTimeout(() => {
+      window.location.href = "riwayat.html";
+    }, 1000); // tunggu 1 detik sebelum redirect
   });
-</script>
-<script>
 
   function toggleNavMenu() {
     const nav = document.getElementById('mobile-nav');

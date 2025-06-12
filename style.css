@@ -106,7 +106,6 @@ body {
     width: 160px;
   }
 
-
   .cart-icon {
     position: fixed;
     top: 20px;
@@ -955,6 +954,26 @@ color: #ff6b00
 .kontak i {
   margin-right: 8px;
   font-size: 1.5rem;
+}
+
+.riwayat-icon h2 {
+  text-align: center;
+  margin-top: 40px;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.riwayat-section {
+  margin: 20px 0;
+}
+
+.riwayat-item {
+  border: 1px solid #ccc;
+  color: #e66925;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  background-color: #fafafa;
 }
 
 @keyframes slideIn {

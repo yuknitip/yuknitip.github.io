@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Riwayat Pesanan</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+    <a href="index.html"><img src="logonitip.png" alt="Nitip Logo" class="logo-img">
+    </a>
+    </div>
+    <button class="menu-toggle" onclick="toggleNavMenu()">☰</button>
+    <nav id="mobile-nav" class="hidden">
+      <a href="#">Beranda</a>
+      <a href="riwayat.html">Aktivitas</a>
+      <a href="about.html">Tentang</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Riwayat Nitip Makanan</h2>
+    <div id="riwayat-container" class="riwayat-section"></div>
+
+    <h2>Riwayat Nitip Barang</h2>
+    <div id="daftarRiwayat" class="riwayat-section"></div>
+
+    <h2>Riwayat Nitip Belanja</h2>
+    <div id="daftarRiwayatBelanja" class="riwayat-section"></div>
+
+    <div style="text-align: center;" class="clearcart">
+      <button onclick="clearOrderHistory()">Kosongkan Riwayat Pesanan</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Nitip. Karya Anak Tarempa. Semua Hak Dilindungi.</p>
+  </footer>
+
+  <script>
+    function toggleNavMenu() {
+        const nav = document.getElementById('mobile-nav');
+        nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+      }
+
+    function clearOrderHistory() {
+      if (!confirm("Yakin ingin menghapus semua riwayat pesanan?")) return;
+
+      const confirmText = prompt("Ketik 'HAPUS' untuk konfirmasi akhir.");
+      if (confirmText && confirmText.toUpperCase() === "HAPUS") {
+        localStorage.removeItem("orderHistory");
+        localStorage.removeItem("riwayatPengiriman");
+        localStorage.removeItem("riwayatNitipBelanja");
+
+        tampilkanRiwayat();
+        tampilkanRiwayatBarang();
+        tampilkanRiwayatBelanja();
+
+        alert("Semua riwayat pesanan berhasil dihapus.");
+      } else {
+        alert("Penghapusan dibatalkan.");
+      }
+    }
+
+    function tampilkanRiwayat() {
+      const estimasiPerLokasi = {
+        "Tarempa": 20, "Tarempa Barat": 25, "Sri Tanjung": 30,
+        "Air Padang": 35, "Tanjung Momong": 35, "Telok Rit": 35,
+        "Telok Buluh": 35, "Antang": 35, "Pasir Peti": 45,
+        "Dusun": 45, "Telok Mabai": 45, "Selambak": 45,
+        "Temburun": 50, "Batu Tambun": 25, "Gudang Tengah": 30,
+        "Rintis": 30, "Air Bini": 50, "Arung Hijau": 40
+      };
+
+      const container = document.getElementById("riwayat-container");
+      const data = JSON.parse(localStorage.getItem("orderHistory")) || [];
+      container.innerHTML = "";
+
+      if (data.length === 0) {
+        container.innerHTML = "<p>Belum ada pesanan.</p>";
+        return;
+      }
+
+      const grouped = {};
+      data.reverse().forEach(p => {
+        const key = new Date(p.waktu).toISOString().split("T")[0];
+        if (!grouped[key]) grouped[key] = [];
+        grouped[key].push(p);
+      });
+
+      Object.keys(grouped).forEach(key => {
+        const tanggal = new Date(key).toLocaleDateString('id-ID', {
+          weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+        });
+
+        const section = document.createElement("section");
+        section.innerHTML = `<h3>${tanggal}</h3>`;
+
+        grouped[key].forEach(pesanan => {
+          const waktu = new Date(pesanan.waktu);
+          const estimasi = estimasiPerLokasi[pesanan.lokasi.trim()] || 40;
+          const tiba = new Date(waktu.getTime() + estimasi * 60000);
+
+          const div = document.createElement("div");
+          div.className = "riwayat-item";
+          div.innerHTML = `
+            <p><strong>Nama:</strong> ${pesanan.nama}</p>
+            <p><strong>Alamat:</strong> ${pesanan.alamat}</p>
+            <p><strong>Lokasi:</strong> ${pesanan.lokasi}</p>
+            <p><strong>Total:</strong> Rp${pesanan.total.toLocaleString("id-ID")}</p>
+            <p><strong>Metode:</strong> ${pesanan.pembayaran}</p>
+            <p><strong>Waktu Pesan:</strong> ${waktu.toLocaleString("id-ID")}</p>
+            <p><strong>Estimasi Tiba:</strong> ${tiba.toLocaleTimeString("id-ID", { hour: '2-digit', minute: '2-digit' })}</p>
+            <ul>${pesanan.items.map(i => `<li>${i.qty}x ${i.name} ${i.price} (${i.merchant})</li>`).join("")}</ul>
+          `;
+          section.appendChild(div);
+        });
+
+        container.appendChild(section);
+      });
+    }
+
+    function tampilkanRiwayatBarang() {
+      const container = document.getElementById("daftarRiwayat");
+      const riwayat = JSON.parse(localStorage.getItem("riwayatPengiriman")) || [];
+
+      if (riwayat.length === 0) {
+        container.innerHTML = "<p>Belum ada pengiriman barang.</p>";
+        return;
+      }
+
+      container.innerHTML = riwayat.map(item => `
+        <div class="riwayat-item">
+          <p><strong>Waktu:</strong> ${item.waktu}</p>
+          <p><strong>Pengirim:</strong> ${item.namaPengirim} (${item.noPengirim})</p>
+          <p><strong>Penerima:</strong> ${item.namaPenerima} (${item.noPenerima})</p>
+          <p><strong>Alamat Tujuan:</strong> ${item.alamatPenerima}</p>
+          <p><strong>Barang:</strong> ${item.deskripsiBarang}</p>
+          <p><strong>Ongkir:</strong> ${item.ongkirText}</p>
+        </div>
+      `).join("");
+    }
+
+    function tampilkanRiwayatBelanja() {
+      const container = document.getElementById("daftarRiwayatBelanja");
+      const riwayat = JSON.parse(localStorage.getItem("riwayatNitipBelanja")) || [];
+
+      if (riwayat.length === 0) {
+        container.innerHTML = "<p>Belum ada riwayat nitip belanja.</p>";
+        return;
+      }
+
+      container.innerHTML = riwayat.map(item => `
+        <div class="riwayat-item">
+          <p><strong>Waktu:</strong> ${item.waktu}</p>
+          <p><strong>Tempat Belanja:</strong> ${item.tempatBelanja}</p>
+          <p><strong>Deskripsi Barang:</strong> ${item.deskripsiBarang}</p>
+          <p><strong>Nama Pembeli:</strong> ${item.namaPembeli} (${item.nomor})</p>
+          <p><strong>Alamat:</strong> ${item.alamatPembeli}</p>
+          <p><strong>Ongkir:</strong> ${item.ongkirText}</p>
+        </div>
+      `).join("");
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      tampilkanRiwayat();
+      tampilkanRiwayatBarang();
+      tampilkanRiwayatBelanja();
+    });
+  </script>
+</body>
+</html>

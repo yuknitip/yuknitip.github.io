@@ -18,9 +18,9 @@
     </div>
     <button class="menu-toggle" onclick="toggleNavMenu()">☰</button>
     <nav id="mobile-nav" class="hidden">
-      <a href="index.html">Home</a>
-      <a href="checkout.html">Checkout</a>
-      <a href="about.html">About</a>
+     <a href="index.html">Beranda</a>
+      <a href="riwayat.html">Aktivitas</a>
+      <a href="about.html">Tentang</a>
     </nav>
   </header>
 
@@ -495,16 +495,27 @@
       headers: {
         "Content-Type": "application/json",
       },
-    })
-      .then(() => {
-        document.getElementById('overlaySuccess').style.display = 'flex';
-        document.getElementById('formPembelian').reset();
-        document.getElementById('ongkirDisplay').innerText = 'Ongkir: -';
-      })
-      .catch(error => {
-        alert("Gagal mengirim pesanan.");
-        console.error(error);
-      });
+   });
+
+    // 2. Simpan ke localStorage untuk riwayat
+    const riwayat = JSON.parse(localStorage.getItem("riwayatNitipBelanja")) || [];
+    riwayat.push({
+      waktu: new Date().toLocaleString(),
+      ...data
+    });
+    localStorage.setItem("riwayatNitipBelanja", JSON.stringify(riwayat));
+
+    // 3. Tampilkan overlay sukses
+    document.getElementById('overlaySuccess').style.display = 'flex';
+
+    // 4. Reset form
+    document.getElementById('formPembelian').reset();
+    document.getElementById('ongkirDisplay').innerText = 'Ongkir: -';
+
+    // 5. Redirect ke halaman riwayat (opsional)
+    setTimeout(() => {
+      window.location.href = "riwayat.html";
+    }, 1000);
   });
 </script>
 </body>

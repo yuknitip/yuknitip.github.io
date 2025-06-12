@@ -19,9 +19,9 @@
     </div>
     <button class="menu-toggle" onclick="toggleMenu()">☰</button>
     <nav id="mobile-nav" class="hidden">
-      <a href="index.html">Home</a>
-      <a href="#">Checkout</a>
-      <a href="about.html">About</a>
+      <a href="index.html">Beranda</a>
+      <a href="riwayat.html">Aktivitas</a>
+      <a href="about.html">Tentang</a>
     </nav>
   </header>
 
@@ -33,23 +33,23 @@
     <select id="lokasi" onchange="updateOngkir()">
       <option value="">-- Pilih Lokasi --</option>
       <option value="Tarempa" data-ongkir="7000">Tarempa (Rp7.000)</option>
-      <option value="Tarempa Barat" data-ongkir="5000">Tarempa Barat (Rp5.000)</option>
+      <option value="Tarempa Barat" data-ongkir="7000">Tarempa Barat (Rp7.000)</option>
       <option value="Sri Tanjung" data-ongkir="5000">Sri Tanjung (Rp5.000)</option>
-      <option value="Air Padang" data-ongkir="12000">Air Padang (Rp12.000)</option>
-      <option value="Tanjung Momong" data-ongkir="12000">Tanjung Momong (Rp12.000)</option>
-      <option value="Telok Rit" data-ongkir="12000">Telok Rit (Rp12.000)</option>
-      <option value="Telok Buluh" data-ongkir="13000">Telok Buluhh (Rp13.000)</option>
-      <option value="Antang" data-ongkir="14000">Antang (Rp14.000)</option>
-      <option value="Pasir Peti" data-ongkir="17000">Pasir Peti (Rp17.000)</option>
-      <option value="Dusun" data-ongkir="19000">Dusun (Rp19.000)</option>
-      <option value="Telok Mabai" data-ongkir="19000">Telok Mabai (Rp19.000)</option>
-      <option value="Selambak" data-ongkir="20000">Selambak (Rp20.000)</option>
-      <option value="Temburun" data-ongkir="25000">Temburun (Rp25.000)</option>
-      <option value="Batu Tambun" data-ongkir="12000">Batu Tambun (Rp12.000)</option>
-      <option value="Gudang Tengah" data-ongkir="17000">Gudang Tengah (Rp17.000)</option>
-      <option value="Rintis" data-ongkir="19000">Rintis (Rp19.000)</option>
-      <option value="Air Bini" data-ongkir="36000">Air Bini (Rp36.000)</option>
-      <option value="Arung Hijau" data-ongkir="20000">Arung Hijau (Rp20.000)</option>
+      <option value="Air Padang" data-ongkir="15000">Air Padang (Rp15.000)</option>
+      <option value="Tanjung Momong" data-ongkir="15000">Tanjung Momong (Rp15.000)</option>
+      <option value="Telok Rit" data-ongkir="15000">Telok Rit (Rp15.000)</option>
+      <option value="Telok Buluh" data-ongkir="17000">Telok Buluh (Rp17.000)</option>
+      <option value="Antang" data-ongkir="19000">Antang (Rp19.000)</option>
+      <option value="Pasir Peti" data-ongkir="22000">Pasir Peti (Rp22.000)</option>
+      <option value="Dusun" data-ongkir="24000">Dusun (Rp24.000)</option>
+      <option value="Telok Mabai" data-ongkir="24000">Telok Mabai (Rp24.000)</option>
+      <option value="Selambak" data-ongkir="28000">Selambak (Rp28.000)</option>
+      <option value="Temburun" data-ongkir="34000">Temburun (Rp34.000)</option>
+      <option value="Batu Tambun" data-ongkir="14000">Batu Tambun (Rp14.000)</option>
+      <option value="Gudang Tengah" data-ongkir="19000">Gudang Tengah (Rp19.000)</option>
+      <option value="Rintis" data-ongkir="22000">Rintis (Rp22.000)</option>
+      <option value="Air Bini" data-ongkir="44000">Air Bini (Rp44.000)</option>
+      <option value="Arung Hijau" data-ongkir="25000">Arung Hijau (Rp25.000)</option>
     </select>
 
     <p id="ongkir-info">Ongkir: Rp0</p>
@@ -201,93 +201,106 @@
     }
 
     function submitOrder(event) {
-      event.preventDefault();
+  event.preventDefault();
 
-      const nama = document.getElementById("nama").value.trim();
-      const alamat = document.getElementById("alamat").value.trim();
-      const nomor = document.getElementById("nomor").value.trim();
-      const pembayaran = document.getElementById("pembayaran").value;
-      const lokasiSelect = document.getElementById("lokasi");
-      const lokasi = lokasiSelect.value;
-      const lokasiText = lokasiSelect.options[lokasiSelect.selectedIndex]?.text || '';
-      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const nama = document.getElementById("nama").value.trim();
+  const alamat = document.getElementById("alamat").value.trim();
+  const nomor = document.getElementById("nomor").value.trim();
+  const pembayaran = document.getElementById("pembayaran").value;
+  const lokasiSelect = document.getElementById("lokasi");
+  const lokasi = lokasiSelect.value;
+  const lokasiText = lokasiSelect.options[lokasiSelect.selectedIndex]?.text || '';
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-      if (!/^\d{10,13}$/.test(nomor)) {
-        alert("Masukkan nomor HP yang valid.");
-        return;
-      }
+  if (!/^\d{10,13}$/.test(nomor)) {
+    alert("Masukkan nomor HP yang valid.");
+    return;
+  }
 
-      if (!lokasi) {
-        alert("Silakan pilih lokasi pengantaran.");
-        return;
-      }
+  if (!lokasi) {
+    alert("Silakan pilih lokasi pengantaran.");
+    return;
+  }
 
-      if (cart.length === 0) {
-        alert("Keranjang kosong!");
-        return;
-      }
+  if (cart.length === 0) {
+    alert("Keranjang kosong!");
+    return;
+  }
 
-      if (!nama || !alamat || !nomor || !pembayaran) {
-        alert("Mohon isi semua data dengan lengkap.");
-        return;
-      }
+  if (!nama || !alamat || !nomor || !pembayaran) {
+    alert("Mohon isi semua data dengan lengkap.");
+    return;
+  }
 
-      const grouped = groupCartByMerchant(cart);
-      const merchantCount = Object.keys(grouped).length;
-      if (merchantCount > 1) {
-        alert("Maaf, Anda hanya bisa memesan dari satu merchant dalam satu transaksi.");
-        return;
-      }
+  const grouped = groupCartByMerchant(cart);
+  const merchantCount = Object.keys(grouped).length;
+  if (merchantCount > 1) {
+    alert("Maaf, hanya bisa checkout dari satu merchant.");
+    return;
+  }
 
-      let totalHarga = 0;
-      const items = [];
+  let totalHarga = 0;
+  const items = [];
 
-      for (const merchant in grouped) {
-        grouped[merchant].forEach((item) => {
-          const subtotal = item.qty * item.price;
-          totalHarga += subtotal;
-          items.push({
-            merchant,
-            name: item.name,
-            qty: item.qty,
-            price: item.price,
-            note: item.note || ''
-          });
-        });
-      }
-
-      const ongkir = parseInt(lokasiSelect.selectedOptions[0]?.getAttribute("data-ongkir")) || 0;
-      const total = totalHarga + ongkir;
-
-      const data = {
-        nama,
-        alamat,
-        nomor,
-        lokasi: lokasiText,
-        pembayaran,
-        ongkir,
-        total,
-        items
-      };
-
-      // Kirim ke Google Apps Script Web App
-      fetch("https://script.google.com/macros/s/AKfycbxS40F_gc4W8s53cA_CDcqTkKFzddpCnPgQJGhBempzhzqTR1rhVmktP6gHx69Nt_hbWQ/exec", {
-        method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
+  for (const merchant in grouped) {
+    grouped[merchant].forEach((item) => {
+      const subtotal = item.qty * item.price;
+      totalHarga += subtotal;
+      items.push({
+        merchant,
+        name: item.name,
+        qty: item.qty,
+        price: item.price,
+        note: item.note || ''
       });
+    });
+  }
 
-      alert("Pesanan berhasil dikirim!");
-      document.getElementById("order-form").reset();
-      document.getElementById("lokasi").selectedIndex = 0;
-      localStorage.removeItem("cart");
-      loadCart();
-    }
+  const ongkir = parseInt(lokasiSelect.selectedOptions[0]?.getAttribute("data-ongkir")) || 0;
+  const total = totalHarga + ongkir;
 
-    document.addEventListener("DOMContentLoaded", loadCart);
+  const data = {
+    nama,
+    alamat,
+    nomor,
+    lokasi: lokasiText,
+    pembayaran,
+    ongkir,
+    total,
+    items,
+    waktu: new Date().toISOString()
+  };
+
+  // Simpan ke localStorage sebagai riwayat
+  const orderHistory = JSON.parse(localStorage.getItem("orderHistory")) || [];
+  orderHistory.push(data);
+  localStorage.setItem("orderHistory", JSON.stringify(orderHistory));
+
+  // Kirim ke Google Apps Script (tanpa menunggu respon karena no-cors)
+  fetch("https://script.google.com/macros/s/AKfycbxS40F_gc4W8s53cA_CDcqTkKFzddpCnPgQJGhBempzhzqTR1rhVmktP6gHx69Nt_hbWQ/exec", {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  });
+
+  // Tampilkan notifikasi
+  alert("Pesanan berhasil dikirim!");
+
+  // Kosongkan form dan keranjang
+  document.getElementById("order-form").reset();
+  document.getElementById("lokasi").selectedIndex = 0;
+  localStorage.removeItem("cart");
+  loadCart();
+
+  // Redirect ke riwayat
+  window.location.href = "riwayat.html";
+}
+
+// Inisialisasi saat halaman selesai dimuat
+document.addEventListener("DOMContentLoaded", loadCart);
 
     function checkSingleMerchantInCart() {
       const cart = JSON.parse(localStorage.getItem("cart")) || [];

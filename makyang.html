@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
   <div class="logo-banner">
-    <img src="merchant/pokkats/bannerpokkat.png" alt="pokkat" class="banner">
+    <img src="merchant/makyang/miegoreng.jpeg" alt="Mak Yang" class="banner">
   </div>
 </head>
 
@@ -22,47 +22,65 @@
       </a>
     </div>
     <div class="merchant-info1"></a>
-      <h3>Pokkat's</h3>
-      <p>Jalan Raden Saleh, Gang Swadaya 3, Kelurahan Tarempa, Siantan</p>
-      <p> Open : 08.00 - 20.00 WIB</p>
+      <h3>Mak Yang</h3>
+      <p>Jalan Tanjung (Samping Pasar Ikan), Tarempa Barat, Siantan</p>
+      <p> Open : 06.00 - 11.00 WIB</p>
       <div id="status-operasional" style="margin: 1em 0; font-weight: bold;">
       </div>
     </div>
     <div class="menu-card">
       <div class="menu-item">
-        <img src="merchant/pokkats/menupokkat.png" alt="menu-info" />
-        <p class="menu">Alpukat Kocok</p>
-        <p class="price">Rp20.000</p>
+        <img src="merchant/makyang/miegoreng.jpeg" alt="menu-info" />
+        <p class="menu">Mie Goreng</p>
+        <p class="price">Rp12.000</p>
         <div class="qty-control">
-          <button onclick="changeQty('pokkat1', -1)" id="btn-minus-pokkat1">-</button>
-          <span id="qty-pokkat1">1</span>
-          <button onclick="changeQty('pokkat1', 1)" id="btn-plus-pokkat1">+</button>
-
+          <button onclick="changeQty('mg', -1)">-</button>
+          <span id="qty-mg">1</span>
+          <button onclick="changeQty('mg', 1)">+</button>
         </div>
       </div>
       <div class="note-section">
-        <input type="text" id="note-pokkat1" placeholder="Catatan" />
+        <input type="text" id="note-mg" placeholder="Catatan" />
         <button onclick="addMultipleToCartWithNotes([
-  { name: 'Alpukat Kocok', price: 20000, menuId: 'pokkat1', merchant : 'Pokkats' }
+  { name: 'Mie Goreng', price: 12000, menuId: 'mg', merchant : 'Mak Yang' }
 ])">Tambah</button>
       </div>
     </div>
     </div>
-    <div class="menu-card">
+        <div class="menu-card">
       <div class="menu-item">
-        <img src="merchant/pokkats/ayamsuwirpng.png" alt="menu-info" />
-        <p class="menu">Cireng Ayam Suwir</p>
-        <p class="price">Rp15.000</p>
+        <img src="merchant/makyang/nasilemak.jpeg" alt="menu-info" />
+        <p class="menu">Nasi Lemak</p>
+        <p class="price">Rp12.000</p>
         <div class="qty-control">
-          <button onclick="changeQty('cireng', -1)" id="btn-minus-cireng">-</button>
-          <span id="qty-cireng">1</span>
-          <button onclick="changeQty('cireng', 1)" id="btn-plus-cireng">+</button>
+          <button onclick="changeQty('nl', -1)">-</button>
+          <span id="qty-nl">1</span>
+          <button onclick="changeQty('nl', 1)">+</button>
         </div>
       </div>
       <div class="note-section">
-        <input type="text" id="note-cireng" placeholder="Catatan" />
+        <input type="text" id="note-nl" placeholder="Catatan" />
         <button onclick="addMultipleToCartWithNotes([
-  { name: 'Cireng Ayam Suwir', price: 15000, menuId: 'cireng', merchant : 'Pokkats' }
+  { name: 'Nasi Lemak', price: 12000, menuId: 'nl', merchant : 'Mak Yang' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+        <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/makyang/pecallontong.jpeg" alt="menu-info" />
+        <p class="menu">Pecal Lontong</p>
+        <p class="price">Rp12.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('pl', -1)">-</button>
+          <span id="qty-pl">1</span>
+          <button onclick="changeQty('pl', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-pl" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Pecal Lontong', price: 12000, menuId: 'pl', merchant : 'Mak Yang' }
 ])">Tambah</button>
       </div>
     </div>
@@ -76,8 +94,7 @@
   <script src="script.js"></script>
   <script>
     const quantities = {
-      pokkat1: 0,
-      cireng: 0
+      nl: 0
     };
 
     function toggleNavMenu() {
@@ -87,8 +104,8 @@
 
 
     function changeQty(menuId, delta) {
-      if (!quantities[menuId]) quantities[menuId] = 1;
-      quantities[menuId] = Math.max(1, quantities[menuId] + delta);
+      if (!quantities[menuId]) quantities[menuId] = 0;
+      quantities[menuId] = Math.max(0, quantities[menuId] + delta);
       document.getElementById(`qty-${menuId}`).innerText = quantities[menuId];
     }
 
@@ -185,15 +202,16 @@
       }
     }
   </script>
+
   <script>
-    const tutupManual = true;
+    const tutupManual = false;
     function cekJamOperasional() {
       const sekarang = new Date();
       const jam = sekarang.getHours();
 
       // SETTING: Jam buka dan tutup merchant (ubah sesuai kebutuhan)
-      const jamBuka = 0;   // Jam buka: 09:00
-      const jamTutup = 24; // Jam tutup: 21:00
+      const jamBuka = 6;   // Jam buka: 09:00
+      const jamTutup = 11; // Jam tutup: 21:00
 
 
       const statusEl = document.getElementById("status-operasional");
@@ -220,78 +238,6 @@
       updateCartCount(); // fungsi dari cart kamu
     });
   </script>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", async () => {
-      try {
-        const res = await fetch("http://localhost:5000/api/menus/Pokkats");
-        const menus = await res.json();
-
-        const container = document.querySelector("main");
-        container.innerHTML = ""; // Kosongkan dulu
-
-        menus.forEach(menu => {
-          container.innerHTML += `
-        <div class="menu-card">
-          <div class="menu-item">
-            <img src="${menu.image}" alt="menu-info"/>
-            <p class="menu">${menu.name}</p>
-            <p class="price">Rp${menu.price.toLocaleString()}</p>
-            <div class="qty-control">
-              <button onclick="changeQty('${menu._id}', -1)">-</button>
-              <span id="qty-${menu._id}">0</span>
-              <button onclick="changeQty('${menu._id}', 1)">+</button>
-            </div>
-          </div>
-          <div class="note-section">
-            <input type="text" id="note-${menu._id}" placeholder="Catatan" />
-            <button onclick="addMultipleToCartWithNotes([
-              { name: '${menu.name}', price: ${menu.price}, menuId: '${menu._id}', merchant: '${menu.merchant}' }
-            ])">Tambah</button>
-          </div>
-        </div>
-      `;
-        });
-
-      } catch (err) {
-        console.error("Gagal memuat menu:", err);
-      }
-    });
-  </script>
-
-  <script>
-    // Simulasi stok menu
-    const stokMenu = {
-      pokkat1: 0,  // Alpukat Kocok (habis)
-      cireng: 0    // Cireng masih tersedia
-    };
-
-    function cekStokDanNonaktifkanTombol() {
-      for (let menuId in stokMenu) {
-        if (stokMenu[menuId] <= 0) {
-          const minusBtn = document.getElementById(`btn-minus-${menuId}`);
-          const plusBtn = document.getElementById(`btn-plus-${menuId}`);
-          const tambahBtn = document.getElementById(`btn-tambah-${menuId}`);
-          const noteInput = document.getElementById(`note-${menuId}`);
-
-          if (minusBtn) minusBtn.disabled = true;
-          if (plusBtn) plusBtn.disabled = true;
-          if (tambahBtn) {
-            tambahBtn.disabled = true;
-            tambahBtn.innerText = "Stok Habis";
-            tambahBtn.style.opacity = "0.6";
-            tambahBtn.style.cursor = "not-allowed";
-          }
-          if (noteInput) noteInput.disabled = true;
-        }
-      }
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      cekStokDanNonaktifkanTombol();
-    });
-  </script>
-
 
 </body>
 
