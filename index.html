@@ -47,7 +47,25 @@
         <img src="nitipbelanja.png" alt="Nitip Belanja" class="icon-k">
       </a>
     </navbar>
-
+<button id="installBtn" title="Install Aplikasi"
+  style="
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    font-size: 24px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    cursor: pointer;
+    display: none;
+  ">
+  📲
+</button>
     <footer style="text-align: center; padding: 20px; background-color: #f7f7f7;">
       <p>&copy; 2025 Nitip. Karya Anak Tarempa. Semua Hak Dilindungi.</p>
     </footer>
@@ -64,6 +82,35 @@
       .then(reg => console.log("Service worker registered:", reg))
       .catch(err => console.error("SW registration failed:", err));
   }
+  let deferredPrompt;
+const installBtn = document.getElementById('installBtn');
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault(); // Cegah prompt default
+  deferredPrompt = e;
+  installBtn.style.display = 'block';
+});
+
+installBtn.addEventListener('click', async () => {
+  installBtn.style.display = 'none';
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    if (outcome === 'accepted') {
+      console.log('User accepted install');
+    }
+    deferredPrompt = null;
+  }
+});
+
+window.addEventListener('appinstalled', () => {
+  console.log('PWA installed');
+  installBtn.style.display = 'none';
+});
+if (window.matchMedia('(display-mode: standalone)').matches) {
+  installBtn.style.display = 'none';
+}
+
 </script>
 
 </body>
