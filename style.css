@@ -308,7 +308,7 @@ body {
   
   .img-toko {
     height: 170px;
-    width: 160px;
+    width: 170px;
   }
   .menu-card {
     background: #fff;
@@ -338,8 +338,8 @@ body {
   }
 
   .menu-card h4 {
-    font-size: 1rem;
-    color: #333;
+    font-size: 1.5rem;
+    color: #ff7f3f;
     margin-top: 5px;
     text-align:left;
   }
@@ -484,7 +484,7 @@ body {
   }
 
   .merchant-card-icon img {
-    width: 80px;
+    width: 100px;
     height: 100px;
     justify-content: left;
     object-fit: cover;

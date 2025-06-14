@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merchant - Nitip</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <div class="logo-banner">
+    <img src="merchant/makadek/nasilemak.jpg" alt="Romansadrink.ind" class="banner">
+  </div>
+</head>
+
+<body>
+  <main>
+    <div class="cart-icon">
+      <a href="checkout.html">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count">0</span>
+      </a>
+    </div>
+    <div class="merchant-info1"></a>
+      <h3>ROMANSADRINK.IND</h3>
+      <p>Jalan Imam Bonjol (Depan BMKG), Kelurahan Tarempa, Siantan</p>
+      <p> Open : 10.00 - 20.00 WIB</p>
+      <div id="status-operasional" style="margin: 1em 0; font-weight: bold;">
+      </div>
+    </div>
+    <div class="menu-card">
+    <h4>Milk Tea Series</h4>
+      <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Thai Tea Reguler</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('ttr', -1)">-</button>
+          <span id="qty-ttr">1</span>
+          <button onclick="changeQty('ttr', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-ttr" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Thai Tea Reguler', price: 17000, menuId: 'ttr', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Thai Tea Extra Topping</p>
+        <p class="price">Rp22.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('ttet', -1)">-</button>
+          <span id="qty-ttet">1</span>
+          <button onclick="changeQty('ttet', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-ttet" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Thai Tea Extra Topping', price: 22000, menuId: 'ttet', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Green Tea Reguler</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('gtr', -1)">-</button>
+          <span id="qty-gtr">1</span>
+          <button onclick="changeQty('gtr', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-gtr" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Green Tea Reguler', price: 17000, menuId: 'gtr', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Green Tea Extra Topping</p>
+        <p class="price">Rp22.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('gtet', -1)">-</button>
+          <span id="qty-gtet">1</span>
+          <button onclick="changeQty('gtet', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-gtet" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Green Tea Extra Topping', price: 22000, menuId: 'gtet', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Redvelvet Reguler</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('redr', -1)">-</button>
+          <span id="qty-redr">1</span>
+          <button onclick="changeQty('redr', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-redr" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Redvelvet Reguler', price: 17000, menuId: 'redr', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Redvelvet Extra Topping</p>
+        <p class="price">Rp22.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('redet', -1)">-</button>
+          <span id="qty-redet">1</span>
+          <button onclick="changeQty('redet', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-redet" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Redvelvet Extra Topping', price: 22000, menuId: 'redet', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+    <h4>Chocolate Series</h4>
+    <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Chocolate Oreo Reguler</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('choor', -1)">-</button>
+          <span id="qty-choor">1</span>
+          <button onclick="changeQty('choor', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-choor" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Chocolate Oreo Reguler', price: 17000, menuId: 'choor', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Chocolate Oreo Extra Topping</p>
+        <p class="price">Rp22.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('chooet', -1)">-</button>
+          <span id="qty-chooet">1</span>
+          <button onclick="changeQty('chooet', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-chooet" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Chocolate Oreo Extra Topping', price: 22000, menuId: 'chooet', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+    <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Chocolate Milo Reguler</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('chomr', -1)">-</button>
+          <span id="qty-chomr">1</span>
+          <button onclick="changeQty('chomr', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-chomr" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Chocolate Milo Reguler', price: 17000, menuId: 'chomr', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Chocolate Milo Extra Topping</p>
+        <p class="price">Rp22.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('chomet', -1)">-</button>
+          <span id="qty-chomet">1</span>
+          <button onclick="changeQty('chomet', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-chomet" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Chocolate Milo Extra Topping', price: 22000, menuId: 'chomet', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+    <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Dark Chocolate Reguler</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('dchor', -1)">-</button>
+          <span id="qty-dchor">1</span>
+          <button onclick="changeQty('dchor', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-dchor" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Dark Chocolate Reguler', price: 17000, menuId: 'dchor', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Dark Chocolate Extra Topping</p>
+        <p class="price">Rp22.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('dchoet', -1)">-</button>
+          <span id="qty-dchoet">1</span>
+          <button onclick="changeQty('dchoet', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-dchoet" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Dark Chocolate Extra Topping', price: 22000, menuId: 'dchoet', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+    <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Chocolate Klasik Reguler</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('chokr', -1)">-</button>
+          <span id="qty-chokr">1</span>
+          <button onclick="changeQty('chokr', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-chokr" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Chocolate Klasik Reguler', price: 17000, menuId: 'chokr', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Chocolate Klasik Extra Topping</p>
+        <p class="price">Rp22.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('choket', -1)">-</button>
+          <span id="qty-choket">1</span>
+          <button onclick="changeQty('choket', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-choket" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Chocolate Klasik Extra Topping', price: 22000, menuId: 'choket', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+    <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Chocolate Caramel Reguler</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('chocr', -1)">-</button>
+          <span id="qty-chocr">1</span>
+          <button onclick="changeQty('chocr', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-chocr" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Chocolate Caramel Reguler', price: 17000, menuId: 'chocr', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Chocolate Caramel Extra Topping</p>
+        <p class="price">Rp22.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('chocet', -1)">-</button>
+          <span id="qty-chocet">1</span>
+          <button onclick="changeQty('chocet', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-chocet" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Chocolate Caramel Extra Topping', price: 22000, menuId: 'chocet', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+    <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Chocolate Hazelnut Reguler</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('chohr', -1)">-</button>
+          <span id="qty-chohr">1</span>
+          <button onclick="changeQty('chohr', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-chohr" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Chocolate Hazelnut Reguler', price: 17000, menuId: 'chohr', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Chocolate Hazelnut Extra Topping</p>
+        <p class="price">Rp22.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('chohet', -1)">-</button>
+          <span id="qty-chohet">1</span>
+          <button onclick="changeQty('chohet', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-chohet" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Chocolate Hazelnut Extra Topping', price: 22000, menuId: 'chohet', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+    <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Chocolate Silverqueen Reguler</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('chosr', -1)">-</button>
+          <span id="qty-chosr">1</span>
+          <button onclick="changeQty('chosr', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-chosr" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Chocolate Silverqueen Reguler', price: 17000, menuId: 'chosr', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Chocolate Silverqueen Extra Topping</p>
+        <p class="price">Rp22.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('choset', -1)">-</button>
+          <span id="qty-choset">1</span>
+          <button onclick="changeQty('choset', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-choset" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Chocolate Silverqueen Extra Topping', price: 22000, menuId: 'choset', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+    <h4>Fruit Series</h4>
+    <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Taro Signature Reguler</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('tsr', -1)">-</button>
+          <span id="qty-tsr">1</span>
+          <button onclick="changeQty('tsr', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-tsr" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Taro Signature Reguler', price: 17000, menuId: 'tsr', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Taro Signature Extra Topping</p>
+        <p class="price">Rp22.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('tset', -1)">-</button>
+          <span id="qty-tset">1</span>
+          <button onclick="changeQty('tset', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-tset" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Taro Signature Extra Topping', price: 22000, menuId: 'tset', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+    <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Mango Signature Reguler</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('msr', -1)">-</button>
+          <span id="qty-msr">1</span>
+          <button onclick="changeQty('msr', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-msr" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Mango Signature Reguler', price: 17000, menuId: 'msr', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Mango Signature Extra Topping</p>
+        <p class="price">Rp22.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('mset', -1)">-</button>
+          <span id="qty-mset">1</span>
+          <button onclick="changeQty('mset', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-mset" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Mango Signature Extra Topping', price: 22000, menuId: 'mset', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+    <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Milky Strawberry Reguler</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('mstr', -1)">-</button>
+          <span id="qty-mstr">1</span>
+          <button onclick="changeQty('mstr', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-mstr" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Milky Strawberry Reguler', price: 17000, menuId: 'mstr', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Milky Strawberry Extra Topping</p>
+        <p class="price">Rp22.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('msret', -1)">-</button>
+          <span id="qty-msret">1</span>
+          <button onclick="changeQty('msret', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-msret" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Milky Strawberry Extra Topping', price: 22000, menuId: 'msret', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+    <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Avocado Signature Reguler</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('asr', -1)">-</button>
+          <span id="qty-asr">1</span>
+          <button onclick="changeQty('asr', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-asr" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Avocado Signature Reguler', price: 17000, menuId: 'asr', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Avocado Signature Extra Topping</p>
+        <p class="price">Rp22.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('aset', -1)">-</button>
+          <span id="qty-aset">1</span>
+          <button onclick="changeQty('aset', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-aset" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Avocado Signature Extra Topping', price: 22000, menuId: 'aset', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+    <h4>Coffee Series</h4>
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Coffee Caramel Reguler</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('ccr', -1)">-</button>
+          <span id="qty-ccr">1</span>
+          <button onclick="changeQty('ccr', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-ccr" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Coffee Caramel Reguler', price: 17000, menuId: 'ccr', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Coffee Caramel Extra Topping</p>
+        <p class="price">Rp22.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('ccet', -1)">-</button>
+          <span id="qty-ccet">1</span>
+          <button onclick="changeQty('ccet', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-ccet" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Coffee Caramel Extra Topping', price: 22000, menuId: 'ccet', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Mocachino Latte Reguler</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('mlr', -1)">-</button>
+          <span id="qty-mlr">1</span>
+          <button onclick="changeQty('mlr', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-mlr" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Mocachino Latte Reguler', price: 17000, menuId: 'mlr', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Mocachino Latte Extra Topping</p>
+        <p class="price">Rp22.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('mlet', -1)">-</button>
+          <span id="qty-mlet">1</span>
+          <button onclick="changeQty('mlet', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-mlet" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Mocachino Latte Extra Topping', price: 22000, menuId: 'mlet', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Cappucino Latte Reguler</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('clr', -1)">-</button>
+          <span id="qty-clr">1</span>
+          <button onclick="changeQty('clr', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-clr" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Cappucino Latte Reguler', price: 17000, menuId: 'clr', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Cappucino Latte Extra Topping</p>
+        <p class="price">Rp22.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('clet', -1)">-</button>
+          <span id="qty-clet">1</span>
+          <button onclick="changeQty('clet', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-clet" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Cappucino Latte Extra Topping', price: 22000, menuId: 'clet', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Vanilla Latte Reguler</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('vlr', -1)">-</button>
+          <span id="qty-vlr">1</span>
+          <button onclick="changeQty('vlr', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-vlr" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Vanilla Latte Reguler', price: 17000, menuId: 'vlr', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Vanilla Latte Extra Topping</p>
+        <p class="price">Rp22.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('vlet', -1)">-</button>
+          <span id="qty-vlet">1</span>
+          <button onclick="changeQty('vlet', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-vmlet" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Vanilla Latte Extra Topping', price: 22000, menuId: 'vmlet', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+        <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Expresso Latte Reguler</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('exlr', -1)">-</button>
+          <span id="qty-exlr">1</span>
+          <button onclick="changeQty('exlr', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-exlr" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Expresso Latte Reguler', price: 17000, menuId: 'exlr', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Expresso Latte Extra Topping</p>
+        <p class="price">Rp22.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('exlet', -1)">-</button>
+          <span id="qty-exlet">1</span>
+          <button onclick="changeQty('exlet', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-exlet" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Expresso Latte Extra Topping', price: 22000, menuId: 'exlet', merchant : 'Nasi Lemak Mak Adek' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+  </main>
+
+  <footer class="checkout">
+    <a href="checkout.html" class="btn">Lanjut ke Checkout</a>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    const quantities = {
+      nl: 0
+    };
+
+    function toggleNavMenu() {
+      const nav = document.getElementById('mobile-nav');
+      nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+    }
+
+
+    function changeQty(menuId, delta) {
+      if (!quantities[menuId]) quantities[menuId] = 0;
+      quantities[menuId] = Math.max(0, quantities[menuId] + delta);
+      document.getElementById(`qty-${menuId}`).innerText = quantities[menuId];
+    }
+
+    function addToCart(name, price, menuId, merchant) {
+      const qty = quantities[menuId] || 0;
+      if (qty === 0) {
+        return;
+      }
+
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      let found = false;
+
+      for (let item of cart) {
+        if (item.name === name && item.merchant === merchant) {
+          item.qty += qty;
+          found = true;
+          break;
+        }
+      }
+
+      if (!found) {
+        cart.push({ name, price, qty, merchant }); // ← pastikan ini ada
+      }
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+      updateCartCount();
+      alert(`${qty}x ${name} dari ${merchant} telah ditambahkan ke keranjang!`);
+    }
+
+    function addMultipleToCart(items) {
+      items.forEach(item => {
+        addToCart(item.name, item.price, item.menuId, item.merchant);
+      });
+    }
+
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const total = cart.reduce((sum, item) => sum + item.qty, 0);
+      const cartCount = document.getElementById("cart-count");
+      if (cartCount) cartCount.innerText = total;
+    }
+
+    document.addEventListener("DOMContentLoaded", updateCartCount);
+  </script>
+
+  <script>
+    function addMultipleToCartWithNotes(items) {
+      items.forEach(item => {
+        const note = document.getElementById(`note-${item.menuId}`).value.trim();
+        addToCart(item.name, item.price, item.menuId, item.merchant, note);
+      });
+    }
+
+    function addToCart(name, price, menuId, merchant, note = "") {
+      const qty = quantities[menuId] || 1;
+
+
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      let found = false;
+
+      for (let item of cart) {
+        if (
+          item.name === name &&
+          item.merchant === merchant &&
+          (item.note || "") === (note || "")
+        ) {
+          item.qty += qty;
+          found = true;
+          break;
+        }
+      }
+
+      if (!found) {
+        cart.push({ name, price, qty, merchant, note });
+      }
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+      updateCartCount();
+      alert(`${qty}x ${name} dari ${merchant} telah ditambahkan ke keranjang!\nCatatan: ${note || "-"}`);
+
+      // Kosongkan form catatan setelah ditambahkan
+      const noteInput = document.getElementById(`note-${menuId}`);
+      if (noteInput) noteInput.value = "";
+    }
+  </script>
+
+  <script>
+    function toggleMenu(id) {
+      const element = document.getElementById(id);
+      if (element.style.display === "none" || element.style.display === "") {
+        element.style.display = "block";
+      } else {
+        element.style.display = "none";
+      }
+    }
+  </script>
+
+  <script>
+    const tutupManual = true;
+    function cekJamOperasional() {
+      const sekarang = new Date();
+      const jam = sekarang.getHours();
+
+      // SETTING: Jam buka dan tutup merchant (ubah sesuai kebutuhan)
+      const jamBuka = 6;   // Jam buka: 09:00
+      const jamTutup = 11; // Jam tutup: 21:00
+
+
+      const statusEl = document.getElementById("status-operasional");
+
+      if (tutupManual || jam < jamBuka || jam >= jamTutup) {
+        // Merchant tutup
+        statusEl.innerHTML = "Status: <span style='color:red'>Tutup</span>";
+
+        // Nonaktifkan semua tombol tambah
+        document.querySelectorAll("button").forEach(btn => {
+          btn.disabled = true;
+          btn.style.opacity = 0.5;
+          btn.title = "Merchant sedang tutup";
+        });
+
+      } else {
+        // Merchant buka
+        statusEl.innerHTML = "Status: <span style='color:green'>Buka</span>";
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      cekJamOperasional();
+      updateCartCount(); // fungsi dari cart kamu
+    });
+  </script>
+
+</body>
+
+</html>
