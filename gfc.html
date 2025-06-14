@@ -48,6 +48,25 @@
             </div>
         </div>
         </div>
+            <div class="menu-card">
+            <div class="menu-item">
+                <img src="merchant/makan.png" alt="menu-info" />
+                <p class="menu">Ayam Geprek Mozarela</p>
+                <p class="price">Rp27.000</p>
+                <div class="qty-control">
+                    <button onclick="changeQty('agm', -1)">-</button>
+                    <span id="qty-agm">1</span>
+                    <button onclick="changeQty('agm', 1)">+</button>
+                </div>
+            </div>
+            <div class="note-section">
+                <input type="text" id="note-agm" placeholder="Contoh : Sambal Original, Hijau, Terasi, Black Papper..." />
+                <button onclick="addMultipleToCartWithNotes([
+  { name: 'Ayam Geprek Mozarela', price: 27000, menuId: 'agm', merchant : 'GFC, Masjid Agung' }
+])">Tambah</button>
+            </div>
+        </div>
+        </div>
         <div class="menu-card">
             <div class="menu-item">
                 <img src="merchant/makan.png" alt="menu-info" />
