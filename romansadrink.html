@@ -795,7 +795,7 @@
     </div>
         <div class="menu-card">
         <div class="menu-item">
-        <img src="merchant/minum.png" alt="menu-info" />
+        <img src="merchant/romansa/avocado.jpeg" alt="menu-info" />
         <p class="menu">Avocado Reguler</p>
         <p class="price">Rp22.000</p>
         <div class="qty-control">
@@ -814,7 +814,7 @@
     </div>
     <div class="menu-card">
       <div class="menu-item">
-        <img src="merchant/minum.png" alt="menu-info" />
+        <img src="merchant/romansa/avocado.jpeg" alt="menu-info" />
         <p class="menu">Avocado Extra Topping</p>
         <p class="price">Rp27.000</p>
         <div class="qty-control">
@@ -871,7 +871,7 @@
     </div>
         <div class="menu-card">
         <div class="menu-item">
-        <img src="merchant/minum.png" alt="menu-info" />
+        <img src="merchant/romansa/dragonfruit.JPG" alt="menu-info" />
         <p class="menu">Dragon Fruit Reguler</p>
         <p class="price">Rp22.000</p>
         <div class="qty-control">
@@ -890,7 +890,7 @@
     </div>
     <div class="menu-card">
       <div class="menu-item">
-        <img src="merchant/minum.png" alt="menu-info" />
+        <img src="merchant/romansa/dragonfruit.JPG" alt="menu-info" />
         <p class="menu">Dragon Fruit Extra Topping</p>
         <p class="price">Rp27.000</p>
         <div class="qty-control">
@@ -909,7 +909,7 @@
     </div>
         <div class="menu-card">
         <div class="menu-item">
-        <img src="merchant/minum.png" alt="menu-info" />
+        <img src="merchant/romansa/applesmoothie.JPG" alt="menu-info" />
         <p class="menu">Apple Smoothie Reguler</p>
         <p class="price">Rp22.000</p>
         <div class="qty-control">
@@ -928,7 +928,7 @@
     </div>
     <div class="menu-card">
       <div class="menu-item">
-        <img src="merchant/minum.png" alt="menu-info" />
+        <img src="merchant/romansa/applesmoothie.JPG" alt="menu-info" />
         <p class="menu">Apple Smoothie Extra Topping</p>
         <p class="price">Rp27.000</p>
         <div class="qty-control">
@@ -985,7 +985,7 @@
     </div>
         <div class="menu-card">
         <div class="menu-item">
-        <img src="merchant/minum.png" alt="menu-info" />
+        <img src="merchant/romansa/alpukatkocok.jpeg" alt="menu-info" />
         <p class="menu">Alpukat Kocok Reguler</p>
         <p class="price">Rp22.000</p>
         <div class="qty-control">
@@ -1004,7 +1004,7 @@
     </div>
     <div class="menu-card">
       <div class="menu-item">
-        <img src="merchant/minum.png" alt="menu-info" />
+        <img src="merchant/romansa/alpukatkocok.jpeg" alt="menu-info" />
         <p class="menu">Alpukat Kocok Extra Topping</p>
         <p class="price">Rp27.000</p>
         <div class="qty-control">
@@ -1021,6 +1021,123 @@
       </div>
     </div>
     </div>
+      <div class="menu-card">
+      <h4>Banana Nugget</h4>
+      <div class="menu-item">
+        <img src="merchant/romansa/1toping.JPG" alt="menu-info" />
+        <p class="menu">Single Size (1 Topping)</p>
+        <p class="price">Rp22.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('single', -1)">-</button>
+          <span id="qty-single">1</span>
+          <button onclick="changeQty('single', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-single" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Single Size (1 Topping)', price: 22000, menuId: 'single', merchant : 'Romansadrink.idn' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+        <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/romansa/2toping.JPG" alt="menu-info" />
+        <p class="menu">Medium (2 Topping)</p>
+        <p class="price">Rp27.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('medium', -1)">-</button>
+          <span id="qty-medium">1</span>
+          <button onclick="changeQty('medium', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-medium" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Medium (2 Topping)', price: 27000, menuId: 'medium', merchant : 'Romansadrink.idn' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/romansa/3toping.JPG" alt="menu-info" />
+        <p class="menu">Family Size (3 Topping)</p>
+        <p class="price">Rp32.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('family', -1)">-</button>
+          <span id="qty-family">1</span>
+          <button onclick="changeQty('family', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-family" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Family Size (3 Topping)', price: 32000, menuId: 'family', merchant : 'Romansadrink.idn' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+      <div class="menu-card">
+      <h4>Banana Nugget</h4>
+      <div class="menu-item">
+        <img src="merchant/romansa/small.JPG" alt="menu-info" />
+        <p class="menu">Small Size</p>
+        <p class="price">Rp17.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('small', -1)">-</button>
+          <span id="qty-small">1</span>
+          <button onclick="changeQty('small', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-small" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Small Size', price: 17000, menuId: 'small', merchant : 'Romansadrink.idn' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+        <div class="menu-card">
+        <div class="menu-item">
+        <img src="merchant/romansa/medium.JPG" alt="menu-info" />
+        <p class="menu">Medium Size</p>
+        <p class="price">Rp22.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('mediumm', -1)">-</button>
+          <span id="qty-mediumm">1</span>
+          <button onclick="changeQty('mediumm', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-mediumm" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Medium Size', price: 22000, menuId: 'mediumm', merchant : 'Romansadrink.idn' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/romansa/large.JPG" alt="menu-info" />
+        <p class="menu">Large Size</p>
+        <p class="price">Rp27.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('large', -1)">-</button>
+          <span id="qty-large">1</span>
+          <button onclick="changeQty('large', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-large" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Large Size', price: 27000, menuId: 'large', merchant : 'Romansadrink.idn' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+     
   </main>
 
   <footer class="checkout">
