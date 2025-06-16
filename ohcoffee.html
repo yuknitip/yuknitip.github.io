@@ -511,6 +511,12 @@
           <button onclick="changeQty('tekwanm', 1)">+</button>
         </div>
       </div>
+      <div class="note-section">
+        <input type="text" id="note-tekwanm" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Tekwan Model', price: 32000, menuId: 'tekwanm', merchant : 'OH.Coffee.Anambas' }
+])">Tambah</button>
+      </div>
     </div>
     </div>
     <div class="menu-card">
@@ -539,7 +545,7 @@
         <p class="price">Rp27.000</p>
         <div class="qty-control">
           <button onclick="changeQty('st', -1)">-</button>
-          <span id="qty-st">0</span>
+          <span id="qty-st">Stok Habis</span>
           <button onclick="changeQty('st', 1)">+</button>
         </div>
       </div>
@@ -552,7 +558,7 @@
         <p class="price">Rp27.000</p>
         <div class="qty-control">
           <button onclick="changeQty('ms', -1)">-</button>
-          <span id="qty-ms">0</span>
+          <span id="qty-ms">Stok Habis</span>
           <button onclick="changeQty('ms', 1)">+</button>
         </div>
       </div>
