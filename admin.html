@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Merchant - Nitip</title>
+</head>
+<body>
+  <h2>Daftar Merchant</h2>
+  <button onclick="logout()">Logout</button>
+  <div id="merchant-list"></div>
+
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+
+        const supabaseUrl = 'https://huojroogbumpomftauqp.supabase.co' // ← GANTI
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh1b2pyb29nYnVtcG9tZnRhdXFwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAxNzg0NDAsImV4cCI6MjA2NTc1NDQ0MH0.Lglx33cxXigT4l6Oh1DOOykVSuXwA7b1xVJsET-vM8Q'
+    const supabase = createClient(supabaseUrl, supabaseKey)
+
+    const { data: { session } } = await supabase.auth.getSession()
+    console.log("Session:", session)
+    if (!session) {
+      window.location.href = 'login.html'
+    }
+
+    async function loadMerchants() {
+      const { data, error } = await supabase.from('merchant').select('*').order('created_at', { ascending: false })
+      const list = document.getElementById('merchant-list')
+      list.innerHTML = ''
+      if (error) {
+        list.innerText = 'Gagal memuat merchant'
+        return
+      }
+      data.forEach(merchant => {
+        const div = document.createElement('div')
+        div.innerHTML = `
+          <strong>${merchant.nama}</strong><br>
+          ${merchant.alamat}<br>
+          Status: <b>${merchant.status}</b><br>
+          <button onclick="toggleStatus('${merchant.id}', '${merchant.status}')">Toggle Status</button>
+          <hr>
+        `
+        list.appendChild(div)
+      })
+    }
+
+    window.toggleStatus = async (id, status) => {
+      const newStatus = status === 'aktif' ? 'nonaktif' : 'aktif'
+      const { error } = await supabase.from('merchant').update({ status: newStatus }).eq('id', id)
+      if (error) alert('Gagal mengubah status')
+      else loadMerchants()
+    }
+
+    window.logout = async () => {
+      await supabase.auth.signOut()
+      window.location.href = 'login.html'
+    }
+
+    loadMerchants()
+  </script>
+</body>
+</html>

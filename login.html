@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Admin - Nitip</title>
+</head>
+<body>
+  <h2>Login Admin</h2>
+  <form id="login-form">
+    <input type="email" id="email" placeholder="Email" required /><br>
+    <input type="password" id="password" placeholder="Password" required /><br>
+    <button type="submit">Login</button>
+  </form>
+
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+
+    const supabaseUrl = 'https://huojroogbumpomftauqp.supabase.co' // ← GANTI
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh1b2pyb29nYnVtcG9tZnRhdXFwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAxNzg0NDAsImV4cCI6MjA2NTc1NDQ0MH0.Lglx33cxXigT4l6Oh1DOOykVSuXwA7b1xVJsET-vM8Q'
+    const supabase = createClient(supabaseUrl, supabaseKey)
+
+    const form = document.getElementById('login-form')
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault()
+      const email = document.getElementById('email').value
+      const password = document.getElementById('password').value
+
+      const { error } = await supabase.auth.signInWithPassword({ email, password })
+
+      if (error) {
+        alert('Login gagal: ' + error.message)
+      } else {
+        window.location.href = 'admin.html'
+      }
+    })
+  </script>
+</body>
+</html>
