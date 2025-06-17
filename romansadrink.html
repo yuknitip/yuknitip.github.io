@@ -162,6 +162,25 @@
       </div>
     </div>
     </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/romansa/gyozakukus.jpeg" alt="menu-info" />
+        <p class="menu">Gyoza Kukus (5pcs)</p>
+        <p class="price">Rp30.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('gyzk', -1)">-</button>
+          <span id="qty-gyzk">1</span>
+          <button onclick="changeQty('gyzk', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-gyzk" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Gyoza Kukus (5pcs)', price: 30000, menuId: 'gyzk', merchant : 'Romansadrink.idn' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
       <div class="menu-card">
       <div class="menu-item">
         <img src="merchant/makan.png" alt="menu-info" />
