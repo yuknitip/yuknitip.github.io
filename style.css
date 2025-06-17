@@ -451,7 +451,7 @@ body {
   
   .merchant-card {
     flex-shrink: 0;
-    width: 125px;
+    width: 110px;
     scroll-snap-align: start;
     text-align: center;
     border-radius: 10px;
@@ -495,7 +495,7 @@ body {
   
   .merchant-card h3 {
     margin-top: 8px;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     font-weight: 600;
     color: #333;
   }
@@ -542,7 +542,7 @@ body {
 .kategori-menu {
   display: flex;
   overflow-x: auto;
-  gap: 16px;
+  gap: 6px;
   padding: 1rem;
   scroll-snap-type: x mandatory;
 }
@@ -562,8 +562,8 @@ body {
 }
 
 .kategori-img {
-  width: 91px;
-  height: 108px;
+  width: 85px;
+  height: 98px;
   justify-content: center;
   object-fit: cover;
 }
