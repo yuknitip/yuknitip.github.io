@@ -2,35 +2,48 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin Merchant - Nitip</title>
 </head>
 <body>
   <h2>Daftar Merchant</h2>
-  <button onclick="logout()">Logout</button>
   <div id="merchant-list"></div>
+
+  <h3>Tambah Merchant Baru</h3>
+  <input type="text" id="nama" placeholder="Nama Merchant">
+  <input type="text" id="alamat" placeholder="Alamat">
+  <button onclick="tambahMerchant()">Tambah</button>
+
+  <div id="menu-section" style="margin-top: 2em;"></div>
 
   <script type="module">
     import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
 
-        const supabaseUrl = 'https://huojroogbumpomftauqp.supabase.co' // ← GANTI
-    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh1b2pyb29nYnVtcG9tZnRhdXFwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAxNzg0NDAsImV4cCI6MjA2NTc1NDQ0MH0.Lglx33cxXigT4l6Oh1DOOykVSuXwA7b1xVJsET-vM8Q'
+    const supabaseUrl = 'https://huojroogbumpomftauqp.supabase.co'
+    const supabaseKey = 'eyJhbGci...<key-kamu>'
     const supabase = createClient(supabaseUrl, supabaseKey)
 
-    const { data: { session } } = await supabase.auth.getSession()
-    console.log("Session:", session)
+    const {
+      data: { session },
+    } = await supabase.auth.getSession()
+
     if (!session) {
       window.location.href = 'login.html'
     }
 
     async function loadMerchants() {
-      const { data, error } = await supabase.from('merchant').select('*').order('created_at', { ascending: false })
+      const { data, error } = await supabase
+        .from('merchant')
+        .select('*')
+        .order('created_at', { ascending: false })
+
       const list = document.getElementById('merchant-list')
       list.innerHTML = ''
+
       if (error) {
         list.innerText = 'Gagal memuat merchant'
         return
       }
+
       data.forEach(merchant => {
         const div = document.createElement('div')
         div.innerHTML = `
@@ -38,6 +51,7 @@
           ${merchant.alamat}<br>
           Status: <b>${merchant.status}</b><br>
           <button onclick="toggleStatus('${merchant.id}', '${merchant.status}')">Toggle Status</button>
+          <button onclick="kelolaMenu('${merchant.id}', '${merchant.nama}')">Kelola Menu</button>
           <hr>
         `
         list.appendChild(div)
@@ -46,14 +60,81 @@
 
     window.toggleStatus = async (id, status) => {
       const newStatus = status === 'aktif' ? 'nonaktif' : 'aktif'
-      const { error } = await supabase.from('merchant').update({ status: newStatus }).eq('id', id)
+      const { error } = await supabase
+        .from('merchant')
+        .update({ status: newStatus })
+        .eq('id', id)
+
       if (error) alert('Gagal mengubah status')
       else loadMerchants()
     }
 
-    window.logout = async () => {
-      await supabase.auth.signOut()
-      window.location.href = 'login.html'
+    window.tambahMerchant = async () => {
+      const nama = document.getElementById('nama').value
+      const alamat = document.getElementById('alamat').value
+
+      if (!nama || !alamat) return alert('Isi semua field')
+
+      const { error } = await supabase.from('merchant').insert({ nama, alamat, status: 'aktif' })
+
+      if (error) alert('Gagal menambah merchant')
+      else loadMerchants()
+    }
+
+    window.kelolaMenu = async (merchantId, merchantNama) => {
+      const { data, error } = await supabase
+        .from('menu')
+        .select('*')
+        .eq('merchant_id', merchantId)
+
+      const section = document.getElementById('menu-section')
+      section.innerHTML = `<h3>Menu dari ${merchantNama}</h3>`
+
+      if (error) {
+        section.innerHTML += '<p>Gagal memuat menu</p>'
+        return
+      }
+
+      data.forEach(menu => {
+        const div = document.createElement('div')
+        div.innerHTML = `
+          <b>${menu.nama}</b> - Rp${menu.harga}<br>
+          <button onclick="toggleHabis('${menu.id}', '${menu.habis}')">${menu.habis ? 'Tersedia' : 'Habis'}</button>
+          <hr>
+        `
+        section.appendChild(div)
+      })
+
+      section.innerHTML += `
+        <h4>Tambah Menu Baru</h4>
+        <input type="text" id="menu-nama" placeholder="Nama Menu">
+        <input type="number" id="menu-harga" placeholder="Harga">
+        <button onclick="tambahMenu('${merchantId}')">Tambah Menu</button>
+      `
+    }
+
+    window.toggleHabis = async (id, habis) => {
+      const { error } = await supabase
+        .from('menu')
+        .update({ habis: habis === 'true' || habis === true ? false : true })
+        .eq('id', id)
+
+      if (error) alert('Gagal update status menu')
+      else alert('Status menu diperbarui')
+    }
+
+    window.tambahMenu = async (merchantId) => {
+      const nama = document.getElementById('menu-nama').value
+      const harga = parseInt(document.getElementById('menu-harga').value)
+
+      if (!nama || isNaN(harga)) return alert('Isi nama & harga')
+
+      const { error } = await supabase
+        .from('menu')
+        .insert({ nama, harga, habis: false, merchant_id: merchantId })
+
+      if (error) alert('Gagal menambah menu')
+      else alert('Menu berhasil ditambahkan')
     }
 
     loadMerchants()

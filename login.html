@@ -1,35 +1,89 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>Login Admin - Nitip</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 50px;
+      background-color: #f2f2f2;
+    }
+
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin: 6px 0;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background: orange;
+      color: white;
+      border: none;
+      font-weight: bold;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: darkorange;
+    }
+
+    .error {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
-  <h2>Login Admin</h2>
+  <h2>Login Admin Nitip</h2>
+
   <form id="login-form">
-    <input type="email" id="email" placeholder="Email" required /><br>
-    <input type="password" id="password" placeholder="Password" required /><br>
+    <input type="email" id="email" placeholder="Email admin" required />
+    <input type="password" id="password" placeholder="Password" required />
     <button type="submit">Login</button>
+    <div class="error" id="error-msg"></div>
   </form>
 
   <script type="module">
     import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
 
-    const supabaseUrl = 'https://huojroogbumpomftauqp.supabase.co' // ← GANTI
+    const supabaseUrl = 'https://huojroogbumpomftauqp.supabase.co'
     const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh1b2pyb29nYnVtcG9tZnRhdXFwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAxNzg0NDAsImV4cCI6MjA2NTc1NDQ0MH0.Lglx33cxXigT4l6Oh1DOOykVSuXwA7b1xVJsET-vM8Q'
     const supabase = createClient(supabaseUrl, supabaseKey)
 
     const form = document.getElementById('login-form')
+    const errorMsg = document.getElementById('error-msg')
+
+    // 🔐 Cek jika sudah login sebelumnya, langsung redirect ke admin.html
+    const { data: { session } } = await supabase.auth.getSession()
+    if (session) {
+      window.location.href = 'admin.html'
+    }
+
+    // 🧾 Login proses
     form.addEventListener('submit', async (e) => {
       e.preventDefault()
-      const email = document.getElementById('email').value
-      const password = document.getElementById('password').value
+      const email = document.getElementById('email').value.trim()
+      const password = document.getElementById('password').value.trim()
 
       const { error } = await supabase.auth.signInWithPassword({ email, password })
 
       if (error) {
-        alert('Login gagal: ' + error.message)
+        errorMsg.textContent = 'Login gagal: ' + error.message
       } else {
         window.location.href = 'admin.html'
       }
