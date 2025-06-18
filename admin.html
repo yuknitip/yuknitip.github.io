@@ -3,9 +3,56 @@
 <head>
   <meta charset="UTF-8" />
   <title>Admin Merchant - Nitip</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 2rem;
+      background: #f9fafb;
+      color: #333;
+    }
+
+    h2, h3 {
+      color: #ff6600;
+    }
+
+    input, button {
+      padding: 8px;
+      margin: 4px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background: #ff6600;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #e65c00;
+    }
+
+    .card {
+      background: #fff;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .logout-btn {
+      float: right;
+      background: #999;
+    }
+
+    hr {
+      margin: 0.5rem 0;
+    }
+  </style>
 </head>
 <body>
-  <h2>Daftar Merchant</h2>
+  <h2>Admin Merchant <button class="logout-btn" onclick="logout()">Logout</button></h2>
+
   <div id="merchant-list"></div>
 
   <h3>Tambah Merchant Baru</h3>
@@ -19,14 +66,25 @@
     import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
 
     const supabaseUrl = 'https://huojroogbumpomftauqp.supabase.co'
-    const supabaseKey = 'eyJhbGci...<key-kamu>'
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh1b2pyb29nYnVtcG9tZnRhdXFwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAxNzg0NDAsImV4cCI6MjA2NTc1NDQ0MH0.Lglx33cxXigT4l6Oh1DOOykVSuXwA7b1xVJsET-vM8Q'
     const supabase = createClient(supabaseUrl, supabaseKey)
+
+    const ADMIN_EMAIL = 'karyaanaktarempa@gmail.com' // GANTI dengan email admin kamu
 
     const {
       data: { session },
     } = await supabase.auth.getSession()
 
     if (!session) {
+      window.location.href = 'login.html'
+    } else if (session.user.email !== ADMIN_EMAIL) {
+      alert('Akses ditolak. Hanya admin yang bisa membuka halaman ini.')
+      await supabase.auth.signOut()
+      window.location.href = 'login.html'
+    }
+
+    window.logout = async () => {
+      await supabase.auth.signOut()
       window.location.href = 'login.html'
     }
 
@@ -46,13 +104,13 @@
 
       data.forEach(merchant => {
         const div = document.createElement('div')
+        div.className = 'card'
         div.innerHTML = `
           <strong>${merchant.nama}</strong><br>
           ${merchant.alamat}<br>
           Status: <b>${merchant.status}</b><br>
           <button onclick="toggleStatus('${merchant.id}', '${merchant.status}')">Toggle Status</button>
           <button onclick="kelolaMenu('${merchant.id}', '${merchant.nama}')">Kelola Menu</button>
-          <hr>
         `
         list.appendChild(div)
       })
@@ -78,7 +136,10 @@
       const { error } = await supabase.from('merchant').insert({ nama, alamat, status: 'aktif' })
 
       if (error) alert('Gagal menambah merchant')
-      else loadMerchants()
+      else {
+        alert('Merchant berhasil ditambahkan')
+        loadMerchants()
+      }
     }
 
     window.kelolaMenu = async (merchantId, merchantNama) => {
@@ -97,10 +158,10 @@
 
       data.forEach(menu => {
         const div = document.createElement('div')
+        div.className = 'card'
         div.innerHTML = `
           <b>${menu.nama}</b> - Rp${menu.harga}<br>
           <button onclick="toggleHabis('${menu.id}', '${menu.habis}')">${menu.habis ? 'Tersedia' : 'Habis'}</button>
-          <hr>
         `
         section.appendChild(div)
       })
@@ -134,7 +195,10 @@
         .insert({ nama, harga, habis: false, merchant_id: merchantId })
 
       if (error) alert('Gagal menambah menu')
-      else alert('Menu berhasil ditambahkan')
+      else {
+        alert('Menu berhasil ditambahkan')
+        kelolaMenu(merchantId)
+      }
     }
 
     loadMerchants()
