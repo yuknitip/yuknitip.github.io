@@ -1,4 +1,4 @@
-const CACHE_NAME = "nitip-v2";
+const CACHE_NAME = "nitip-v3";
 const urlsToCache = [
   "/",
   "/index.html",
@@ -10,6 +10,7 @@ const urlsToCache = [
   "/nitipmakan.png",
   "/nitipbarang.png",
   "/nitipbelanja.png",
+  "/vouvher.jpg",
   "/manifest.json"
 ];
 

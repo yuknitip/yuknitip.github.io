@@ -200,45 +200,6 @@
       updateCartCount(); // fungsi dari cart kamu
     });
   </script>
-<script type="module">
-  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
-
-  const supabaseUrl = 'https://huojroogbumpomftauqp.supabase.co'
-  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh1b2pyb29nYnVtcG9tZnRhdXFwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAxNzg0NDAsImV4cCI6MjA2NTc1NDQ0MH0.Lglx33cxXigT4l6Oh1DOOykVSuXwA7b1xVJsET-vM8Q' // ganti dengan key kamu (gunakan anon/public key)
-  const supabase = createClient(supabaseUrl, supabaseKey)
-
-  const merchantId = document.body.dataset.merchantId;
-
-  async function cekStatusMerchant() {
-    const { data, error } = await supabase
-      .from('merchant')
-      .select('status')
-      .eq('id', merchantId)
-      .single();
-
-    const statusEl = document.getElementById("status-operasional");
-
-    if (error || !data) {
-      statusEl.innerHTML = "Status: <span style='color:gray'>Tidak diketahui</span>";
-      return;
-    }
-
-    if (data.status !== 'aktif') {
-      statusEl.innerHTML = "Status: <span style='color:red'>Tutup</span>";
-      document.querySelectorAll("button").forEach(btn => {
-        btn.disabled = true;
-        btn.style.opacity = 0.5;
-        btn.title = "Merchant sedang tutup";
-      });
-    } else {
-      statusEl.innerHTML = "Status: <span style='color:green'>Buka</span>";
-    }
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    cekStatusMerchant();
-  });
-</script>
 
 </body>
 

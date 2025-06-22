@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aneka Nasi</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+  <header>
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="logonitip.png" alt="Nitip Logo" class="logo-img">
+      </a>
+    </div>
+    <button class="menu-toggle" onclick="toggleNavMenu()">☰</button>
+    <nav id="mobile-nav" class="hidden">
+      <a href="index.html">Beranda</a>
+      <a href="riwayat.html">Aktivitas</a>
+      <a href="about.html">Tentang</a>
+    </nav>
+  </header>
+
+  <main>
+       <section class="merchant-container">
+        <a href="anekanasi.html">
+        <div class="merchant-card">
+          <img src="anekanasi.jpg" class="img-toko-icon" />
+          <div class="merchant-info">
+      </a>
+      <h3>Aneka Nasi</h3>
+    </div>
+    </div>
+    <a href="ayamdanikan.html">
+      <div class="merchant-card">
+        <img src="ayamdanikan.jpg" class="img-toko" />
+        <div class="merchant-info">
+    </a>
+    <h3>Ayam & Ikan</h3>
+    </div>
+    </div>
+    <a href="baksosoto.html">
+          <div class="merchant-card">
+            <img src="baksosoto.jpg" class="img-toko" />
+            <div class="merchant-info">
+        </a>
+        <h3>Bakso & Soto</h3>
+    </div>
+    </div>
+    </section>
+     <section class="merchant-container">
+        <a href="jajan.html">
+        <div class="merchant-card">
+          <img src="jajanan.jpg" class="img-toko-icon" />
+          <div class="merchant-info">
+      </a>
+      <h3>Jajanan</h3>
+    </div>
+    </div>
+    <a href="kedaikopi.html">
+      <div class="merchant-card">
+        <img src="kopi.jpg"class="img-toko" />
+        <div class="merchant-info">
+    </a>
+    <h3>Kopi</h3>
+    </div>
+    </div>
+    <a href="minuman.html">
+          <div class="merchant-card">
+            <img src="minuman.jpg" class="img-toko" />
+            <div class="merchant-info">
+        </a>
+        <h3>Minuman</h3>
+    </div>
+    </div>
+    </section>
+     <section class="merchant-container">
+        <a href="sarapan.html">
+        <div class="merchant-card">
+          <img src="sarapan.jpg" class="img-toko-icon" />
+          <div class="merchant-info">
+      </a>
+      <h3>Sarapan</h3>
+    </div>
+    </div>
+    <a href="sate.html">
+      <div class="merchant-card">
+        <img src="sate.jpg"class="img-toko" />
+        <div class="merchant-info">
+    </a>
+    <h3>Sate</h3>
+    </div>
+    </div>
+    <a href="martabak.html">
+          <div class="merchant-card">
+            <img src="martabak.jpg" class="img-toko" />
+            <div class="merchant-info">
+        </a>
+        <h3>Martabak</h3>
+    </div>
+    </div>
+    </section>
+  </main>
+
+  <footer style="text-align: center; padding: 20px; background-color: #f7f7f7;">
+    <p>&copy; 2025 Nitip. Karya Anak Tarempa. Semua Hak Dilindungi.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+
+    function toggleNavMenu() {
+      const nav = document.getElementById('mobile-nav');
+      nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+  <script>
+    function toggleMenu(id) {
+      const element = document.getElementById(id);
+      if (element.style.display === "none" || element.style.display === "") {
+        element.style.display = "block";
+      } else {
+        element.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+
+</html>

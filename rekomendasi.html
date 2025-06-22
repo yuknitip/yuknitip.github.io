@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakso Soto</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="logonitip.png" alt="Nitip Logo" class="logo-img">
+            </a>
+        </div>
+        <button class="menu-toggle" onclick="toggleNavMenu()">☰</button>
+        <nav id="mobile-nav" class="hidden">
+            <a href="index.html">Beranda</a>
+            <a href="riwayat.html">Aktivitas</a>
+            <a href="about.html">Tentang</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="rekomendasi-list">
+            <h2>Pilih Bakso & Soto Favoritmu</h2><br>
+            <section class="merchant-container">
+                <a href="laluna.html">
+                    <div class="merchant-card">
+                        <img src="merchant/laluna/logo.jpg" alt="Laluna Tarempa" class="img-toko" />
+                        <div class="merchant-info">
+                </a>
+                <h3>Laluna Tarempa</h3>
+        </div>
+        </div>
+        <a href="gfc.html">
+            <div class="merchant-card">
+                <img src="merchant/gfc/ayamgeprek.jpg" alt="GFC" class="img-toko-icon" />
+                <div class="merchant-info">
+        </a>
+        <h3>Geprek Friends Chicken, Masjid Agung</h3>
+        </div>
+        </div>
+        <a href="onetime.html">
+            <div class="merchant-card">
+                <img src="merchant/kopionetime/logo.png" alt="One Time" class="img-toko" />
+                <div class="merchant-info">
+        </a>
+        <h3>One Time/Mi Gacoan</h3>
+        </div>
+        </div>
+        </section>
+        <section class="merchant-container">
+            <a href="romansadrink.html">
+                <div class="merchant-card">
+                    <img src="merchant/romansa/logo.jpeg" alt="Romansadrink.ind" class="img-toko" />
+                    <div class="merchant-info">
+            </a>
+            <h3>Romansadrink.ind</h3>
+            </div>
+            </div>
+            <a href="tehpocitarempa.html">
+                <div class="merchant-card">
+                    <img src="merchant/tehpocitarempa/banner.jpeg" alt="Teh Poci Tarempa" class="img-toko" />
+                    <div class="merchant-info">
+            </a>
+            <h3>Teh Poci Tarempa</h3>
+            </div>
+            </div>
+            <a href="ohcoffee.html">
+                <div class="merchant-card">
+                    <img src="merchant/ohcoffee/logo.jpeg" alt="OH Coffee" class="img-toko" />
+                    <div class="merchant-info">
+            </a>
+            <h3>OH.Coffee Anambas</h3>
+            </div>
+            </div>
+            </section>
+               <section class="merchant-container">
+               <a href="kaktini.html">
+            <div class="merchant-card">
+                <img src="merchant/kaktininasidagang/bannernasidagang.jpg" alt="Kak Tini Nasi Dagang"
+                    class="img-toko" />
+                <div class="merchant-info">
+        </a>
+        <h3>Kak Tini Nasi Dagang</h3>
+        </div>
+        </div>
+        <a href="udakhairul.html">
+            <div class="merchant-card">
+                <img src="merchant/udakhairul/logo.jpeg" alt="Uda Khairul" class="img-toko" />
+                <div class="merchant-info">
+        </a>
+        <h3>Nasi Padang Uda Khairul</h3>
+        </div>
+        </div>
+        <a href="kopiwin.html">
+                <div class="merchant-card">
+                    <img src="merchant/kopiwin/kopiwin.png" alt="Kopi Win" class="img-toko" />
+                    <div class="merchant-info">
+            </a>
+            <h3>Kedai Kopi Win Botak</h3>
+            </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="text-align: center; padding: 20px; background-color: #f7f7f7;">
+        <p>&copy; 2025 Nitip. Karya Anak Tarempa. Semua Hak Dilindungi.</p>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        function toggleNavMenu() {
+            const nav = document.getElementById('mobile-nav');
+            nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+
+</body>
+
+</html>

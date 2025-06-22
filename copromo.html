@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Nitip</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+  <header>
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="logonitip.png" alt="Nitip Logo" class="logo-img">
+      </a>
+    </div>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <nav id="mobile-nav" class="hidden">
+      <a href="index.html">Beranda</a>
+      <a href="riwayat.html">Aktivitas</a>
+      <a href="about.html">Tentang</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Pesanan Titipan Anda</h2>
+    <div id="cart-items"></div>
+
+    <label for="lokasi">Pilih Lokasi Pengantaran:</label>
+    <select id="lokasi" onchange="updateOngkir()">
+      <option value="">-- Pilih Lokasi --</option>
+      <option value="SMA NEGERI 1 SIANTAN" data-ongkir="23000">SMA NEGERI 1 SIANTAN (Rp23.000)</option>
+      <option value="MA FATAHILA" data-ongkir="10000">MA FATAHILA (Rp10.000)</option>
+      <option value="SMK NEGERI 4 ANAMBAS" data-ongkir="28000">SMK NEGERI 4 ANAMBAS (Rp28.000)</option>
+    </select>
+
+    <p id="ongkir-info">Ongkir: Rp0</p>
+    <p id="total-price">Total: Rp0</p>
+
+    <h3>Informasi Pemesanan</h3>
+    <div class="card-informasi">
+      <form id="order-form" onsubmit="submitOrder(event)">
+        <div class="input-wrapper">
+          <i class="fas fa-user"></i>
+          <input type="text" id="nama" placeholder="Nama" required>
+        </div>
+        <div class="input-wrapper">
+          <i class="fas fa-map-marker-alt"></i>
+          <textarea id="alamat" rows="1" placeholder="Alamat Pengantaran" required></textarea>
+        </div>
+        <div class="input-wrapper">
+          <i class="fas fa-phone"></i>
+          <input type="text" id="nomor" placeholder="Nomor HP" required>
+        </div>
+        <label for="pembayaran">Metode Pembayaran:</label>
+        <div class="input-wrapper">
+          <i class="fas fa-money-bill-wave"></i>
+          <select id="pembayaran" required>
+            <option value="">Pilih</option>
+            <option value="COD">Bayar di Tempat</option>
+            <option value="Transfer">Transfer Bank</option>
+            <option value="E-Wallet">E-Wallet</option>
+          </select>
+        </div>
+        <h5>Mohon dicek kembali pesanan titipan kamu sebelum di checkout</h5>
+        <div class="submit">
+          <button type="submit" id="checkoutButton">Kirim Pesanan</button>
+          <div id="submit-feedback">✅ Pesanan berhasil dikirim!</div>
+        </div>
+      </form>
+      <div class="clearcart">
+        <button onclick="clearCart()">Kosongkan Keranjang</button>
+      </div>
+    </div>
+  </main>
+
+  <footer style="text-align: center; padding: 20px; background-color: #f7f7f7;">
+    <p>&copy; 2025 Nitip. Karya Anak Tarempa. Semua Hak Dilindungi.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('mobile-nav');
+      nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function groupCartByMerchant(cart) {
+      return cart.reduce((groups, item) => {
+        const merchant = item.merchant || "undefined";
+        if (!groups[merchant]) {
+          groups[merchant] = [];
+        }
+        groups[merchant].push(item);
+        return groups;
+      }, {});
+    }
+
+    let cartTotal = 0;
+
+    function loadCart() {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const container = document.getElementById("cart-items");
+      container.innerHTML = "";
+
+      let total = 0;
+      const grouped = groupCartByMerchant(cart);
+
+      for (const merchant in grouped) {
+        const merchantDiv = document.createElement("div");
+        merchantDiv.innerHTML = `<h3>Merchant: ${merchant}</h3>`;
+
+        grouped[merchant].forEach((item, index) => {
+          const subtotal = item.qty * item.price;
+          total += subtotal;
+
+          const itemDiv = document.createElement("div");
+          itemDiv.innerHTML = `
+            <div style="margin-bottom: 1em; padding: 0.75em; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+              <strong>${item.qty}x ${item.name}</strong><br>
+              <span>Subtotal: Rp${subtotal.toLocaleString("id-ID")}</span>
+              <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; margin-top: 0.5em;">
+                <input 
+                  type="text" 
+                  value="${item.note || ""}" 
+                  onchange="updateNote(${index}, this.value)" 
+                  placeholder="Catatan (opsional)"
+                  style="flex: 1 1 100%; padding: 6px; border-radius: 5px; border: 1px solid #ccc; font-size: 13px; box-sizing: border-box;"
+                >
+                <div style="display: flex; gap: 0.5em; flex: 1 1 100%; justify-content: flex-end;">
+                  <button onclick="editItem(${index})" style="background-color: #ff7f3f; color: white; border: none; padding: 4px 10px; font-size: 12px; border-radius: 4px; cursor: pointer;">Edit</button>
+                  <button onclick="removeItem(${index})" style="background-color: #ff7f3f; color: white; border: none; padding: 4px 10px; font-size: 12px; border-radius: 4px; cursor: pointer;">Hapus</button>
+                </div>
+              </div>
+            </div>
+          `;
+          merchantDiv.appendChild(itemDiv);
+        });
+
+        container.appendChild(merchantDiv);
+      }
+
+      cartTotal = total;
+      updateOngkir();
+    }
+
+    function updateOngkir() {
+      const lokasiSelect = document.getElementById("lokasi");
+      const selectedOption = lokasiSelect.options[lokasiSelect.selectedIndex];
+      const ongkir = parseInt(selectedOption.getAttribute("data-ongkir")) || 0;
+
+      document.getElementById("ongkir-info").innerText = "Ongkir: Rp" + ongkir.toLocaleString("id-ID");
+      const grandTotal = cartTotal + ongkir;
+      document.getElementById("total-price").innerText = "Total + Ongkir: Rp" + grandTotal.toLocaleString("id-ID");
+    }
+
+    function updateNote(index, value) {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart[index].note = value;
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+
+    function editItem(index) {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const newQty = prompt("Masukkan jumlah baru:", cart[index].qty);
+      if (newQty !== null && !isNaN(newQty)) {
+        cart[index].qty = parseInt(newQty);
+        if (cart[index].qty <= 0) cart.splice(index, 1);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        loadCart();
+      }
+    }
+
+    function removeItem(index) {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      loadCart();
+    }
+
+    function clearCart() {
+      localStorage.removeItem("cart");
+      loadCart();
+    }
+
+ function submitOrder(event) {
+  event.preventDefault();
+
+  const nama = document.getElementById("nama").value.trim();
+  const alamat = document.getElementById("alamat").value.trim();
+  const nomor = document.getElementById("nomor").value.trim();
+  const pembayaran = document.getElementById("pembayaran").value;
+  const lokasiSelect = document.getElementById("lokasi");
+  const lokasi = lokasiSelect.value;
+  const lokasiText = lokasiSelect.options[lokasiSelect.selectedIndex]?.text || '';
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  if (!/^\d{10,13}$/.test(nomor)) {
+    alert("Masukkan nomor HP yang valid.");
+    return;
+  }
+
+  if (!lokasi) {
+    alert("Silakan pilih lokasi pengantaran.");
+    return;
+  }
+
+  if (cart.length === 0) {
+    alert("Keranjang kosong!");
+    return;
+  }
+
+  if (!nama || !alamat || !nomor || !pembayaran) {
+    alert("Mohon isi semua data dengan lengkap.");
+    return;
+  }
+
+  const grouped = groupCartByMerchant(cart);
+  const merchantCount = Object.keys(grouped).length;
+  if (merchantCount > 1) {
+    alert("Maaf, hanya bisa checkout dari satu merchant.");
+    return;
+  }
+
+  let totalHarga = 0;
+  const items = [];
+
+  for (const merchant in grouped) {
+    grouped[merchant].forEach((item) => {
+      const subtotal = item.qty * item.price;
+      totalHarga += subtotal;
+      items.push({
+        merchant,
+        name: item.name,
+        qty: item.qty,
+        price: item.price,
+        note: item.note || ''
+      });
+    });
+  }
+
+  const ongkir = parseInt(lokasiSelect.selectedOptions[0]?.getAttribute("data-ongkir")) || 0;
+  const total = totalHarga + ongkir;
+
+  const data = {
+    nama,
+    alamat,
+    nomor,
+    lokasi: lokasiText,
+    pembayaran,
+    ongkir,
+    total,
+    items,
+    waktu: new Date().toISOString()
+  };
+
+  // Simpan ke localStorage sebagai riwayat
+  const orderHistory = JSON.parse(localStorage.getItem("orderHistory")) || [];
+  orderHistory.push(data);
+  localStorage.setItem("orderHistory", JSON.stringify(orderHistory));
+
+  // Kirim ke Google Apps Script (tanpa menunggu respon karena no-cors)
+  fetch("https://script.google.com/macros/s/AKfycbxS40F_gc4W8s53cA_CDcqTkKFzddpCnPgQJGhBempzhzqTR1rhVmktP6gHx69Nt_hbWQ/exec", {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  });
+
+  // Tampilkan notifikasi
+  alert("Pesanan berhasil dikirim!");
+
+  // Kosongkan form dan keranjang
+  document.getElementById("order-form").reset();
+  document.getElementById("lokasi").selectedIndex = 0;
+  localStorage.removeItem("cart");
+  loadCart();
+
+  // Redirect ke riwayat
+  window.location.href = "riwayat.html";
+}
+
+// Inisialisasi saat halaman selesai dimuat
+document.addEventListener("DOMContentLoaded", loadCart);
+
+    function checkSingleMerchantInCart() {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const grouped = groupCartByMerchant(cart);
+      const merchantCount = Object.keys(grouped).length;
+      const checkoutBtn = document.getElementById("checkoutButton");
+
+      if (merchantCount > 1) {
+        checkoutBtn.disabled = true;
+        checkoutBtn.textContent = "Hanya bisa checkout 1 merchant";
+        checkoutBtn.style.backgroundColor = "#ccc";
+        checkoutBtn.style.cursor = "not-allowed";
+      } else {
+        checkoutBtn.disabled = false;
+        checkoutBtn.textContent = "Checkout";
+        checkoutBtn.style.backgroundColor = ""; // reset ke style semula
+        checkoutBtn.style.cursor = "pointer";
+      }
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      checkSingleMerchantInCart();
+    });
+    function updateCartUI() {
+      // ...update tampilan keranjang
+      checkSingleMerchantInCart();
+    }
+
+  </script>
+</body>
+
+</html>

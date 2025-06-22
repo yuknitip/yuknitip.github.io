@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aneka Nasi</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+  <header>
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="logonitip.png" alt="Nitip Logo" class="logo-img">
+      </a>
+    </div>
+    <button class="menu-toggle" onclick="toggleNavMenu()">☰</button>
+    <nav id="mobile-nav" class="hidden">
+      <a href="index.html">Beranda</a>
+      <a href="riwayat.html">Aktivitas</a>
+      <a href="about.html">Tentang</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="rekomendasi-list">
+      <h2>PROMO POTONGAN 2RIBU SEKOLAHAN</h2>
+    <div class="merchant-container-icon">
+      <a href="tehpocipromo.html">
+        <div class="merchant-card-icon">
+          <img src="merchant/tehpocitarempa/banner.jpeg" alt="Teh Poci" class="img-toko-icon" />
+          <div class="merchant-info-icon">
+      </a>
+      <h3>Teh Poci Tarempa</h3>
+      <p>Jalan Olahraga (Depan Gudang Obat), Tarempa, Siantan</p>
+      <p> Open : 10.30 - 19.30 WIB</p>
+    </div>
+    </div>
+    </div>
+    <div class="merchant-container-icon">
+      <a href="onetimepromo.html">
+        <div class="merchant-card-icon">
+          <img src="merchant/kopionetime/logo.png" alt="One Time" class="img-toko-icon" />
+          <div class="merchant-info-icon">
+      </a>
+     <h3>One Time/Mi Gacoan</h3>
+      <p>Jalan Sri Tanjung, Sri Tanjung, Siantan</p>
+      <p> Open : 09.00 - 18.00 WIB</p>
+    </div>
+    </div>
+    </div>      
+    <div class="merchant-container-icon">
+      <a href="lalunapromo.html">
+        <div class="merchant-card-icon">
+          <img src="merchant/laluna/logo.jpg" alt="Laluna Tarempa" class="img-toko" />
+          <div class="merchant-info-icon">
+      </a>
+      <h3>Laluna Tarempa</h3>
+      <p>Jalan Semen Panjang I, Kelurahan Tarempa, Siantan</p>
+      <p> Open : 10.00 - 22.00 WIB</p>
+    </div>
+    </div>
+    </div>
+    <div class="merchant-container-icon">
+      <a href="gfcpromo.html">
+        <div class="merchant-card-icon">
+          <img src="merchant/gfc/ayamgeprek.jpg" alt="GFC" class="img-toko-icon" />
+          <div class="merchant-info-icon">
+      </a>
+      <h3>Geprek Friends Chicken, Masjid Agung</h3>
+      <p>Depan Masjid Agung, Kelurahan Tarempa, Siantan</p>
+      <p> Open : 10.00 - 20.00 WIB</p>
+    </div>
+    </div>
+    </div>
+  </main>
+
+  <footer style="text-align: center; padding: 20px; background-color: #f7f7f7;">
+    <p>&copy; 2025 Nitip. Karya Anak Tarempa. Semua Hak Dilindungi.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+
+    function toggleNavMenu() {
+      const nav = document.getElementById('mobile-nav');
+      nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+  <script>
+    function toggleMenu(id) {
+      const element = document.getElementById(id);
+      if (element.style.display === "none" || element.style.display === "") {
+        element.style.display = "block";
+      } else {
+        element.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+
+</html>
