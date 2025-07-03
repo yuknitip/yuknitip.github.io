@@ -375,6 +375,12 @@ body {
     text-align:left;
   }
 
+  .desc {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 4px;
+  }
+
   .menu-card h1 {
     text-align: left;
     color: #ff7f3f;
