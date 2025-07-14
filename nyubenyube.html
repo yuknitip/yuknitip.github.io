@@ -13,7 +13,7 @@
   </div>
 </head>
 
-<body data-merchant-id="makadek">
+<body>
   <main>
     <div class="cart-icon">
       <a href="checkout.html">
@@ -144,20 +144,441 @@
     </div>
     </div>
     <div class="menu-card">
+    <h4>Dimsum Mentai</h4>
       <div class="menu-item">
-        <img src="merchant/nyubenyube/dimsumgoreng.jpeg" alt="menu-info" />
-        <p class="menu">Dimsum Goreng</p>
-        <p class="price">Rp28.000</p>
+        <img src="merchant/nyubenyube/mentaioriginal.jpeg" alt="menu-info" />
+        <p class="menu">Mentai Original</p>
+        <p class="price">Rp50.000</p>
         <div class="qty-control">
-          <button onclick="changeQty('dmg', -1)">-</button>
-          <span id="qty-dmg">1</span>
-          <button onclick="changeQty('dmg', 1)">+</button>
+          <button onclick="changeQty('mo', -1)">-</button>
+          <span id="qty-mo">1</span>
+          <button onclick="changeQty('mo', 1)">+</button>
         </div>
       </div>
       <div class="note-section">
-        <input type="text" id="note-dmg" placeholder="Catatan" />
+        <input type="text" id="note-mo" placeholder="Catatan" />
         <button onclick="addMultipleToCartWithNotes([
-  { name: 'Dimsum Goreng', price: 28000, menuId: 'dmg', merchant : 'Nyube.Nyube' }
+  { name: 'Mentai Original', price: 50000, menuId: 'mo', merchant : 'Nyube.Nyube' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/nyubenyube/mentaimozarella.jpeg" alt="menu-info" />
+        <p class="menu">Mentai Mozzarella</p>
+        <p class="price">Rp58.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('mm', -1)">-</button>
+          <span id="qty-mm">1</span>
+          <button onclick="changeQty('mm', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-mm" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Mentai Mozzarella', price: 58000, menuId: 'mm', merchant : 'Nyube.Nyube' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/makan.png" alt="menu-info" />
+        <p class="menu">Mentai Smoke Beef</p>
+        <p class="price">Rp58.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('msb', -1)">-</button>
+          <span id="qty-msb">1</span>
+          <button onclick="changeQty('msb', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-msb" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Mentai Smoke Beef', price: 58000, menuId: 'msb', merchant : 'Nyube.Nyube' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/makan.png" alt="menu-info" />
+        <p class="menu">Mentai Crab Stick</p>
+        <p class="price">Rp58.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('mcs', -1)">-</button>
+          <span id="qty-mcs">1</span>
+          <button onclick="changeQty('mcs', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-mcs" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Mentai Crab Stick', price: 58000, menuId: 'mcs', merchant : 'Nyube.Nyube' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/nyubenyube/mentaimix.jpeg" alt="menu-info" />
+        <p class="menu">Mentai All Varian</p>
+        <p class="price">Rp60.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('mav', -1)">-</button>
+          <span id="qty-mav">1</span>
+          <button onclick="changeQty('mav', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-mav" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Mentai All Varian', price: 60000, menuId: 'mav', merchant : 'Nyube.Nyube' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+    <h4>Dimsum Birthday</h4>
+      <div class="menu-item">
+        <img src="merchant/nyubenyube/bento11.JPG" alt="menu-info" />
+        <p class="menu">Dimsum Birthday Bento Original</p>
+        <p class="price">Rp68.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('dbo', -1)">-</button>
+          <span id="qty-dbo">1</span>
+          <button onclick="changeQty('dbo', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-dbo" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Dimsum Birthday Bento Original', price: 68000, menuId: 'dbo', merchant : 'Nyube.Nyube' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/nyubenyube/bento11.JPG" alt="menu-info" />
+        <p class="menu">Dimsum Birthday Bento Mozzarella</p>
+        <p class="price">Rp88.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('dbm', -1)">-</button>
+          <span id="qty-dbm">1</span>
+          <button onclick="changeQty('dbm', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-dbm" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Dimsum Birthday Bento Mozzarella', price: 88000, menuId: 'dbm', merchant : 'Nyube.Nyube' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/nyubenyube/bento11.JPG" alt="menu-info" />
+        <p class="menu">Dimsum Birthday Bento Sosis Kukus</p>
+        <p class="price">Rp88.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('dbsk', -1)">-</button>
+          <span id="qty-dbsk">1</span>
+          <button onclick="changeQty('dbsk', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-dbsk" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Dimsum Birthday Bento Sosis Kukus', price: 88000, menuId: 'dbsk', merchant : 'Nyube.Nyube' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/nyubenyube/bento11.JPG" alt="menu-info" />
+        <p class="menu">Dimsum Birthday Bento Goreng</p>
+        <p class="price">Rp88.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('dbg', -1)">-</button>
+          <span id="qty-dbg">1</span>
+          <button onclick="changeQty('dbg', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-dbg" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Dimsum Birthday Bento Goreng', price: 88000, menuId: 'dbg', merchant : 'Nyube.Nyube' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/nyubenyube/bento11.JPG" alt="menu-info" />
+        <p class="menu">Dimsum Birthday Bento Crab Stick</p>
+        <p class="price">Rp88.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('dbcs', -1)">-</button>
+          <span id="qty-dbcs">1</span>
+          <button onclick="changeQty('dbcs', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-dbcs" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Dimsum Birthday Bento Crab Stick', price: 88000, menuId: 'dbcs', merchant : 'Nyube.Nyube' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/nyubenyube/bento11.JPG" alt="menu-info" />
+        <p class="menu">Dimsum Birthday Bento Smoke Beef</p>
+        <p class="price">Rp88.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('dbsb', -1)">-</button>
+          <span id="qty-dbsb">1</span>
+          <button onclick="changeQty('dbsb', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-dbsb" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Dimsum Birthday Bento Smoke Beef', price: 88000, menuId: 'dbsb', merchant : 'Nyube.Nyube' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/nyubenyube/bento11.JPG" alt="menu-info" />
+        <p class="menu">Dimsum Birthday Bento Semua Varian</p>
+        <p class="price">Rp88.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('dbsv', -1)">-</button>
+          <span id="qty-dbsv">1</span>
+          <button onclick="changeQty('dbsv', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-dbsv" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Dimsum Birthday Bento Semua Varian', price: 88000, menuId: 'dbsv', merchant : 'Nyube.Nyube' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/nyubenyube/tower24.JPG" alt="menu-info" />
+        <p class="menu">Dimsum Birthday Tower Original</p>
+        <p class="price">Rp150.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('dbto', -1)">-</button>
+          <span id="qty-dbto">1</span>
+          <button onclick="changeQty('dbto', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-dbto" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Dimsum Birthday Tower Original', price: 150000, menuId: 'dbto', merchant : 'Nyube.Nyube' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/nyubenyube/tower24.JPG" alt="menu-info" />
+        <p class="menu">Dimsum Birthday Tower Mozzarella</p>
+        <p class="price">Rp170.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('dbtm', -1)">-</button>
+          <span id="qty-dbtm">1</span>
+          <button onclick="changeQty('dbtm', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-dbtm" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Dimsum Birthday Tower Mozzarella', price: 170000, menuId: 'dbtm', merchant : 'Nyube.Nyube' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/nyubenyube/tower24.JPG" alt="menu-info" />
+        <p class="menu">Dimsum Birthday Tower Sosis Kukus</p>
+        <p class="price">Rp170.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('dbtsk', -1)">-</button>
+          <span id="qty-dbtsk">1</span>
+          <button onclick="changeQty('dbtsk', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-dbtsk" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Dimsum Birthday Tower Sosis Kukus', price: 170000, menuId: 'dbtsk', merchant : 'Nyube.Nyube' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/nyubenyube/tower24.JPG " alt="menu-info" />
+        <p class="menu">Dimsum Birthday Tower Goreng</p>
+        <p class="price">Rp170.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('dbtg', -1)">-</button>
+          <span id="qty-dbtg">1</span>
+          <button onclick="changeQty('dbtg', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-dbtg" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Dimsum Birthday Tower Goreng', price: 170000, menuId: 'dbtg', merchant : 'Nyube.Nyube' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/nyubenyube/tower24.JPG" alt="menu-info" />
+        <p class="menu">Dimsum Birthday Tower Crab Stick</p>
+        <p class="price">Rp88.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('dbtcs', -1)">-</button>
+          <span id="qty-dbtcs">1</span>
+          <button onclick="changeQty('dbtcs', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-dbtcs" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Dimsum Birthday Tower Crab Stick', price: 170000, menuId: 'dbtcs', merchant : 'Nyube.Nyube' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/nyubenyube/tower24.JPG" alt="menu-info" />
+        <p class="menu">Dimsum Birthday Tower Smoke Beef</p>
+        <p class="price">Rp170.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('dbtsb', -1)">-</button>
+          <span id="qty-dbtsb">1</span>
+          <button onclick="changeQty('dbtsb', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-dbtsb" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Dimsum Birthday Tower Smoke Beef', price: 170000, menuId: 'dbtsb', merchant : 'Nyube.Nyube' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/nyubenyube/tower24.JPG" alt="menu-info" />
+        <p class="menu">Dimsum Birthday Tower Semua Varian</p>
+        <p class="price">Rp180.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('dbtsv', -1)">-</button>
+          <span id="qty-dbtsv">1</span>
+          <button onclick="changeQty('dbtsv', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-dbtsv" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Dimsum Birthday Tower Semua Varian', price: 180000, menuId: 'dbtsv', merchant : 'Nyube.Nyube' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+        <h4>Menu Lainnya</h4>
+        <div class="menu-item">
+        <img src="merchant/nyubenyube/kejuaroma.jpeg" alt="menu-info" />
+        <p class="menu">Keju Aroma</p>
+        <p class="price">Rp20.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('ka', -1)">-</button>
+          <span id="qty-ka">1</span>
+          <button onclick="changeQty('ka', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-ka" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Keju Aroma', price: 20000, menuId: 'ka', merchant : 'Nyube.Nyube' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/nyubenyube/escemil.jpeg" alt="menu-info" />
+        <p class="menu">Es Cemil</p>
+        <p class="price">Rp20.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('ec', -1)">-</button>
+          <span id="qty-ec">1</span>
+          <button onclick="changeQty('ec', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-ec" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Es Cemil', price: 20000, menuId: 'ec', merchant : 'Nyube.Nyube' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/nyubenyube/mochimin.jpeg" alt="menu-info" />
+        <p class="menu">Mochimin</p>
+        <p class="price">Rp20.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('moo', -1)">-</button>
+          <span id="qty-moo">1</span>
+          <button onclick="changeQty('moo', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-moo" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Mochimin', price: 20000, menuId: 'moo', merchant : 'Nyube.Nyube' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/nyubenyube/mochisi.jpeg" alt="menu-info" />
+        <p class="menu">Mochisi</p>
+        <p class="price">Rp15.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('mooo', -1)">-</button>
+          <span id="qty-mooo">1</span>
+          <button onclick="changeQty('mooo', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-mooo" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Mochisi', price: 20000, menuId: 'mooo', merchant : 'Nyube.Nyube' }
 ])">Tambah</button>
       </div>
     </div>
