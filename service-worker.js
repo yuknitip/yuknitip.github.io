@@ -1,4 +1,4 @@
-const CACHE_NAME = "nitip-v5";
+const CACHE_NAME = "nitip-v6";
 const urlsToCache = [
   "/",
   "/index.html",
