@@ -1094,7 +1094,7 @@ color: #ff6b00
 
 .search-icon {
   position: absolute;
-  left: 30%;
+  left: 50%;
   top: 50%;
   transform: translateY(-50%);
   color: #777;
