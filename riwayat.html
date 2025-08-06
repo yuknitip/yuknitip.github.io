@@ -29,7 +29,7 @@
     <div id="daftarRiwayat" class="riwayat-section"></div>
 
     <h2>Riwayat Nitip Belanja</h2>
-    <div id="daftarRiwayatBelanja" class="riwayat-section"></div>
+    <div id="daftarRiwayatBelanja" class="riwayat-section"></div>    
 
     <div style="text-align: center;" class="clearcart">
       <button onclick="clearOrderHistory()">Kosongkan Riwayat Pesanan</button>
@@ -105,6 +105,11 @@
           const estimasi = estimasiPerLokasi[pesanan.lokasi.trim()] || 40;
           const tiba = new Date(waktu.getTime() + estimasi * 60000);
 
+          // Cek apakah sudah lebih dari 10 menit
+      const sekarang = new Date();
+      const selisihMenit = (sekarang - waktu) / 60000;
+      const showHubungiAdmin = selisihMenit >= 1;
+
           const div = document.createElement("div");
           div.className = "riwayat-item";
           div.innerHTML = `
@@ -116,7 +121,15 @@
             <p><strong>Waktu Pesan:</strong> ${waktu.toLocaleString("id-ID")}</p>
             <p><strong>Estimasi Tiba:</strong> ${tiba.toLocaleTimeString("id-ID", { hour: '2-digit', minute: '2-digit' })}</p>
             <ul>${pesanan.items.map(i => `<li>${i.qty}x ${i.name} ${i.price} (${i.merchant})</li>`).join("")}</ul>
-          `;
+           ${showHubungiAdmin ? `
+          <div style="margin-top:10px;">
+            <a href="https://wa.me/6281261319225?text=Halo%20Admin,%20saya%20(${encodeURIComponent(pesanan.nama)})%20sudah%20checkout%20pada%20${encodeURIComponent(waktu.toLocaleString("id-ID"))}%20tapi%20belum%20ada%20respon."
+               target="_blank" class="btn-wa-admin">
+              📞 Chat Admin
+            </a>
+          </div>
+        ` : ""}
+            `;
           section.appendChild(div);
         });
 

@@ -28,6 +28,10 @@
       <div id="status-operasional" style="margin: 1em 0; font-weight: bold;">
       </div>
     </div>
+    <div class="search-container sticky-search">
+      <i class="fas fa-search search-icon"></i>
+      <input type="text" id="searchMenu" placeholder="Cari menu..." onkeyup="filterMenu()">
+    </div>
     <div class="menu-card">
     <h4>Menu Nasi</h4>
       <div class="menu-item">
@@ -942,6 +946,21 @@
       cekJamOperasional();
       updateCartCount(); // fungsi dari cart kamu
     });
+  </script>
+<script>
+   function filterMenu() {
+  const input = document.getElementById('searchMenu').value.toLowerCase();
+  const menuItems = document.querySelectorAll('.menu-card');
+  
+  menuItems.forEach(item => {
+    const menuName = item.querySelector('.menu').textContent.toLowerCase();
+    if (menuName.includes(input)) {
+      item.style.display = "block";
+    } else {
+      item.style.display = "none";
+    }
+  });
+} 
   </script>
 
 </body>

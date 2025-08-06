@@ -16,7 +16,7 @@
 <body>
   <main>
     <div class="cart-icon">
-      <a href="checkout1.html">
+      <a href="cotgm.html">
         <i class="fas fa-shopping-cart"></i>
         <span id="cart-count">0</span>
       </a>
@@ -27,6 +27,10 @@
       <p> Open : 15.00 - 22.30 WIB</p>
       <div id="status-operasional" style="margin: 1em 0; font-weight: bold;">
       </div>
+    </div>
+    <div class="search-container sticky-search">
+      <i class="fas fa-search search-icon"></i>
+      <input type="text" id="searchMenu" placeholder="Cari menu..." onkeyup="filterMenu()">
     </div>
     <div class="menu-card">
       <h4>New Menu</h4>
@@ -2015,7 +2019,7 @@
   </main>
 
   <footer class="checkout">
-    <a href="checkout1.html" class="btn">Lanjut ke Checkout</a>
+    <a href="cotgm.html" class="btn">Lanjut ke Checkout</a>
   </footer>
 
   <script src="script.js"></script>
@@ -2167,6 +2171,21 @@
       cekJamOperasional();
       updateCartCount(); // fungsi dari cart kamu
     });
+  </script>
+<script>
+   function filterMenu() {
+  const input = document.getElementById('searchMenu').value.toLowerCase();
+  const menuItems = document.querySelectorAll('.menu-card');
+  
+  menuItems.forEach(item => {
+    const menuName = item.querySelector('.menu').textContent.toLowerCase();
+    if (menuName.includes(input)) {
+      item.style.display = "block";
+    } else {
+      item.style.display = "none";
+    }
+  });
+} 
   </script>
 </body>
 
