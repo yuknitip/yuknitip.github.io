@@ -2,117 +2,234 @@
 <html lang="id">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nitip</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#0d6efd" />
-  <link rel="icon" href="logoapk192.png">
-  <link rel="apple-touch-icon" href="logoapk192.png">
-</head>
-
-<body>
-  <header>
-    <div class="logo-container">
-      <a href="index.html">
-        <img src="logonitip.png" alt="Nitip Logo" class="logo-img">
-      </a>
+  <link rel="icon" href="logoapk192.png" />
+  <link rel="apple-touch-icon" href="logoapk192.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <div class="logo-banner">
+        <img src="bannerhome.png" class="banner">
     </div>
-    <button class="menu-toggle" onclick="toggleNavMenu()">☰</button>
-    <nav id="mobile-nav" class="hidden">
-      <a href="#">Beranda</a>
-      <a href="riwayat.html">Aktivitas</a>
-      <a href="about.html">Tentang</a>
-    </nav>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: #fff8f0;
+      color: #333;
+      padding-bottom: 80px;
+    }
+    .logo-banner{
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    gap: 10px;
+    }
 
-  </header>
+    .banner {
+    height: 100px;
+    width: 100%;
+  }
 
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(to right, #ff7b00, #ff9900);
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .logo-img {
+      height: 50px;
+    }
+
+    .apaya {
+      display: flex;
+    justify-content: center;
+    align-items: right;
+    margin-top: 40px;
+    margin-right: 20px;
+    }
+
+    .imgapa {
+      max-width: 35%;
+      height: auto;
+    }
+
+    .h2aa {
+      margin-top: 10px;
+    }
+
+    .icon-kategori,
+    .icon-kategori1 {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .icon-k {
+      width: 120px;
+      height: auto;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+    }
+
+    #installBtn {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      z-index: 9999;
+      background: #28a745;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 56px;
+      height: 56px;
+      font-size: 24px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      display: none;
+    }
+
+    .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background: #ffffff;
+    border-top: 0px solid #ddd;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .bottom-nav .nav-item {
+    text-decoration: none;
+    color: #ff7b00;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bottom-nav .nav-item i {
+    font-size: 20px;
+  }
+
+  @media (min-width: 768px) {
+    .bottom-nav .nav-item {
+      font-size: 14px;
+    }
+
+    .bottom-nav .nav-item i {
+      font-size: 26px;
+    }
+  }
+
+  main {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 16px;
+  }
+  </style>
+</head>
+<body>
   <main>
     <div class="apaya">
-      <img src="nitipapa.png" alt="Apa Ya" class="imgapa">
+      <img src="nitipapa.png" alt="Apa Ya" class="imgapa" />
       <h2 class="h2aa">Mau nitip apa ya?</h2>
     </div>
     <navbar class="icon-kategori">
       <a href="restaurant.html">
-        <img src="nitipmakan.png" alt="Nitip Makan" class="icon-k">
+        <img src="nitipmakan.png" alt="Nitip Makan" class="icon-k" />
       </a>
       <a href="barang.html">
-        <img src="nitipbarang.png" alt="Nitip Barang" class="icon-k">
+        <img src="nitipbarang.png" alt="Nitip Barang" class="icon-k" />
       </a>
     </navbar>
     <navbar class="icon-kategori1">
       <a href="belanja.html">
-        <img src="nitipbelanja.png" alt="Nitip Belanja" class="icon-k">
+        <img src="nitipbelanja.png" alt="Nitip Belanja" class="icon-k" />
       </a>
     </navbar>
-<button id="installBtn" title="Install Aplikasi"
-  style="
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 9999;
-    background: #28a745;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 56px;
-    height: 56px;
-    font-size: 24px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    cursor: pointer;
-    display: none;
-  ">
-  📲
-</button>
 
-    <footer style="text-align: center; padding: 20px; background-color: #f7f7f7;">
-      <p>&copy; 2025 Nitip. Karya Anak Tarempa. Semua Hak Dilindungi.</p>
-    </footer>
-    <script src="script.js"></script>
-    <script>
+    <button id="installBtn" title="Install Aplikasi">📲</button>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Nitip. Karya Anak Tarempa. Semua Hak Dilindungi.</p>
+  </footer>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav">
+    <a href="index.html" class="nav-item">
+      <i class="fas fa-home"></i>
+      <span>Beranda</span>
+    </a>
+    <a href="riwayat.html" class="nav-item">
+      <i class="fas fa-clock"></i>
+      <span>Aktivitas</span>
+    </a>
+    <a href="about.html" class="nav-item">
+      <i class="fas fa-info-circle"></i>
+      <span>Tentang</span>
+    </a>
+  </nav>
+
+  <script>
     function toggleNavMenu() {
-        const nav = document.getElementById('mobile-nav');
-        nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
-      }
-    </script>
-    <script>
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("service-worker.js")
-      .then(reg => console.log("Service worker registered:", reg))
-      .catch(err => console.error("SW registration failed:", err));
-  }
-  let deferredPrompt;
-const installBtn = document.getElementById('installBtn');
-
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault(); // Cegah prompt default
-  deferredPrompt = e;
-  installBtn.style.display = 'block';
-});
-
-installBtn.addEventListener('click', async () => {
-  installBtn.style.display = 'none';
-  if (deferredPrompt) {
-    deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-    if (outcome === 'accepted') {
-      console.log('User accepted install');
+      const nav = document.getElementById("mobile-nav");
+      nav.style.display = nav.style.display === "block" ? "none" : "block";
     }
-    deferredPrompt = null;
-  }
-});
 
-window.addEventListener('appinstalled', () => {
-  console.log('PWA installed');
-  installBtn.style.display = 'none';
-});
-if (window.matchMedia('(display-mode: standalone)').matches) {
-  installBtn.style.display = 'none';
-}
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("service-worker.js")
+        .then((reg) => console.log("Service worker registered:", reg))
+        .catch((err) => console.error("SW registration failed:", err));
+    }
 
-</script>
+    let deferredPrompt;
+    const installBtn = document.getElementById("installBtn");
 
+    window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      installBtn.style.display = "block";
+    });
+
+    installBtn.addEventListener("click", async () => {
+      installBtn.style.display = "none";
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === "accepted") {
+          console.log("User accepted install");
+        }
+        deferredPrompt = null;
+      }
+    });
+
+    window.addEventListener("appinstalled", () => {
+      console.log("PWA installed");
+      installBtn.style.display = "none";
+    });
+
+    if (window.matchMedia("(display-mode: standalone)").matches) {
+      installBtn.style.display = "none";
+    }
+  </script>
 </body>
 
 </html>
