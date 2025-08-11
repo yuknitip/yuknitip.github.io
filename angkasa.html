@@ -12,7 +12,6 @@
     <img src="merchant/angkasa/banner.jpeg" alt="Angkasa" class="banner">
   </div>
 </head>
-
 <body>
   <main>
     <div class="cart-icon">
@@ -31,6 +30,103 @@
     <div class="search-container sticky-search">
       <i class="fas fa-search search-icon"></i>
       <input type="text" id="searchMenu" placeholder="Cari menu..." onkeyup="filterMenu()">
+    </div>
+    <div class="menu-card">
+    <h4>NEW MENU</h4>
+      <div class="menu-item">
+        <img src="merchant/angkasa/eggswaffle.jpeg" alt="menu-info" />
+        <p class="menu">Eggs Waffle Angkasa</p>
+        <p class="price">Rp27.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('ewa', -1)">-</button>
+          <span id="qty-ewa">1</span>
+          <button onclick="changeQty('ewa', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-ewa" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Eggs Waffle Angkasa', price: 27000, menuId: 'ewa', merchant : 'Angkasa Resto & Cafe' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <h4>SAMBAL BAKAR</h4>
+      <div class="menu-item">
+        <img src="merchant/angkasa/sambalbakarpetai.jpeg" alt="menu-info" />
+        <p class="menu">Sambal Bakar Petai</p>
+        <p class="price">Rp12.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('sbp', -1)">-</button>
+          <span id="qty-sbp">1</span>
+          <button onclick="changeQty('sbp', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-sbp" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Sambal Bakar Petai', price: 12000, menuId: 'sbp', merchant : 'Angkasa Resto & Cafe' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/angkasa/sambalbakarjengkol.jpeg" alt="menu-info" />
+        <p class="menu">Sambal Bakar Jengkol</p>
+        <p class="price">Rp12.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('sbj', -1)">-</button>
+          <span id="qty-sbj">1</span>
+          <button onclick="changeQty('sbj', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-sbj" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Sambal Bakar Jengkol', price: 12000, menuId: 'sbj', merchant : 'Angkasa Resto & Cafe' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/angkasa/sambalbakartelur.jpeg" alt="menu-info" />
+        <p class="menu">Sambal Bakar Telur</p>
+        <p class="price">Rp12.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('sbt', -1)">-</button>
+          <span id="qty-sbt">1</span>
+          <button onclick="changeQty('sbt', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-sbt" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Sambal Bakar Telur', price: 12000, menuId: 'sbt', merchant : 'Angkasa Resto & Cafe' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/angkasa/sambalbakarayamgoreng.jpeg" alt="menu-info" />
+        <p class="menu">Sambal Bakar Ayam Goreng</p>
+        <p class="price">Rp12.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('sbag', -1)">-</button>
+          <span id="qty-sbag">1</span>
+          <button onclick="changeQty('sbag', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-sbag" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Sambal Bakar Ayam Goreng', price: 12000, menuId: 'sbag', merchant : 'Angkasa Resto & Cafe' }
+])">Tambah</button>
+      </div>
+    </div>
     </div>
     <div class="menu-card">
     <h4>CHICKEN</h4>
