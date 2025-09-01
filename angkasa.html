@@ -34,6 +34,25 @@
     <div class="menu-card">
     <h4>NEW MENU</h4>
       <div class="menu-item">
+        <img src="merchant/angkasa/igabakar.jpg" alt="menu-info" />
+        <p class="menu">Iga Bakar</p>
+        <p class="price">Rp47.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('iga', -1)">-</button>
+          <span id="qty-iga">1</span>
+          <button onclick="changeQty('iga', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-iga" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Iga Bakar', price: 47000, menuId: 'iga', merchant : 'Angkasa Resto & Cafe' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+    <div class="menu-item">
         <img src="merchant/angkasa/eggswaffle.jpeg" alt="menu-info" />
         <p class="menu">Eggs Waffle Angkasa</p>
         <p class="price">Rp27.000</p>
