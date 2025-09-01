@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merchant - Nitip</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <div class="logo-banner">
+    <img src="merchant/aoscoffee/banneraos.png" alt="aos coffee" class="banner">
+  </div>
+</head>
+
+<body>
+  <main>
+    <div class="cart-icon">
+      <a href="cotpa.html">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count">0</span>
+      </a>
+    </div>
+    <div class="merchant-info1"></a>
+      <h3>aos coffee</h3>
+      <p>Jalan Raden Saleh, Gang Swadaya 3, Tarempa, Siantan</p>
+      <p> Open : 09.00 - 21.00 WIB</p>
+      <div id="status-operasional" style="margin: 1em 0; font-weight: bold;">
+      </div>
+    </div>
+    <div class="search-container sticky-search">
+      <i class="fas fa-search search-icon"></i>
+      <input type="text" id="searchMenu" placeholder="Cari menu..." onkeyup="filterMenu()">
+    </div>
+    <div class="menu-card">
+        <h4>COFFEE</h4>
+      <div class="menu-item">
+        <img src="merchant/aoscoffee/kopisusu.png" alt="menu-info" />
+        <p class="menu">Kopi Susu</p>
+        <p class="price">Rp10.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('ks', -1)">-</button>
+          <span id="qty-ks">1</span>
+          <button onclick="changeQty('ks', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-ks" placeholder="Contoh : No Sugar, Less Sugar, Normal" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Kopi Susu', price: 10000, menuId: 'ks', merchant : 'aos coffee' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/aoscoffee/kopigulaaren.png" alt="menu-info" />
+        <p class="menu">Kopi Gula Aren</p>
+        <p class="price">Rp12.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('kga', -1)">-</button>
+          <span id="qty-kga">1</span>
+          <button onclick="changeQty('kga', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-kga" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Kopi Gula Aren', price: 12000, menuId: 'kga', merchant : 'aos coffee' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/aoscoffee/dalgonacoffee.png" alt="menu-info" />
+        <p class="menu">Dalgona Coffee</p>
+        <p class="price">Rp11.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('dc', -1)">-</button>
+          <span id="qty-dc">1</span>
+          <button onclick="changeQty('dc', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-dc" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Dalgona Coffee', price: 11000, menuId: 'dc', merchant : 'aos coffee' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Americano</p>
+        <p class="price">Rp8.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('ame', -1)">-</button>
+          <span id="qty-ame">1</span>
+          <button onclick="changeQty('ame', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-ame" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Americano', price: 8000, menuId: 'ame', merchant : 'aos coffee' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/aoscoffee/lemonamericano.png" alt="menu-info" />
+        <p class="menu">Lemon Americano</p>
+        <p class="price">Rp14.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('lame', -1)">-</button>
+          <span id="qty-lame">1</span>
+          <button onclick="changeQty('lame', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-lame" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Lemon Americano', price: 14000, menuId: 'lame', merchant : 'aos coffee' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Black Bee Coffee</p>
+        <p class="price">Rp11.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('bbc', -1)">-</button>
+          <span id="qty-bbc">1</span>
+          <button onclick="changeQty('bbc', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-bbc" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Black Bee Coffee', price: 11000, menuId: 'bbc', merchant : 'aos coffee' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+        <h4>NON COFFEE</h4>
+      <div class="menu-item">
+        <img src="merchant/aoscoffee/thaiteaoriginal.png" alt="menu-info" />
+        <p class="menu">Thai Tea Original</p>
+        <p class="price">Rp7.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('tto', -1)">-</button>
+          <span id="qty-tto">1</span>
+          <button onclick="changeQty('tto', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-tto" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Thai Tea Original', price: 7000, menuId: 'tto', merchant : 'aos coffee' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+  </main>
+
+  <footer class="checkout">
+    <a href="cotpa.html" class="btn">Lanjut ke Checkout</a>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    const quantities = {
+      nl: 0
+    };
+
+    function toggleNavMenu() {
+      const nav = document.getElementById('mobile-nav');
+      nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+    }
+
+
+    function changeQty(menuId, delta) {
+      if (!quantities[menuId]) quantities[menuId] = 0;
+      quantities[menuId] = Math.max(0, quantities[menuId] + delta);
+      document.getElementById(`qty-${menuId}`).innerText = quantities[menuId];
+    }
+
+    function addToCart(name, price, menuId, merchant) {
+      const qty = quantities[menuId] || 0;
+      if (qty === 0) {
+        return;
+      }
+
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      let found = false;
+
+      for (let item of cart) {
+        if (item.name === name && item.merchant === merchant) {
+          item.qty += qty;
+          found = true;
+          break;
+        }
+      }
+
+      if (!found) {
+        cart.push({ name, price, qty, merchant }); // ← pastikan ini ada
+      }
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+      updateCartCount();
+      alert(`${qty}x ${name} dari ${merchant} telah ditambahkan ke keranjang!`);
+    }
+
+    function addMultipleToCart(items) {
+      items.forEach(item => {
+        addToCart(item.name, item.price, item.menuId, item.merchant);
+      });
+    }
+
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const total = cart.reduce((sum, item) => sum + item.qty, 0);
+      const cartCount = document.getElementById("cart-count");
+      if (cartCount) cartCount.innerText = total;
+    }
+
+    document.addEventListener("DOMContentLoaded", updateCartCount);
+  </script>
+
+  <script>
+    function addMultipleToCartWithNotes(items) {
+      items.forEach(item => {
+        const note = document.getElementById(`note-${item.menuId}`).value.trim();
+        addToCart(item.name, item.price, item.menuId, item.merchant, note);
+      });
+    }
+
+    function addToCart(name, price, menuId, merchant, note = "") {
+      const qty = quantities[menuId] || 1;
+
+
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      let found = false;
+
+      for (let item of cart) {
+        if (
+          item.name === name &&
+          item.merchant === merchant &&
+          (item.note || "") === (note || "")
+        ) {
+          item.qty += qty;
+          found = true;
+          break;
+        }
+      }
+
+      if (!found) {
+        cart.push({ name, price, qty, merchant, note });
+      }
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+      updateCartCount();
+      alert(`${qty}x ${name} dari ${merchant} telah ditambahkan ke keranjang!\nCatatan: ${note || "-"}`);
+
+      // Kosongkan form catatan setelah ditambahkan
+      const noteInput = document.getElementById(`note-${menuId}`);
+      if (noteInput) noteInput.value = "";
+    }
+  </script>
+
+  <script>
+    function toggleMenu(id) {
+      const element = document.getElementById(id);
+      if (element.style.display === "none" || element.style.display === "") {
+        element.style.display = "block";
+      } else {
+        element.style.display = "none";
+      }
+    }
+  </script>
+
+  <script>
+    const tutupManual = false;
+    function cekJamOperasional() {
+      const sekarang = new Date();
+      const jam = sekarang.getHours();
+
+      // SETTING: Jam buka dan tutup merchant (ubah sesuai kebutuhan)
+      const jamBuka = 9;   // Jam buka: 09:00
+      const jamTutup = 21; // Jam tutup: 21:00
+
+
+      const statusEl = document.getElementById("status-operasional");
+
+      if (tutupManual || jam < jamBuka || jam >= jamTutup) {
+        // Merchant tutup
+        statusEl.innerHTML = "Status: <span style='color:red'>Tutup</span>";
+
+        // Nonaktifkan semua tombol tambah
+        document.querySelectorAll("button").forEach(btn => {
+          btn.disabled = true;
+          btn.style.opacity = 0.5;
+          btn.title = "Merchant sedang tutup";
+        });
+
+      } else {
+        // Merchant buka
+        statusEl.innerHTML = "Status: <span style='color:green'>Buka</span>";
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      cekJamOperasional();
+      updateCartCount(); // fungsi dari cart kamu
+    });
+  </script>
+  <script>
+   function filterMenu() {
+  const input = document.getElementById('searchMenu').value.toLowerCase();
+  const menuItems = document.querySelectorAll('.menu-card');
+  
+  menuItems.forEach(item => {
+    const menuName = item.querySelector('.menu').textContent.toLowerCase();
+    if (menuName.includes(input)) {
+      item.style.display = "block";
+    } else {
+      item.style.display = "none";
+    }
+  });
+} 
+  </script>
+
+</body>
+
+</html>
