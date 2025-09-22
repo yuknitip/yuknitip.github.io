@@ -90,6 +90,44 @@
       </div>
     </div>
     </div>
+      <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Vanilla Latte</p>
+        <p class="price">Rp14.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('vl', -1)">-</button>
+          <span id="qty-vl">1</span>
+          <button onclick="changeQty('vl', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-vl" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Vanilla Latte', price: 14000, menuId: 'vl', merchant : 'aos coffee' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+      <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/minum.png" alt="menu-info" />
+        <p class="menu">Caramel Latte</p>
+        <p class="price">Rp14.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('cl', -1)">-</button>
+          <span id="qty-cl">1</span>
+          <button onclick="changeQty('cl', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-cl" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Caramel Latte', price: 14000, menuId: 'cl', merchant : 'aos coffee' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
     <div class="menu-card">
       <div class="menu-item">
         <img src="merchant/minum.png" alt="menu-info" />
