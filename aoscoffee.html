@@ -16,15 +16,15 @@
 <body>
   <main>
     <div class="cart-icon">
-      <a href="cotpa.html">
+      <a href="cotpab.html">
         <i class="fas fa-shopping-cart"></i>
         <span id="cart-count">0</span>
       </a>
     </div>
     <div class="merchant-info1"></a>
       <h3>aos coffee</h3>
-      <p>Jalan Raden Saleh, Gang Swadaya 3, Tarempa, Siantan</p>
-      <p> Open : 09.00 - 21.00 WIB</p>
+      <p>Jalan Tanjung (Samping Masjid Nurul Ikhsan), Tarempa Barat, Siantan</p>
+      <p> Open : 10.00 - 23.59 WIB</p>
       <div id="status-operasional" style="margin: 1em 0; font-weight: bold;">
       </div>
     </div>
@@ -37,7 +37,7 @@
       <div class="menu-item">
         <img src="merchant/aoscoffee/kopisusu.png" alt="menu-info" />
         <p class="menu">Kopi Susu</p>
-        <p class="price">Rp10.000</p>
+        <p class="price">Rp12.000</p>
         <div class="qty-control">
           <button onclick="changeQty('ks', -1)">-</button>
           <span id="qty-ks">1</span>
@@ -47,7 +47,7 @@
       <div class="note-section">
         <input type="text" id="note-ks" placeholder="Contoh : No Sugar, Less Sugar, Normal" />
         <button onclick="addMultipleToCartWithNotes([
-  { name: 'Kopi Susu', price: 10000, menuId: 'ks', merchant : 'aos coffee' }
+  { name: 'Kopi Susu', price: 12000, menuId: 'ks', merchant : 'aos coffee' }
 ])">Tambah</button>
       </div>
     </div>
@@ -56,7 +56,7 @@
       <div class="menu-item">
         <img src="merchant/aoscoffee/kopigulaaren.png" alt="menu-info" />
         <p class="menu">Kopi Gula Aren</p>
-        <p class="price">Rp12.000</p>
+        <p class="price">Rp14.000</p>
         <div class="qty-control">
           <button onclick="changeQty('kga', -1)">-</button>
           <span id="qty-kga">1</span>
@@ -66,7 +66,7 @@
       <div class="note-section">
         <input type="text" id="note-kga" placeholder="Catatan" />
         <button onclick="addMultipleToCartWithNotes([
-  { name: 'Kopi Gula Aren', price: 12000, menuId: 'kga', merchant : 'aos coffee' }
+  { name: 'Kopi Gula Aren', price: 14000, menuId: 'kga', merchant : 'aos coffee' }
 ])">Tambah</button>
       </div>
     </div>
@@ -75,7 +75,7 @@
       <div class="menu-item">
         <img src="merchant/aoscoffee/dalgonacoffee.png" alt="menu-info" />
         <p class="menu">Dalgona Coffee</p>
-        <p class="price">Rp11.000</p>
+        <p class="price">Rp13.000</p>
         <div class="qty-control">
           <button onclick="changeQty('dc', -1)">-</button>
           <span id="qty-dc">1</span>
@@ -85,16 +85,16 @@
       <div class="note-section">
         <input type="text" id="note-dc" placeholder="Catatan" />
         <button onclick="addMultipleToCartWithNotes([
-  { name: 'Dalgona Coffee', price: 11000, menuId: 'dc', merchant : 'aos coffee' }
+  { name: 'Dalgona Coffee', price: 13000, menuId: 'dc', merchant : 'aos coffee' }
 ])">Tambah</button>
       </div>
     </div>
     </div>
       <div class="menu-card">
       <div class="menu-item">
-        <img src="merchant/minum.png" alt="menu-info" />
+        <img src="merchant/aoscoffee/butterscoth.png" alt="menu-info" />
         <p class="menu">Vanilla Latte</p>
-        <p class="price">Rp14.000</p>
+        <p class="price">Rp16.000</p>
         <div class="qty-control">
           <button onclick="changeQty('vl', -1)">-</button>
           <span id="qty-vl">1</span>
@@ -104,16 +104,16 @@
       <div class="note-section">
         <input type="text" id="note-vl" placeholder="Catatan" />
         <button onclick="addMultipleToCartWithNotes([
-  { name: 'Vanilla Latte', price: 14000, menuId: 'vl', merchant : 'aos coffee' }
+  { name: 'Vanilla Latte', price: 16000, menuId: 'vl', merchant : 'aos coffee' }
 ])">Tambah</button>
       </div>
     </div>
     </div>
       <div class="menu-card">
       <div class="menu-item">
-        <img src="merchant/minum.png" alt="menu-info" />
+        <img src="merchant/aoscoffee/caramel.png" alt="menu-info" />
         <p class="menu">Caramel Latte</p>
-        <p class="price">Rp14.000</p>
+        <p class="price">Rp16.000</p>
         <div class="qty-control">
           <button onclick="changeQty('cl', -1)">-</button>
           <span id="qty-cl">1</span>
@@ -123,16 +123,111 @@
       <div class="note-section">
         <input type="text" id="note-cl" placeholder="Catatan" />
         <button onclick="addMultipleToCartWithNotes([
-  { name: 'Caramel Latte', price: 14000, menuId: 'cl', merchant : 'aos coffee' }
+  { name: 'Caramel Latte', price: 16000, menuId: 'cl', merchant : 'aos coffee' }
 ])">Tambah</button>
       </div>
     </div>
     </div>
     <div class="menu-card">
       <div class="menu-item">
-        <img src="merchant/minum.png" alt="menu-info" />
+        <img src="merchant/aoscoffee/butterscoth.png" alt="menu-info" />
+        <p class="menu">Butterscoth</p>
+        <p class="price">Rp16.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('bc', -1)">-</button>
+          <span id="qty-bc">1</span>
+          <button onclick="changeQty('bc', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-bc" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Butterscoth', price: 16000, menuId: 'bc', merchant : 'aos coffee' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+      <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/aoscoffee/caramel.png" alt="menu-info" />
+        <p class="menu">Hazelnut Latte</p>
+        <p class="price">Rp16.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('hl', -1)">-</button>
+          <span id="qty-hl">1</span>
+          <button onclick="changeQty('hl', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-hl" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Hazelnut Latte', price: 16000, menuId: 'hl', merchant : 'aos coffee' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/aoscoffee/caramel.png" alt="menu-info" />
+        <p class="menu">Tiramisu Latte</p>
+        <p class="price">Rp16.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('tl', -1)">-</button>
+          <span id="qty-tl">1</span>
+          <button onclick="changeQty('tl', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-tl" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Tiramisu Latte', price: 16000, menuId: 'tl', merchant : 'aos coffee' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+      <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/aoscoffee/butterscoth.png" alt="menu-info" />
+        <p class="menu">Salted Caramel</p>
+        <p class="price">Rp16.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('sc', -1)">-</button>
+          <span id="qty-sc">1</span>
+          <button onclick="changeQty('sc', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-sc" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Salted Caramel', price: 16000, menuId: 'sc', merchant : 'aos coffee' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+      <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/aoscoffee/caramel.png" alt="menu-info" />
+        <p class="menu">Mocca Latte</p>
+        <p class="price">Rp16.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('ml', -1)">-</button>
+          <span id="qty-ml">1</span>
+          <button onclick="changeQty('ml', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-ml" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Mocca Latte', price: 16000, menuId: 'ml', merchant : 'aos coffee' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/aoscoffee/americano.png" alt="menu-info" />
         <p class="menu">Americano</p>
-        <p class="price">Rp8.000</p>
+        <p class="price">Rp10.000</p>
         <div class="qty-control">
           <button onclick="changeQty('ame', -1)">-</button>
           <span id="qty-ame">1</span>
@@ -142,15 +237,15 @@
       <div class="note-section">
         <input type="text" id="note-ame" placeholder="Catatan" />
         <button onclick="addMultipleToCartWithNotes([
-  { name: 'Americano', price: 8000, menuId: 'ame', merchant : 'aos coffee' }
+  { name: 'Americano', price: 10000, menuId: 'ame', merchant : 'aos coffee' }
 ])">Tambah</button>
       </div>
     </div>
     </div>
     <div class="menu-card">
       <div class="menu-item">
-        <img src="merchant/aoscoffee/lemonamericano.png" alt="menu-info" />
-        <p class="menu">Lemon Americano</p>
+        <img src="merchant/aoscoffee/americano.png" alt="menu-info" />
+        <p class="menu">Black Bee</p>
         <p class="price">Rp14.000</p>
         <div class="qty-control">
           <button onclick="changeQty('lame', -1)">-</button>
@@ -161,26 +256,7 @@
       <div class="note-section">
         <input type="text" id="note-lame" placeholder="Catatan" />
         <button onclick="addMultipleToCartWithNotes([
-  { name: 'Lemon Americano', price: 14000, menuId: 'lame', merchant : 'aos coffee' }
-])">Tambah</button>
-      </div>
-    </div>
-    </div>
-    <div class="menu-card">
-      <div class="menu-item">
-        <img src="merchant/minum.png" alt="menu-info" />
-        <p class="menu">Black Bee Coffee</p>
-        <p class="price">Rp11.000</p>
-        <div class="qty-control">
-          <button onclick="changeQty('bbc', -1)">-</button>
-          <span id="qty-bbc">1</span>
-          <button onclick="changeQty('bbc', 1)">+</button>
-        </div>
-      </div>
-      <div class="note-section">
-        <input type="text" id="note-bbc" placeholder="Catatan" />
-        <button onclick="addMultipleToCartWithNotes([
-  { name: 'Black Bee Coffee', price: 11000, menuId: 'bbc', merchant : 'aos coffee' }
+  { name: 'Black Bee', price: 14000, menuId: 'lame', merchant : 'aos coffee' }
 ])">Tambah</button>
       </div>
     </div>
@@ -190,7 +266,7 @@
       <div class="menu-item">
         <img src="merchant/aoscoffee/thaiteaoriginal.png" alt="menu-info" />
         <p class="menu">Thai Tea Original</p>
-        <p class="price">Rp7.000</p>
+        <p class="price">Rp11.000</p>
         <div class="qty-control">
           <button onclick="changeQty('tto', -1)">-</button>
           <span id="qty-tto">1</span>
@@ -200,7 +276,26 @@
       <div class="note-section">
         <input type="text" id="note-tto" placeholder="Catatan" />
         <button onclick="addMultipleToCartWithNotes([
-  { name: 'Thai Tea Original', price: 7000, menuId: 'tto', merchant : 'aos coffee' }
+  { name: 'Thai Tea Original', price: 11000, menuId: 'tto', merchant : 'aos coffee' }
+])">Tambah</button>
+      </div>
+    </div>
+    </div>
+        <div class="menu-card">
+      <div class="menu-item">
+        <img src="merchant/aoscoffee/matcha.png" alt="menu-info" />
+        <p class="menu">Matcha Latte</p>
+        <p class="price">Rp14.000</p>
+        <div class="qty-control">
+          <button onclick="changeQty('mat', -1)">-</button>
+          <span id="qty-mat">1</span>
+          <button onclick="changeQty('mat', 1)">+</button>
+        </div>
+      </div>
+      <div class="note-section">
+        <input type="text" id="note-mat" placeholder="Catatan" />
+        <button onclick="addMultipleToCartWithNotes([
+  { name: 'Matcha Latte', price: 14000, menuId: 'mat', merchant : 'aos coffee' }
 ])">Tambah</button>
       </div>
     </div>
@@ -208,7 +303,7 @@
   </main>
 
   <footer class="checkout">
-    <a href="cotpa.html" class="btn">Lanjut ke Checkout</a>
+    <a href="cotpab.html" class="btn">Lanjut ke Checkout</a>
   </footer>
 
   <script src="script.js"></script>
@@ -330,8 +425,8 @@
       const jam = sekarang.getHours();
 
       // SETTING: Jam buka dan tutup merchant (ubah sesuai kebutuhan)
-      const jamBuka = 9;   // Jam buka: 09:00
-      const jamTutup = 21; // Jam tutup: 21:00
+      const jamBuka = 10;   // Jam buka: 09:00
+      const jamTutup = 23; // Jam tutup: 21:00
 
 
       const statusEl = document.getElementById("status-operasional");
@@ -343,7 +438,7 @@
         // Nonaktifkan semua tombol tambah
         document.querySelectorAll("button").forEach(btn => {
           btn.disabled = true;
-          btn.style.opacity = 0.5;
+          // btn.style.opacity = 0.5;
           btn.title = "Merchant sedang tutup";
         });
 
