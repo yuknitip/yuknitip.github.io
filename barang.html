@@ -95,7 +95,13 @@
         <label for="deskripsiBarang">Deskripsi Barang</label>
         <textarea id="deskripsiBarang" placeholder="Contoh: Makanan, Dokumen, Barang Elektronik..." required></textarea>
 
-        <div class="ongkir-display" id="ongkirDisplay">Ongkir: -</div>
+
+<div class="ongkir-display">
+  <div id="ongkirDisplay">Ongkir: -</div>
+  <div id="adminDisplay">Biaya Admin: Rp 3.000</div>
+  <div id="totalDisplay"><strong>Total Pembayaran: -</strong></div>
+</div>
+
 
         <button type="submit">Kirim Barang</button>
       </form>
@@ -442,23 +448,46 @@
 
   };
 
-  function updateOngkir() {
-    const asal = document.getElementById('desaAsal').value;
-    const tujuan = document.getElementById('desaTujuan').value;
-    const hasil = document.getElementById('ongkirDisplay');
+  
+const BIAYA_ADMIN = 3000;
 
-    if (asal && tujuan) {
-      const key = `${asal}-${tujuan}`;
-      const tarif = tarifAntarDesa[key];
-      if (tarif) {
-        hasil.innerText = `Rp ${tarif.toLocaleString()}`;
-      } else {
-        hasil.innerText = "Tarif tidak tersedia.";
-      }
-    } else {
-      hasil.innerText = "";
-    }
+function formatRupiah(nominal) {
+  return "Rp " + nominal.toLocaleString("id-ID");
+}
+
+function updateOngkir() {
+  const asal = document.getElementById("desaAsal").value;
+  const tujuan = document.getElementById("desaTujuan").value;
+
+  const hasilOngkir = document.getElementById("ongkirDisplay");
+  const hasilAdmin = document.getElementById("adminDisplay");
+  const hasilTotal = document.getElementById("totalDisplay");
+
+  // Biaya admin tetap ditampilkan
+  hasilAdmin.innerText = "Biaya Admin: " + formatRupiah(BIAYA_ADMIN);
+
+  if (!asal || !tujuan) {
+    hasilOngkir.innerText = "Ongkir: -";
+    hasilTotal.innerText = "Total Pembayaran: -";
+    return;
   }
+
+  const key = `${asal}-${tujuan}`;
+  const tarif = tarifAntarDesa[key];
+
+  if (tarif === undefined) {
+    hasilOngkir.innerText = "Tarif tidak tersedia.";
+    hasilTotal.innerText = "Total Pembayaran: -";
+    return;
+  }
+
+  const total = tarif + BIAYA_ADMIN;
+
+  hasilOngkir.innerText = "Ongkir: " + formatRupiah(tarif);
+  hasilAdmin.innerText = "Biaya Admin: " + formatRupiah(BIAYA_ADMIN);
+  hasilTotal.innerText = "Total Pembayaran: " + formatRupiah(total);
+}
+
 
 
   function closeOverlay() {
@@ -474,18 +503,43 @@
     const noPenerima = document.getElementById('noPenerima').value;
     const alamatPenerima = document.getElementById('alamatPenerima').value;
     const deskripsiBarang = document.getElementById('deskripsiBarang').value;
-    const ongkirText = document.getElementById('ongkirDisplay').innerText || 'Tidak Diketahui';
+    
+const asal = document.getElementById("desaAsal").value;
+const tujuan = document.getElementById("desaTujuan").value;
 
-    const data = {
-      namaPengirim,
-      noPengirim,
-      alamatPengirim,
-      namaPenerima,
-      noPenerima,
-      alamatPenerima,
-      deskripsiBarang,
-      ongkirText
-    };
+const tarif = tarifAntarDesa[`${asal}-${tujuan}`];
+
+// Pastikan lokasi dan tarif valid sebelum transaksi disimpan
+if (!asal || !tujuan || tarif === undefined) {
+  alert("Silakan pilih lokasi penjemputan dan pengantaran dengan tarif yang tersedia.");
+  return;
+}
+
+const biayaAdmin = BIAYA_ADMIN;
+const totalPembayaran = tarif + biayaAdmin;
+
+const ongkirText = formatRupiah(tarif);
+
+
+    
+const data = {
+  namaPengirim,
+  noPengirim,
+  alamatPengirim,
+  namaPenerima,
+  noPenerima,
+  alamatPenerima,
+  deskripsiBarang,
+  desaAsal: asal,
+  desaTujuan: tujuan,
+  ongkir: tarif,
+  ongkirText: ongkirText,
+  biayaAdmin: biayaAdmin,
+  biayaAdminText: formatRupiah(biayaAdmin),
+  totalPembayaran: totalPembayaran,
+  totalPembayaranText: formatRupiah(totalPembayaran)
+};
+
 
     // Kirim ke Google Apps Script Web App
     fetch("https://script.google.com/macros/s/AKfycbyHUnRSN4LkXrhBcpD0eUTHbUkUZWw81SyodsV3h30lVE8PBLunwf54cydceCKvggrDEw/exec", {
